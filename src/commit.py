@@ -21,10 +21,18 @@ with open("remote-master.sh", "w") as file:
 
 #get_git_root("/home/ubuntu/catkin_ws/src/river/src/data.json")
 
-try:
-	repo = git.Repo("/home/ubuntu/catkin_ws/src/river")
-	repo.remotes.origin.pull('main')
-	print("done")
-except Exception as e:
-	print("failed:", e)
+def git_pull_change(path):
+    repo = git.Repo(path)
+    current = repo.head.commit
+
+    repo.remotes.origin.pull()
+
+    if current == repo.head.commit:
+        print("Repo not changed. Sleep mode activated.")
+        return False
+    else:
+        print("Repo changed! Activated.")
+        return True
+
+print(git_pull_change("/home/ubuntu/catkin_ws/src/river"))
 #print(o.pull())
