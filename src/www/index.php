@@ -42,7 +42,7 @@ echo $data["show"]["text"]["color"][0]." ";
 echo $data["show"]["text"]["color"][1]." ";
 echo $data["show"]["text"]["color"][2]." ";
 
-$command = escapeshellcmd('/home/ubuntu/catkin_ws/src/river/src/commit.py');
+$command = escapeshellcmd('python3 /home/ubuntu/catkin_ws/src/river/src/commit.py');
 $output = shell_exec($command);
 echo $output;
 
