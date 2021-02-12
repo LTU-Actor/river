@@ -22,9 +22,9 @@ with open("remote-master.sh", "w") as file:
 #get_git_root("/home/ubuntu/catkin_ws/src/river/src/data.json")
 
 try:
-	repo = git.Repo(localpath_to_repo_dir)
+	repo = git.Repo("/home/ubuntu/catkin_ws/src/river")
 	repo.remotes.origin.pull('main')
 	print("done")
-except:
-	print("failed")
+except Exception as e:
+	print("failed:", e)
 #print(o.pull())
