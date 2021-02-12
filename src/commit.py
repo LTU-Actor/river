@@ -36,3 +36,8 @@ def git_pull_change(path):
 
 print(git_pull_change("/home/ubuntu/catkin_ws/src/river"))
 #print(o.pull())
+<<<<<<< HEAD
+=======
+
+#test2
+>>>>>>> b7d2be2c903a9c0c9781aa8e3549023194b24798
