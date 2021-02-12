@@ -1,6 +1,7 @@
 import os
 import git
 import json
+import pathlib
 
 dataFile = "/home/ubuntu/catkin_ws/src/river/src/data.json"
 
@@ -36,5 +37,5 @@ def git_pull_change(path):
 
 print(git_pull_change("/home/ubuntu/catkin_ws/src/river"))
 #print(o.pull())
-
+print(pathlib.Path().absolute())
 #test4
