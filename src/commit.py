@@ -25,3 +25,6 @@ def git_pull_change(path):
 		return True
 
 git_pull_change(str(os.path.normpath(os.getcwd() + os.sep + os.pardir)))
+
+print("restarting")
+#os.system('reboot')
