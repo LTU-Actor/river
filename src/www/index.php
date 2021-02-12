@@ -44,7 +44,7 @@ echo $data["show"]["text"]["color"][2]." ";
 
 $command = escapeshellcmd('python3 /home/ubuntu/catkin_ws/src/river/src/commit.py');
 $output = shell_exec($command);
-echo $output;
+echo "=".$output."-";
 
 ?>
 
