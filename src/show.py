@@ -49,9 +49,9 @@ def show():
 			return (x * data["display"]["height"]) + y
 		return (x * data["display"]["height"]) + (data["display"]["height"] - 1 - y)
 
-	textWidth, textHeight = font.getsize(data["show"]["text"]["msg"])
+	textWidth, _ = font.getsize(data["show"]["text"]["msg"])
 	if (data["show"]["status"]["enabled"]):
-		statusWidth, statusHeight = font.getsize(data["show"]["status"]["msg"])
+		statusWidth, _ = font.getsize(data["show"]["status"]["msg"])
 
 		statusImage = Image.new('P', (statusWidth, data["display"]["height"]), 0)
 		statusDraw = ImageDraw.Draw(statusImage)
@@ -76,7 +76,6 @@ def show():
 		gap = 1
 	else:
 		statusWidth = 0
-		statusHeight = 0
 		gap = 0
 
 	offset = count % (textWidth - data["display"]["width"] + statusWidth + 12)
