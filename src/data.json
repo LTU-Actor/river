@@ -1,0 +1,47 @@
+{
+    "show": {
+        "status": {
+            "msg": "2",
+            "enabled" : true,
+            "color": [
+                60,
+                60,
+                255
+            ]
+        },
+        "text": {
+            "msg": "supppppperrsrrr loooooonnnnnnggggggg texxxt this is then end right here.",
+            "color": [
+                255,
+                255,
+                255
+            ]
+        }
+    },
+    "font": {
+        "path": "\/home\/ubuntu\/catkin_ws\/src\/ROS_River\/src\/5x7.ttf",
+        "size": 16,
+        "offset": 3
+    },
+    "display": {
+        "width": 32,
+        "height": 8,
+        "brightness": ".01"
+    },
+    "settings": {
+        "rate": ".1",
+        "hartbeat": {
+            "color": [
+                100,
+                100,
+                255
+            ],
+            "enabled": true
+        },
+	"ros" : {
+		"coreIP" : "192.168.1.32",
+		"riverIP" : "192.168.1.38",
+		"port" : "11311"
+	}
+    }
+}
