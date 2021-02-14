@@ -2,7 +2,7 @@
     "show": {
         "status": {
             "msg": "2",
-            "enabled" : true,
+            "enabled": true,
             "color": [
                 60,
                 60,
@@ -10,7 +10,7 @@
             ]
         },
         "text": {
-            "msg": "supppppperrsrrr loooooonnnnnnggggggg texxxt this is then end right here.",
+            "msg": "clear",
             "color": [
                 255,
                 255,
@@ -38,10 +38,10 @@
             ],
             "enabled": true
         },
-	"ros" : {
-		"coreIP" : "192.168.1.32",
-		"riverIP" : "192.168.1.38",
-		"port" : "11311"
-	}
+        "ros": {
+            "coreIP": "192.168.1.32",
+            "riverIP": "192.168.1.38",
+            "port": "11311"
+        }
     }
 }

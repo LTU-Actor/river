@@ -12,7 +12,11 @@ $data = json_decode($strData, true);
 
 echo "Display Width: ".$data["display"]["width"]."<br>";
 echo "Display Height: ".$data["display"]["height"]."<br>";
-echo "Display Brightness: ".$data["display"]["brightness"]."<br>";
+echo "Display Brightness: ".$data["display"]["brightness"]."<br><br>";
+
+echo "ROS host IP: ".$data["settings"]["ros"]["coreIP"].":".$data["settings"]["ros"]["port"]."<br>";
+echo "ROS Raspberry PI IP: ".$data["settings"]["ros"]["riverIP"]."<br><br>";
+
 
 if (isset($_POST['show-text'])){
 	if ($data["show"]["text"]["msg"] != $_POST['show-text']){
@@ -38,13 +42,31 @@ if (isset($_POST['show-status'])){
         }
 }
 
-echo $data["show"]["text"]["color"][0]." ";
-echo $data["show"]["text"]["color"][1]." ";
-echo $data["show"]["text"]["color"][2]." ";
+if (isset($_POST['show-host-IP'])){
+        if ($data["settings"]["ros"]["coreIP"] != $_POST['show-host-IP']){
+                $data["settings"]["ros"]["coreIP"] = $_POST['show-host-IP'];
+                $jsonData = json_encode($data,JSON_PRETTY_PRINT);
+                $handle = fopen($file, "w");
+                if (!fwrite($handle, $jsonData)){
+                        echo "Failed";
+                }
+                fclose($file);
+        }
+}
 
-$command = escapeshellcmd('python3 /home/ubuntu/catkin_ws/src/river/src/commit.py');
-$output = shell_exec($command);
-echo "=".$output."-";
+if (count($_POST) > 0 && isset($_POST['show-reboot-submit'])){
+	$command = escapeshellcmd('python3 /home/ubuntu/catkin_ws/src/river/src/commit.py');
+	$output = shell_exec($command);
+	echo $output;
+}
+
+//if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//	echo $_POST['show-reboot-submit'];
+//	if (isset($_POST['show-reboot-submit'])){
+//		echo "push";
+		//escapeshellcmd('/home/ubuntu/catkin_ws/src/river/src/commit.py');
+//	}
+//}
 
 ?>
 
@@ -61,6 +83,11 @@ echo "=".$output."-";
 	<input type=submit name="show-status-submit">
 	<br>
 	<br>
+	Host IP:
+	<input type=text name="show-host-IP" value="<?php echo $data['settings']['ros']['coreIP']; ?>">
+        <input type=submit name="show-host-IP-submit">
+	Reboot and update:
+	<input type=submit name="show-reboot-submit">
 </form>
 </body>
 </html>
