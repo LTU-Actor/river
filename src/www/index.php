@@ -61,6 +61,9 @@ if(isset($_SESSION['show-reboot-submit'])){
 else{
 	$_SESSION['show-reboot-submit'] = "processed";
 	echo "reboot";
+	sleep(1);
+	echo "reboot11";
+	sleep(1);
 
 }
 #if (count($_POST) > 0 && isset($_POST['show-reboot-submit'])){
@@ -68,7 +71,7 @@ else{
 #	unset($_POST['show-reboot-submit']);
 #	#shell_exec('sudo /sbin/reboot');
 #}
-sleep(1);
+
 ?>
 
 <br><br>
