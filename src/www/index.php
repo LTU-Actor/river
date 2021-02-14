@@ -64,7 +64,7 @@ if (isset($_POST['show-host-IP'])){
 #}
 if (count($_POST) > 0 && isset($_POST['show-reboot-submit'])){
 	echo "reboot";
-	unset($_POST);
+	unset($_POST['show-reboot-submit']);
 	#shell_exec('sudo /sbin/reboot');
 }
 
