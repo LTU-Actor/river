@@ -27,19 +27,18 @@ print("showProcess")
 
 try:
     while True:
-            print("loop")
             if isROS():
                 if mainProcess is None:
                     print("ROS River running.")
                     mainProcess = subprocess.Popen('exec rosrun river main.py', stdout = subprocess.PIPE, shell = True)
             else:
                 if not mainProcess is None:
-                    print("Waiting for ROS core.")
                     try:
                         mainProcess.kill()
                     except:
                         pass
                     mainProcess = None
+                print("Waiting for ROS core.")
             time.sleep(.1)
 except Exception as e:
     print("Error:", e)
