@@ -22,7 +22,7 @@ def isROS():
             return rosgraph.is_master_online()
 
 mainProcess = None
-showProcess = subprocess.Popen('exec rosrun river show.py', stdout = subprocess.PIPE, shell = True)
+showProcess = subprocess.Popen('sudo /home/ubuntu/catkin_ws/src/river/src/show.py', stdout = subprocess.PIPE, shell = True)
 print("showProcess")
 
 try:
