@@ -68,7 +68,7 @@ else{
 #	unset($_POST['show-reboot-submit']);
 #	#shell_exec('sudo /sbin/reboot');
 #}
-
+sleep(1);
 ?>
 
 <br><br>
