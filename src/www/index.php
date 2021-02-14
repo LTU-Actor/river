@@ -55,8 +55,6 @@ if (isset($_POST['show-host-IP'])){
 }
 
 if (count($_POST) > 0 && isset($_POST['show-reboot-submit'])){
-	echo "Rebooting in 60 seconds";
-	sleep(60);
 	shell_exec('sudo /sbin/reboot');
 }
 
