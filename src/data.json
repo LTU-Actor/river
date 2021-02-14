@@ -30,7 +30,7 @@
     },
     "settings": {
         "rate": ".1",
-        "reboot" : false,
+        "reboot" : "false",
         "hartbeat": {
             "color": [
                 100,
