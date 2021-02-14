@@ -56,12 +56,14 @@ if (isset($_POST['show-host-IP'])){
 
 session_start();
 if(isset($_SESSION['show-reboot-submit'])){
-	
+	echo "done"
 }
 else{
 	$_SESSION['show-reboot-submit'] = "processed";
 	echo "reboot";
+
 }
+sleep(1);
 #if (count($_POST) > 0 && isset($_POST['show-reboot-submit'])){
 #	echo "reboot";
 #	unset($_POST['show-reboot-submit']);
