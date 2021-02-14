@@ -63,7 +63,6 @@ else{
 	echo "reboot";
 
 }
-sleep(1);
 #if (count($_POST) > 0 && isset($_POST['show-reboot-submit'])){
 #	echo "reboot";
 #	unset($_POST['show-reboot-submit']);
