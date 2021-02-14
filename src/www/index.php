@@ -66,9 +66,10 @@ if (isset($_POST['show-reboot'])){
 			$data["settings"]["reboot"] = $_POST['show-reboot'];
 			$jsonData = json_encode($data,JSON_PRETTY_PRINT);
 			$handle = fopen($file, "w");
-			if (!fwrite($handle, $jsonData)){
-					echo "Failed";
-			}
+			#if (!fwrite($handle, $jsonData)){
+			#		echo "Failed";
+			#}
+			echo (!fwrite($handle, $jsonData))
 			fclose($file);
 	}
 }
