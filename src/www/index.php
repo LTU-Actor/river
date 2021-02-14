@@ -54,18 +54,10 @@ if (isset($_POST['show-host-IP'])){
         }
 }
 
-#session_start();
-#if(isset($_SESSION['show-reboot-submit'])){
-#	echo $_SESSION['show-reboot-submit'];
-#}
-#else{
-#	$_SESSION['show-reboot-submit'] = "processed";
-#	#shell_exec('sudo /sbin/reboot');
-#}
 if (count($_POST) > 0 && isset($_POST['show-reboot-submit'])){
-	echo $_POST['show-reboot-submit'];
 	$_POST['show-reboot-submit'] = "once";
-	echo $_POST['show-reboot-submit'];
+	$_POST = array();
+	#unset($_POST['show-reboot-submit']);
 	#shell_exec('sudo /sbin/reboot');
 }
 
