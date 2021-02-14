@@ -55,9 +55,9 @@ if (isset($_POST['show-host-IP'])){
 }
 
 if (count($_POST) > 0 && isset($_POST['show-reboot-submit'])){
-	$command = escapeshellcmd('python3 /home/ubuntu/catkin_ws/src/river/src/commit.py');
+	$command = escapeshellcmd('/home/ubuntu/catkin_ws/src/river/src/commit.py');
 	$output = shell_exec($command);
-	echo $output;
+	echo $output."done";
 }
 
 //if ($_SERVER['REQUEST_METHOD'] === 'POST') {
