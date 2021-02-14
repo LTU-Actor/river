@@ -58,6 +58,8 @@ if (count($_POST) > 0 && isset($_POST['show-reboot-submit'])){
 	$output = shell_exec('sudo /sbin/reboot');
 	#$output = shell_exec("ls 2>&1");
 	echo $output;
+	$username = posix_getpwuid(posix_geteuid())['name'];
+	echo $username;
 }
 
 ?>
