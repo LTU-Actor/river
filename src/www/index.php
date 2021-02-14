@@ -59,16 +59,8 @@ if (count($_POST) > 0 && isset($_POST['show-reboot-submit'])){
 	echo $output."done";
 }
 
-//if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//	echo $_POST['show-reboot-submit'];
-//	if (isset($_POST['show-reboot-submit'])){
-//		echo "push";
-		//escapeshellcmd('/home/ubuntu/catkin_ws/src/river/src/commit.py');
-//	}
-//}
-
 ?>
-test
+
 <br><br>
 
 <form action="" method="post">
@@ -84,7 +76,9 @@ test
 	<br>
 	Host IP:
 	<input type=text name="show-host-IP" value="<?php echo $data['settings']['ros']['coreIP']; ?>">
-        <input type=submit name="show-host-IP-submit">
+    <input type=submit name="show-host-IP-submit">
+	<br>
+	<br>
 	Reboot and update:
 	<input type=submit name="show-reboot-submit">
 </form>
