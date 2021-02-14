@@ -56,7 +56,7 @@ if (isset($_POST['show-host-IP'])){
 
 session_start();
 if(isset($_SESSION['show-reboot-submit'])){
-	echo "done"
+	echo "done";
 }
 else{
 	$_SESSION['show-reboot-submit'] = "processed";
