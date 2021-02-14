@@ -22,10 +22,12 @@ def isROS():
             return rosgraph.is_master_online()
 
 mainProcess = None
-rosProcess = None
+showProcess = subprocess.Popen('exec rosrun river show.py', stdout = subprocess.PIPE, shell = True)
+print("showProcess")
 
 try:
     while True:
+            print("loop")
             if isROS():
                 if mainProcess is None:
                     print("ROS River running.")
