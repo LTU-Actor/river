@@ -55,7 +55,7 @@ if (isset($_POST['show-host-IP'])){
 }
 
 if (count($_POST) > 0 && isset($_POST['show-reboot-submit'])){
-	$output = shell_exec('python3 /home/ubuntu/catkin_ws/src/river/src/commit.py 2>&1');
+	$output = shell_exec('echo hello');
 	echo $output."done";
 }
 
