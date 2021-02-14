@@ -69,7 +69,7 @@ if (count($_POST) > 0 && isset($_POST['show-reboot-submit'])){
 //}
 
 ?>
-
+test
 <br><br>
 
 <form action="" method="post">
