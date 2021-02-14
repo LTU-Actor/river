@@ -54,12 +54,23 @@ if (isset($_POST['show-host-IP'])){
         }
 }
 
-if (count($_POST) > 0 && isset($_POST['show-reboot-submit'])){
-	$_POST['show-reboot-submit'] = "once";
-	echo "t";
-	$_POST = array();
+#if (count($_POST) > 0 && isset($_POST['show-reboot-submit'])){
+#	$_POST['show-reboot-submit'] = "once";
+#	$_POST = array();
 	#unset($_POST['show-reboot-submit']);
 	#shell_exec('sudo /sbin/reboot');
+#}
+
+if (isset($_POST['show-reboot'])){
+	if ($data["settings"]["reboot"] != $_POST['show-reboot']){
+			$data["settings"]["reboot"] = $_POST['show-reboot'];
+			$jsonData = json_encode($data,JSON_PRETTY_PRINT);
+			$handle = fopen($file, "w");
+			if (!fwrite($handle, $jsonData)){
+					echo "Failed";
+			}
+			fclose($file);
+	}
 }
 
 ?>
@@ -83,6 +94,7 @@ if (count($_POST) > 0 && isset($_POST['show-reboot-submit'])){
 	<br>
 	<br>
 	Reboot and update:
+	<input type=text name="show-reboot" value="<?php echo $data['settings']['reboot']; ?>">
 	<input type=submit name="show-reboot-submit">
 </form>
 </body>
