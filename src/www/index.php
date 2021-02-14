@@ -56,6 +56,8 @@ if (isset($_POST['show-host-IP'])){
 
 session_start();
 if(isset($_SESSION['show-reboot-submit'])){
+	echo "a";
+	sleep(1);
 	echo "done";
 }
 else{
