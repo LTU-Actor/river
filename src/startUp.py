@@ -57,7 +57,7 @@ try:
                     except:
                         pass
                     mainProcess = None
-
+            print("t")
             time.sleep(.1)
 except Exception as e:
     print("Error:", e)
