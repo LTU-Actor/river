@@ -13,11 +13,13 @@ data = None
 pixels = None
 lastUpdate = None
 
+dataFile = "/home/ubuntu/catkin_ws/src/river/src/data.json"
+
 offset = 0
 count = 0
 
 assert os.geteuid() is 0, '\'show.py\' must be run as administrator!'
-assert os.path.exists('/home/ubuntu/catkin_ws/src/river/src/data.json'), 'No such file: \'data.json\''
+assert os.path.exists(dataFile), 'No such file: \'data.json\''
 
 def update():
 	global font
@@ -31,9 +33,9 @@ def update():
 	else:
 		proirText = data["show"]["text"]
 
-	with open('/home/ubuntu/catkin_ws/src/river/src/data.json') as file:
+	with open(dataFile) as file:
 		data = json.load(file)
-	lastUpdate = pathlib.Path('/home/ubuntu/catkin_ws/src/river/src/data.json').stat().st_mtime
+	lastUpdate = pathlib.Path(dataFile).stat().st_mtime
 
 	data["display"]["brightness"] = float(data["display"]["brightness"])
 	data["settings"]["rate"] = float(data["settings"]["rate"])
@@ -112,7 +114,7 @@ pixels = neopixel.NeoPixel(
 
 while True:
 	try:
-		if not(lastUpdate == pathlib.Path('/home/ubuntu/catkin_ws/src/river/src/data.json').stat().st_mtime):
+		if not(lastUpdate == pathlib.Path(dataFile).stat().st_mtime):
 			print("Update")
 			update()
 		show()

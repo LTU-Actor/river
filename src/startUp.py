@@ -1,9 +1,12 @@
 import os
 import sys
 import time
+import json
 import signal
 import rosgraph
 import subprocess
+
+dataFile = "/home/ubuntu/catkin_ws/src/river/src/data.json"
 
 class timeout:
     def __init__(self, seconds=1, error_message='Timeout'):
@@ -21,24 +24,40 @@ def isROS():
         with timeout(1):
             return rosgraph.is_master_online()
 
+def show(text, status):
+    data = None
+    with open(dataFile) as file:
+        data = json.load(file)
+    
+    data["show"]["text"]["msg"] = str(text)
+    data["show"]["status"]["msg"] = str(status)
+
+    jsonObj = json.dumps(data, indent = 4)
+
+    with open(dataFile, "w") as file:
+        file.write(jsonObj)
+
+
 mainProcess = None
 showProcess = subprocess.Popen('sudo python3 /home/ubuntu/catkin_ws/src/river/src/show.py', stdout = subprocess.PIPE, shell = True)
-print("showProcess")
 
 try:
     while True:
             if isROS():
                 if mainProcess is None:
+                    show("ROS River Running", "0")
                     print("ROS River running.")
                     mainProcess = subprocess.Popen('exec rosrun river main.py', stdout = subprocess.PIPE, shell = True)
             else:
                 if not mainProcess is None:
+                    show("Waiting for ROS core.", "1")
+                    print("Waiting for ROS core.")
                     try:
                         mainProcess.kill()
                     except:
                         pass
                     mainProcess = None
-                print("Waiting for ROS core.")
+
             time.sleep(.1)
 except Exception as e:
     print("Error:", e)
