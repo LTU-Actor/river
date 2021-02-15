@@ -37,7 +37,7 @@ def show(text, status):
     with open(dataFile, "w") as file:
         file.write(jsonObj)
 
-
+firstrun = True
 mainProcess = None
 showProcess = subprocess.Popen('sudo python3 /home/ubuntu/catkin_ws/src/river/src/show.py', stdout = subprocess.PIPE, shell = True)
 
@@ -49,7 +49,8 @@ try:
                     print("ROS River running.")
                     mainProcess = subprocess.Popen('exec rosrun river main.py', stdout = subprocess.PIPE, shell = True)
             else:
-                if not mainProcess is None:
+                if not mainProcess is None or firstrun:
+                    firstrun = False
                     show("Waiting for ROS core.", "1")
                     print("Waiting for ROS core.")
                     try:
@@ -57,7 +58,6 @@ try:
                     except:
                         pass
                     mainProcess = None
-            print("t")
             time.sleep(.1)
 except Exception as e:
     print("Error:", e)
