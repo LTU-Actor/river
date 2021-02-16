@@ -7,7 +7,7 @@
 
 <?php
 $file = "/home/ubuntu/catkin_ws/src/river/src/data.json";
-$strData = file_get_contents("/home/ubuntu/catkin_ws/src/river/src/data.json");
+$strData = file_get_contents($file);
 $data = json_decode($strData, true);
 
 echo "Display Width: ".$data["display"]["width"]."<br>";
@@ -21,7 +21,7 @@ echo "ROS Raspberry PI IP: ".$data["settings"]["ros"]["riverIP"]."<br><br>";
 if (isset($_POST['show-text'])){
 	if ($data["show"]["text"]["msg"] != $_POST['show-text']){
 		$data["show"]["text"]["msg"] = $_POST['show-text'];
-		$jsonData = json_encode($data,JSON_PRETTY_PRINT);
+		$jsonData = json_encode($data);
 		$handle = fopen($file, "w");
 		if (!fwrite($handle, $jsonData)){
 			echo "Failed";
