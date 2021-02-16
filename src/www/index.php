@@ -97,12 +97,19 @@ if (isset($_POST['show-brightness'])){
 * {
   box-sizing: border-box;
 }
-input[type=text] {
-  width: 75%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
 }
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
 input[type=submit] {
   background-color: #4CAF50;
   color: white;
@@ -112,14 +119,17 @@ input[type=submit] {
   cursor: pointer;
   float: right;
 }
+
 input[type=submit]:hover {
   background-color: #45a049;
 }
+
 .container {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
 }
+
 .col-25 {
   float: left;
   width: 25%;
@@ -138,6 +148,7 @@ input[type=submit]:hover {
   display: table;
   clear: both;
 }
+
 @media screen and (max-width: 600px) {
   .col-25, .col-75, input[type=submit] {
     width: 100%;
@@ -159,7 +170,7 @@ input[type=submit]:hover {
 	<input type=text name="show-status" placeholder="<?php echo $data['show']['status']['msg']; ?>">
 	<input type=submit name="show-status-submit">
 </form>
-<br><br><br>
+<br><br>
 Restart Required:
 <div class="container">
 	<div class="row">
