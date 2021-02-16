@@ -117,11 +117,9 @@ input[type=button], input[type=submit], input[type=reset] {
 
 <form action="" method="post">
 	Show text:
-	<input type=text name="show-text" palceholder="<?php echo $data['show']['text']['msg']; ?>">
+	<input type=text name="show-text" value="<?php echo $data['show']['text']['msg']; ?>">
 	<input type=submit name="show-text-submit">
-</form>
-<br>
-<form action="" method="post">
+	<br>
 	Show Status:
 	<input type=text name="show-status" value="<?php echo $data['show']['status']['msg']; ?>">
 	<input type=submit name="show-status-submit">
