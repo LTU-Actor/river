@@ -95,12 +95,19 @@ if (isset($_POST['show-brightness'])){
 
 <style>
 input[type=text] {
-  width: 100%;
+  width: 75%;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
 }
-
+input[type=button], input[type=submit], input[type=reset] {
+  border: none;
+  color: grey;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 </style>
 
 <br><br>
