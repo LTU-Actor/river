@@ -23,7 +23,7 @@ if (isset($_POST['show-text'])){
 		$data["show"]["text"]["msg"] = $_POST['show-text'];
 		
 		$fh = fopen($data, 'w')
-			or die("Error opening output file");
+			or die("Error opening output file".$php_errormsg);
 		fwrite($fh, unescape(json_encode($data)));
 		fclose($fh);
 		
