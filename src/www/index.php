@@ -2,7 +2,7 @@
 <head>
 <!-- <meta http-equiv="refresh" content="5"> -->
 <title>ROS River</title>
-<link rel="stylesheet" herf="styles.css">
+<!-- <link rel="stylesheet" herf="styles.css"> -->
 </head>
 <body>
 
@@ -93,6 +93,10 @@ if (isset($_POST['show-brightness'])){
 //shell_exec('sudo /sbin/reboot');
 
 ?>
+
+<style>
+body {background-color: powderblue;}
+</style>
 
 <br><br>
 
