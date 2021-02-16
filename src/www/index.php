@@ -2,7 +2,6 @@
 <head>
 <!-- <meta http-equiv="refresh" content="5"> -->
 <title>ROS River</title>
-<!-- <link rel="stylesheet" herf="styles.css"> -->
 </head>
 <body>
 
@@ -95,7 +94,13 @@ if (isset($_POST['show-brightness'])){
 ?>
 
 <style>
-body {background-color: powderblue;}
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
 </style>
 
 <br><br>
