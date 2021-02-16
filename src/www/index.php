@@ -174,7 +174,7 @@ input[type=submit]:hover {
 
 <h1>Restart Required:</h1>
 <div class="container">
-	<form action="/home/ubuntu/catkin_ws/src/river/src/phpfile.json">
+	<form action="/home/ubuntu/catkin_ws/src/river/src/settings.php" method="post">
 	<div class="row">
 		<div class="col-25">
 			<label for="fname">Host IP</label>
