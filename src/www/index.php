@@ -171,45 +171,46 @@ input[type=submit]:hover {
 	<input type=submit name="show-status-submit">
 </form>
 <br><br>
+
 <h1>Restart Required:</h1>
 <div class="container">
-	<form action="" method="post">
-		<div class="row">
-			<div class="col-25">
-				<label for="fname">Host IP</label>
-			</div>
-			<div class="col-75">
-				<input type=text id="fname" name="show-host-IP" value="<?php echo $data['settings']['ros']['coreIP']; ?>">
-			</div>
+	<form action="/home/ubuntu/catkin_ws/src/river/src/phpfile.json">
+	<div class="row">
+		<div class="col-25">
+			<label for="fname">Host IP</label>
 		</div>
-		<div class="row">
-			<div class="col-25">
-				<label for="fname">Display Width</label>
-			</div>
-			<div class="col-75">
-				<input type=text id="fname" name="show-width" value="<?php echo $data['display']['width']; ?>">
-			</div>
+		<div class="col-75">
+			<input type=text id="fname" name="show-host-IP" value="<?php echo $data['settings']['ros']['coreIP']; ?>">
 		</div>
-		<div class="row">
-			<div class="col-25">
-				<label for="fname">Display Height</label>
-			</div>
-			<div class="col-75">
-				<input type=text id="fname" name="show-height" value="<?php echo $data['display']['height']; ?>">
-			</div>
+	</div>
+	<div class="row">
+		<div class="col-25">
+			<label for="fname">Display Width</label>
 		</div>
-		<div class="row">
-			<div class="col-25">
-				<label for="fname">Display Brightness</label>
-			</div>
-			<div class="col-75">
-				<input type=text id="fname" name="show-brightness" value="<?php echo $data['display']['brightness']; ?>">
-			</div>
+		<div class="col-75">
+			<input type=text id="fname" name="show-width" value="<?php echo $data['display']['width']; ?>">
 		</div>
-		<br>
-		<div class="row">
-			<input type="submit" value="Submit">
+	</div>
+	<div class="row">
+		<div class="col-25">
+			<label for="fname">Display Height</label>
 		</div>
+		<div class="col-75">
+			<input type=text id="fname" name="show-height" value="<?php echo $data['display']['height']; ?>">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-25">
+			<label for="fname">Display Brightness</label>
+		</div>
+		<div class="col-75">
+			<input type=text id="fname" name="show-brightness" value="<?php echo $data['display']['brightness']; ?>">
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<input type="submit" value="Submit">
+	</div>
 	</form>
 </div>
 </form>
