@@ -94,6 +94,9 @@ if (isset($_POST['show-brightness'])){
 ?>
 
 <style>
+* {
+  box-sizing: border-box;
+}
 input[type=text] {
   width: 75%;
   padding: 12px 20px;
@@ -114,11 +117,11 @@ input[type=button], input[type=submit], input[type=reset] {
 
 <form action="" method="post">
 	Show text:
-	<input type=text name="show-text" value="<?php echo $data['show']['text']['msg']; ?>">
+	<input type=text name="show-text" placeholder="<?php echo $data['show']['text']['msg']; ?>">
 	<input type=submit name="show-text-submit">
 	<br>
 	Show Status:
-	<input type=text name="show-status" value="<?php echo $data['show']['status']['msg']; ?>">
+	<input type=text name="show-status" placeholder="<?php echo $data['show']['status']['msg']; ?>">
 	<input type=submit name="show-status-submit">
 </form>
 <br><br><br>
