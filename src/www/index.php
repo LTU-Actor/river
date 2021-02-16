@@ -28,11 +28,11 @@ if (isset($_POST['show-text'])){
 		}
 		
 		
-		#$handle = fopen($file, "w");
-		#if (!fwrite($handle, $jsonData)){
-		#	echo "Failed";
-		#}
-		#fclose($file);
+		//$handle = fopen($file, "w");
+		//if (!fwrite($handle, $jsonData)){
+		//	echo "Failed";
+		//}
+		//fclose($file);
 	}
 }
 
@@ -95,7 +95,7 @@ if (isset($_POST['show-brightness'])){
 			fclose($file);
 	}
 }
-#shell_exec('sudo /sbin/reboot');
+//shell_exec('sudo /sbin/reboot');
 
 ?>
 
