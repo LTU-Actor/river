@@ -103,13 +103,46 @@ input[type=text] {
   margin: 8px 0;
   box-sizing: border-box;
 }
-input[type=button], input[type=submit], input[type=reset] {
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
   border: none;
-  color: grey;
-  padding: 16px 32px;
-  text-decoration: none;
-  margin: 4px 2px;
+  border-radius: 4px;
   cursor: pointer;
+  float: right;
+}
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
 }
 </style>
 
@@ -128,22 +161,40 @@ input[type=button], input[type=submit], input[type=reset] {
 </form>
 <br><br><br>
 Restart Required:
-<form action="" method="post">
-	Host IP:
-	<input type=text name="show-host-IP" value="<?php echo $data['settings']['ros']['coreIP']; ?>">
-    <input type=submit name="show-host-IP-submit">
-	<br>
-	Display Width:
-	<input type=text name="show-width" value="<?php echo $data['display']['width']; ?>">
-	<input type=submit name="show-width-submit">
-	<br>
-	Display Height:
-	<input type=text name="show-height" value="<?php echo $data['display']['height']; ?>">
-	<input type=submit name="show-height-submit">
-	<br>
-	Display Brightness:
-	<input type=text name="show-brightness" value="<?php echo $data['display']['brightness']; ?>">
-	<input type=submit name="show-brightness-submit">
+<div class="container">
+	<div class="row">
+		<div class="col-25">
+			<label for="fname">Host IP</label>
+		</div>
+		<div class="col-75">
+			<input type=text id="fname" name="show-host-IP" value="<?php echo $data['settings']['ros']['coreIP']; ?>">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-25">
+			<label for="fname">Display Width</label>
+		</div>
+		<div class="col-75">
+			<input type=text id="fname" name="show-width" value="<?php echo $data['display']['width']; ?>">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-25">
+			<label for="fname">Display Height</label>
+		</div>
+		<div class="col-75">
+			<input type=text id="fname" name="show-height" value="<?php echo $data['display']['height']; ?>">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-25">
+			<label for="fname">Display Brightness</label>
+		</div>
+		<div class="col-75">
+			<input type=text id="fname" name="show-brightness" value="<?php echo $data['display']['brightness']; ?>">
+		</div>
+	</div>
+</div>
 </form>
 </body>
 </html>
