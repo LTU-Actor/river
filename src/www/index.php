@@ -54,6 +54,41 @@ if (isset($_POST['show-host-IP'])){
         }
 }
 
+if (isset($_POST['show-width'])){
+	if ($data['display']['width'] != $_POST['show-width']){
+			$data['display']['width'] = $_POST['show-width'];
+			$jsonData = json_encode($data,JSON_PRETTY_PRINT);
+			$handle = fopen($file, "w");
+			if (!fwrite($handle, $jsonData)){
+					echo "Failed";
+			}
+			fclose($file);
+	}
+}
+
+if (isset($_POST['show-height'])){
+	if ($data['display']['height'] != $_POST['show-height']){
+			$data['display']['height'] = $_POST['show-height'];
+			$jsonData = json_encode($data,JSON_PRETTY_PRINT);
+			$handle = fopen($file, "w");
+			if (!fwrite($handle, $jsonData)){
+					echo "Failed";
+			}
+			fclose($file);
+	}
+}
+
+if (isset($_POST['show-brightness'])){
+	if ($data['display']['brightness'] != $_POST['show-brightness']){
+			$data['display']['brightness'] = $_POST['show-brightness'];
+			$jsonData = json_encode($data,JSON_PRETTY_PRINT);
+			$handle = fopen($file, "w");
+			if (!fwrite($handle, $jsonData)){
+					echo "Failed";
+			}
+			fclose($file);
+	}
+}
 #shell_exec('sudo /sbin/reboot');
 
 ?>
@@ -65,15 +100,28 @@ if (isset($_POST['show-host-IP'])){
 	<input type=text name="show-text" value="<?php echo $data['show']['text']['msg']; ?>">
 	<input type=submit name="show-text-submit">
 	<br>
-	<br>
 	Show Status:
 	<input type=text name="show-status" value="<?php echo $data['show']['status']['msg']; ?>">
 	<input type=submit name="show-status-submit">
-	<br>
-	<br>
+</form>
+<br><br><br>
+Restart Required:
+<form action="" method="post">
 	Host IP:
 	<input type=text name="show-host-IP" value="<?php echo $data['settings']['ros']['coreIP']; ?>">
     <input type=submit name="show-host-IP-submit">
+	<br>
+	Display Width:
+	<input type=text name="show-width" value="<?php echo $data['display']['width']; ?>">
+	<input type=submit name="show-width-submit">
+	<br>
+	Display Height:
+	<input type=text name="show-height" value="<?php echo $data['display']['height']; ?>">
+	<input type=submit name="show-height-submit">
+	<br>
+	Display Brightness:
+	<input type=text name="show-brightness" value="<?php echo $data['display']['brightness']; ?>">
+	<input type=submit name="show-brightness-submit">
 </form>
 </body>
 </html>
