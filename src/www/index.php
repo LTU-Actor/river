@@ -205,6 +205,7 @@ Restart Required:
 			<input type=text id="fname" name="show-brightness" value="<?php echo $data['display']['brightness']; ?>">
 		</div>
 	</div>
+	<br>
 	<div class="row">
 		<input type="submit" value="Submit">
 	</div>
