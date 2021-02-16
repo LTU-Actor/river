@@ -21,12 +21,18 @@ echo "ROS Raspberry PI IP: ".$data["settings"]["ros"]["riverIP"]."<br><br>";
 if (isset($_POST['show-text'])){
 	if ($data["show"]["text"]["msg"] != $_POST['show-text']){
 		$data["show"]["text"]["msg"] = $_POST['show-text'];
+		
 		$jsonData = json_encode($data);
-		$handle = fopen($file, "w");
-		if (!fwrite($handle, $jsonData)){
+		if (!file_put_contents($file, $jsonData)){
 			echo "Failed";
 		}
-		fclose($file);
+		
+		
+		#$handle = fopen($file, "w");
+		#if (!fwrite($handle, $jsonData)){
+		#	echo "Failed";
+		#}
+		#fclose($file);
 	}
 }
 
