@@ -2,7 +2,7 @@
 <head>
 <!-- <meta http-equiv="refresh" content="5"> -->
 <title>ROS River</title>
-<link rel="stylesheet" herf="/home/ubuntu/catkin_ws/src/river/src/www/styles.css">
+<link rel="stylesheet" herf="styles.css">
 </head>
 <body>
 
