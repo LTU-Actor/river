@@ -171,7 +171,7 @@ input[type=submit]:hover {
 	<input type=submit name="show-status-submit">
 </form>
 <br><br>
-Restart Required:
+<h1>Restart Required:</h1>
 <div class="container">
 	<div class="row">
 		<div class="col-25">
