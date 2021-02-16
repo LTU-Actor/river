@@ -23,17 +23,11 @@ if (isset($_POST['show-text'])){
 	if ($data["show"]["text"]["msg"] != $_POST['show-text']){
 		$data["show"]["text"]["msg"] = $_POST['show-text'];
 		
-		$fh = fopen($data, 'w')
-			or die("Error opening output file".$php_errormsg);
-		fwrite($fh, unescape(json_encode($data)));
-		fclose($fh);
-		
-		
-		//$handle = fopen($file, "w");
-		//if (!fwrite($handle, $jsonData)){
-		//	echo "Failed";
-		//}
-		//fclose($file);
+		$handle = fopen($file, "w");
+		if (!fwrite($handle, $jsonData)){
+			echo "Failed";
+		}
+		fclose($file);
 	}
 }
 
