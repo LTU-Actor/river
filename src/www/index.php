@@ -22,10 +22,10 @@ if (isset($_POST['show-text'])){
 	if ($data["show"]["text"]["msg"] != $_POST['show-text']){
 		$data["show"]["text"]["msg"] = $_POST['show-text'];
 		
-		$jsonData = json_encode($data);
-		if (!file_put_contents($file, $jsonData)){
-			echo "Failed";
-		}
+		$fh = fopen($data, 'w')
+			or die("Error opening output file");
+		fwrite($fh, unescape(json_encode($data)));
+		fclose($fh);
 		
 		
 		//$handle = fopen($file, "w");
