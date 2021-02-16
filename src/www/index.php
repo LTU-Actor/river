@@ -6,10 +6,6 @@
 <body>
 
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-php_value error_log logs/all_errors.log
 $file = "/home/ubuntu/catkin_ws/src/river/src/data.json";
 $strData = file_get_contents($file);
 $data = json_decode($strData, true);
