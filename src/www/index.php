@@ -23,7 +23,7 @@
 
 </div>
 <div class="container">
-  <h2>Settings:</h2>(Restart Required)
+  <h3>Settings (Restart Required):</h3>
 	<form action="restart_form.php">
 	<div class="row">
 		<div class="col-25">
