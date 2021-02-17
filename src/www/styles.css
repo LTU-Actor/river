@@ -15,11 +15,6 @@
     display: inline-block;
   }
   
-  input[type=color] {
-    width: 100%;
-    float: center;
-  }
-
   input[type=submit] {
     background-color: #4CAF50;
     color: white;
@@ -57,7 +52,11 @@
     width: 75%;
     margin-top: 6px;
   }
-  
+
+  input[type=color] {
+    width: 100%;
+    float: center;
+  }
   /* Clear floats after the columns */
   .row:after {
     content: "";
