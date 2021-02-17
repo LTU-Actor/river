@@ -20,10 +20,11 @@
 </head>
 <body>
 <div class="container">
+<h3>Show:</h3>
 <form action="restart_form.php">
   <div class="row">
 		<div class="col-25">
-			<label for="fname">Show text</label>
+			<label for="fname">Text</label>
 		</div>
 		<div class="col-75">
       <input type=text id="fname" name="show-text" placeholder="<?php echo $data['show']['text']['msg']; ?>">
@@ -31,7 +32,7 @@
 	</div>
   <div class="row">
 		<div class="col-25">
-			<label for="fname">Show Status</label>
+			<label for="fname">Status</label>
 		</div>
 		<div class="col-75">
       <input type=text id="fname" name="show-status" placeholder="<?php echo $data['show']['status']['msg']; ?>">
