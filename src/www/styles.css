@@ -16,6 +16,7 @@
   }
   
   input[type=color] {
+    border: 12px 12px 12px 0;
   }
 
   input[type=submit] {
