@@ -30,7 +30,7 @@
       <input type=text id="fname" name="show-text" placeholder="<?php echo $data['show']['text']['msg']; ?>">
 		</div>
     <div class="col-25">
-      <input type="color" id="head" name="head" value="#e66465">
+      <input type="color">
 		</div>
 	</div>
   <div class="row">
