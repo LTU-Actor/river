@@ -26,8 +26,11 @@
 		<div class="col-25">
 			<label for="fname">Update text</label>
 		</div>
-		<div class="col-75">
+		<div class="col-50">
       <input type=text id="fname" name="show-text" placeholder="<?php echo $data['show']['text']['msg']; ?>">
+		</div>
+    <div class="col-25">
+      <input type="color" id="head" name="head" value="#e66465">
 		</div>
 	</div>
   <div class="row">
