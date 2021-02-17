@@ -24,7 +24,7 @@
 <form action="restart_form.php">
   <div class="row">
 		<div class="col-25">
-			<label for="fname">Text</label>
+			<label for="fname">Update text</label>
 		</div>
 		<div class="col-75">
       <input type=text id="fname" name="show-text" placeholder="<?php echo $data['show']['text']['msg']; ?>">
@@ -32,7 +32,7 @@
 	</div>
   <div class="row">
 		<div class="col-25">
-			<label for="fname">Status</label>
+			<label for="fname">Update status</label>
 		</div>
 		<div class="col-75">
       <input type=text id="fname" name="show-status" placeholder="<?php echo $data['show']['status']['msg']; ?>">
