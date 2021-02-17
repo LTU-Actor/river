@@ -5,9 +5,11 @@
 
     if (isset($_Get['show-host-IP'])){
         $data["settings"]["ros"]["coreIP"] = $_GET['show-host-IP'];
+        echo "updated show-host-IP";
     }
     if (isset($_GET['show-width'])){
         $data['display']['width'] = $_GET['show-width'];
+        echo "udpated show-width";
     }
 
     $jsonData = json_encode($data,JSON_PRETTY_PRINT);
