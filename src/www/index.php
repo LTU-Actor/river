@@ -2,6 +2,10 @@
 <html>
 <head>
   <link rel="stylesheet" href="styles.css">
+  <script>
+    const config = require("/home/ubuntu/catkin_ws/src/river/src/data.json")
+    config.readFile("")
+  </script>
 </head>
 <body>
 
