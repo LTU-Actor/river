@@ -21,7 +21,7 @@
 <body>
 <div class="container">
 <h3>Show:</h3>
-<form action="restart_form.php">
+<form action="show_form.php">
   <div class="row">
 		<div class="col-25">
 			<label for="fname">Update text</label>
