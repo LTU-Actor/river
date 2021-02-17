@@ -55,7 +55,7 @@
 
   input[type=color] {
     width: 75%;
-    float: center;
+    float: right;
   }
   /* Clear floats after the columns */
   .row:after {
