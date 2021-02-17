@@ -54,7 +54,7 @@
   }
 
   input[type=color] {
-    width: 100%;
+    width: 75%;
     float: center;
   }
   /* Clear floats after the columns */
