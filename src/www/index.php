@@ -19,9 +19,11 @@
   ?>
 </head>
 <body>
-
 <div class="container">
-  <h2>Restart Required:</h2>
+
+</div>
+<div class="container">
+  <h2>Settings <h4>(Restart Required)</h4><h2>:</h2>
 	<form action="restart_form.php">
 	<div class="row">
 		<div class="col-25">
