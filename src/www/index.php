@@ -3,9 +3,10 @@
 <head>
   <link rel="stylesheet" href="styles.css">
   <script>
-    const config = require("/home/ubuntu/catkin_ws/src/river/src/data.json")
-    config.readFile("")
   </script>
+  <?php
+    echo "php works";
+  ?>
 </head>
 <body>
 
