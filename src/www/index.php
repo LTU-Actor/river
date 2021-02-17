@@ -21,7 +21,7 @@
 <body>
 
 <div class="container">
-  <h3>Restart Required:</h3>
+  <h2>Restart Required:</h2>
 	<form action="restart_form.php">
 	<div class="row">
 		<div class="col-25">
