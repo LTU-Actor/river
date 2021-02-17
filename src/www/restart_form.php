@@ -1,3 +1,3 @@
 <?php
-    echo $_POST['firstname']
+    echo "test".$_POST['firstname']
 ?>
