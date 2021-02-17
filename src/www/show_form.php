@@ -5,12 +5,12 @@
 
     echo "test";
 
-    if !(empty(isset($_GET['show-text']))){
+    if (!empty(isset($_GET['show-text']))){
         $data["show"]["text"]["msg"] = $_GET['show-text'];
         echo "updated show-text";
     }
 
-    if !(empty($_GET['show-status'])){
+    if (!empty($_GET['show-status'])){
         $data["show"]["status"]["msg"] = $_GET['show-status'];
         echo "udpated show-status";
     }
