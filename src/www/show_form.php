@@ -4,6 +4,7 @@
     $data = json_decode($strData, true);
 
     echo "t";
+    
     if (isset($_GET['show-text'])){
         $data["show"]["text"]["msg"] = $_GET['show-text'];
         echo "updated show-text";
