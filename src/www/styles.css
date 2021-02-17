@@ -54,6 +54,7 @@
   }
 
   input[type=color] {
+    margin-top: 6px;
     width: 75%;
     float: right;
   }
