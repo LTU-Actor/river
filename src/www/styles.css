@@ -55,7 +55,7 @@
 
   input[type=color] {
     margin-top: 6px;
-    width: 75%;
+    width: 25%;
     float: right;
   }
   /* Clear floats after the columns */
