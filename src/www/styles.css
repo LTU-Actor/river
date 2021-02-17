@@ -16,8 +16,6 @@
   }
   
   input[type=color] {
-    padding: 6px 12px 12px 0;
-    display: inline-block;
   }
 
   input[type=submit] {
