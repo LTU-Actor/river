@@ -17,6 +17,7 @@
   
   input[type=color] {
     width: 100%;
+    float: center;
   }
 
   input[type=submit] {
