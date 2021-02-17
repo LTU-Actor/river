@@ -43,6 +43,7 @@
 	</div>
 </form>
 </div>
+<br>
 <div class="container">
   <h3>Settings (Restart Required):</h3>
 	<form action="restart_form.php">
