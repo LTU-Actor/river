@@ -64,8 +64,8 @@
     resize: vertical;
   }
   input[type=checkbox] {
-    width: 80%;
-    height: 40px;
+    width: 20px;
+    height: 20px;
     float: right;
     padding: 2px;
     border: 1px solid #ccc;
