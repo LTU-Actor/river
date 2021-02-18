@@ -4,13 +4,14 @@
   }
 
   
-  input[type=text], select, textarea {
+  input[type=text], input[type="color"], select, textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
     resize: vertical;
   }
+  
   /*
   label {
     padding: 12px 12px 12px 0;
@@ -72,7 +73,7 @@
     padding: 10px;
   }
 
-  .col-25, .col-75, .col-50, input[type="color"], input[type=submit] {
+  .col-25, .col-75, .col-50, input[type=submit] {
     width: 100%;
     margin-top: 0;
   }
