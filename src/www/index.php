@@ -98,15 +98,23 @@
     <form action="restart_form.php">
     <div class="row">
       <div class="col-25">
-        <label for="fname">Host IP</label>
+        <label for="HostIP">Host IP</label>
       </div>
       <div class="col-75">
-        <input type=text id="fname" name="show-host-IP" value="<?php echo $data['settings']['ros']['coreIP']; ?>">
+        <input type=text id="HostIP" name="show-host-IP" value="<?php echo $data['settings']['ros']['coreIP']; ?>">
+      </div>
+    </div>
+	<div class="row">
+      <div class="col-25">
+        <label for="Port">Port</label>
+      </div>
+      <div class="col-75">
+        <input type=text id="Port" name="show-post" value="<?php echo $data['settings']['ros']['port']; ?>">
       </div>
     </div>
     <div class="row">
       <div class="col-25">
-        <label for="fname">Display Width</label>
+        <label for="DWidth">Display Width</label>
       </div>
       <div class="col-75">
         <input type=text id="fname" name="show-width" value="<?php echo $data['display']['width']; ?>">
@@ -114,7 +122,7 @@
     </div>
     <div class="row">
       <div class="col-25">
-        <label for="fname">Display Height</label>
+        <label for="DHeight">Display Height</label>
       </div>
       <div class="col-75">
         <input type=text id="fname" name="show-height" value="<?php echo $data['display']['height']; ?>">
@@ -122,10 +130,10 @@
     </div>
     <div class="row">
       <div class="col-25">
-        <label for="fname">Display Brightness</label>
+        <label for="DBrightness">Display Brightness</label>
       </div>
       <div class="col-75">
-        <input type=text id="fname" name="show-brightness" value="<?php echo $data['display']['brightness']; ?>">
+        <input type=text id="DBrightness" name="show-brightness" value="<?php echo $data['display']['brightness']; ?>">
       </div>
     </div>
     <br>
