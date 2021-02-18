@@ -23,11 +23,16 @@
         echo "udpated show-status-color";
     }
 
+    if (!empty($_GET['toggle-heartbeat'])){
+        #$data["show"]["status"]["color"] = $_GET['show-status-color'];
+        echo $_GET['toggle-heartbeat'];
+    }
+
     $jsonData = json_encode($data,JSON_PRETTY_PRINT);
     $handle = fopen($file, "w");
     if (!fwrite($handle, $jsonData)){
         echo "Failed";
     }
     fclose($file);
-    header('Location: http://192.168.1.38/')
+    #header('Location: http://192.168.1.38/')
 ?>
