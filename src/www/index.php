@@ -17,6 +17,22 @@
 <div class="grid-container">
   <div class="container">
     <h3>Defined Settings:</h3>
+	<div class="row">
+      <div class="col-50">
+        <label for="rosHostIP">ROS host IP</label>
+      </div>
+      <div class="col-50">
+        <input type=text id="rosHostIP" name="show-text" placeholder="<?php echo $data["settings"]["ros"]["coreIP"]; ?>" disabled>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-50">
+        <label for="rosRaspberry">ROS Raspberry PI IP</label>
+      </div>
+      <div class="col-50">
+        <input type=text id="rosRaspberry" name="show-text" placeholder="<?php echo $data["settings"]["ros"]["riverIP"]; ?>" disabled>
+	  </div>
+	</div>
     <div class="row">
       <div class="col-50">
         <label for="dWidth">Display Width</label>
@@ -31,22 +47,6 @@
       </div>
       <div class="col-50">
         <input type=text id="dHeight" name="show-text" placeholder="<?php echo $data["display"]["height"]; ?>" disabled>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-50">
-        <label for="rosHostIP">ROS host IP</label>
-      </div>
-      <div class="col-50">
-        <input type=text id="rosHostIP" name="show-text" placeholder="<?php echo $data["settings"]["ros"]["coreIP"]; ?>" disabled>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-50">
-        <label for="rosRaspberry">ROS Raspberry PI IP</label>
-      </div>
-      <div class="col-50">
-        <input type=text id="rosRaspberry" name="show-text" placeholder="<?php echo $data["settings"]["ros"]["riverIP"]; ?>" disabled>
       </div>
     </div>
   </div>
