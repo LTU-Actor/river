@@ -102,7 +102,8 @@ def show():
 	for x in range (data["display"]["width"] - statusWidth - gap):
 		for y in range (data["display"]["height"]):
 			if (textImage.getpixel((x + offset, y)) is 255):
-				pixels[getIndex(x, y)] = data["show"]["text"]["color"]
+				#pixels[getIndex(x, y)] = data["show"]["text"]["color"]
+				pixels[getIndex(x, y)] = "#00ff00"
 			else:
 				pixels[getIndex(x, y)] = [0,0,0]
 
