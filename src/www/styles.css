@@ -63,6 +63,16 @@
     cursor: pointer;
     resize: vertical;
   }
+  input[type=checkbox] {
+    width: 80%;
+    height: 40px;
+    float: right;
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    resize: vertical;
+  }
 
   /* Clear floats after the columns */
   .row:after {

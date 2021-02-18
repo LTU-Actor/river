@@ -81,9 +81,7 @@
         <div class="col-25">
           <label for="Theartbeat">Toggle heartbeat</label>
         </div>
-        <div class="col-50">
-        </div>
-		<div class="col-25">
+		<div class="col-75">
 		  <input type=checkbox id="Theartbeat" name="toggle-heartbeat">
         </div>
       </div>
