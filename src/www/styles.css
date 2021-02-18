@@ -89,17 +89,17 @@
     }
   }
 
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 1200px) {
     .grid-container {
         grid-template-columns: auto auto;
     }
   }
-
+/*
   @media screen and (min-width: 1200px) {
     .grid-container {
         grid-template-columns: auto auto auto;
     }
-  }
+  }*/
 /*
   @media screen and (max-width: 1300px) {
     .col-25, .col-75, .col-50, input[type="color"], input[type=submit] {
