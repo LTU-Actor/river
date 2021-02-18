@@ -68,7 +68,6 @@
     height: 20px;
     float: right;
     cursor: pointer;
-    resize: vertical;
   }
 
   /* Clear floats after the columns */
