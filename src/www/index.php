@@ -79,7 +79,7 @@
 	  <div class="row">
         <div class="col-75">
           <label for="Theartbeat">Toggle heartbeat</label>
-		  <input type=checkbox id="Theartbeat" name="toggle-heartbeat">
+		  <input type=checkbox id="Theartbeat" name="toggle-heartbeat" value="<?php echo $data['settings']['hartbeat']['enabled']; ?>">
         </div>
 		<div class="col-25">
           <input type="color" id="Theartbeat" name="heartbeat-color" value="<?php echo $data['settings']['hartbeat']['color']; ?>">
