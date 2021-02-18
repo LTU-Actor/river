@@ -8,20 +8,20 @@
   <?php
     $file = "/home/ubuntu/catkin_ws/src/river/src/data.json";
     $strData = file_get_contents($file);
-    $data = json_decode($strData, true);
+    global $data = json_decode($strData, true);
   ?>
 </head>
 <body>
 
 
 <div class="grid-container">
-  <div>
+  <div class="container">
       <h3>Defined Settings:</h3>
-      <label for="fname">Display Width: <?php $data["display"]["width"] ?> </label>
-      <label for="fname">Display Height: <?php $data["display"]["width"] ?> </label>
-      <label for="fname">Display Brightness: <?php $data["display"]["width"] ?> </label>
-      <label for="fname">ROS host IP: <?php $data["display"]["width"] ?> </label>
-      <label for="fname">ROS Raspberry PI IP: <?php $data["display"]["width"] ?> </label>
+      <label for="fname">Display Width: <?php $data["display"]["width"] ?> </label><br>
+      <label for="fname">Display Height: <?php $data["display"]["width"] ?> </label><br>
+      <label for="fname">Display Brightness: <?php $data["display"]["width"] ?> </label><br>
+      <label for="fname">ROS host IP: <?php $data["display"]["width"] ?> </label><br>
+      <label for="fname">ROS Raspberry PI IP: <?php $data["display"]["width"] ?> </label><br>
   </div>
 
   <div class="container">
