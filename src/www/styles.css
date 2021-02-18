@@ -63,12 +63,6 @@
     cursor: pointer;
     resize: vertical;
   }
-  input[type=checkbox] {
-    width: 20px;
-    height: 20px;
-    float: right;
-    cursor: pointer;
-  }
 
   /* Clear floats after the columns */
   .row:after {
