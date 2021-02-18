@@ -88,7 +88,7 @@
           display: grid;
           grid-template-columns: auto auto;
           grid-gap: 10px;
-          background-color: #95cfff77;
+          background-color: #3b5366;
           padding: 10px;
       }
   }
@@ -102,7 +102,7 @@
         display: grid;
         grid-template-columns: auto;
         grid-gap: 10px;
-        background-color: #95cfff77;
+        background-color: #3b5366;
         padding: 10px;
     }
   }
