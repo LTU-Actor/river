@@ -17,7 +17,14 @@
 <div class="grid-container">
   <div class="container">
       <h3>Defined Settings:</h3>
-      <label for="fname">Display Width: <?php echo $data["display"]["width"]; ?> </label><br>
+      <div class="row">
+        <div class="col-25">
+          <label for="fname">Display Width: <?php echo $data["display"]["width"]; ?> </label>
+        </div>
+        <div class="col-75">
+          <input id="fname" name="show-text" placeholder="<?php echo $data['show']['text']['msg']; ?>" disabled>
+        </div>
+      </div>
       <label for="fname">Display Height: <?php echo $data["display"]["height"]; ?> </label><br>
       <label for="fname">Display Brightness: <?php echo $data["display"]["brightness"]; ?> </label><br>
       <label for="fname">ROS host IP: <?php echo $data["settings"]["ros"]["coreIP"]; ?>:<?php echo $data["settings"]["ros"]["port"]; ?></label><br>
