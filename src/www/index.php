@@ -8,7 +8,7 @@
   <?php
     $file = "/home/ubuntu/catkin_ws/src/river/src/data.json";
     $strData = file_get_contents($file);
-    static $data = json_decode($strData, true);
+    $data = json_decode($strData, true);
   ?>
 </head>
 <body>
@@ -17,11 +17,11 @@
 <div class="grid-container">
   <div class="container">
       <h3>Defined Settings:</h3>
-      <label for="fname">Display Width: <?php $data["display"]["width"] ?> </label><br>
-      <label for="fname">Display Height: <?php $data["display"]["width"] ?> </label><br>
-      <label for="fname">Display Brightness: <?php $data["display"]["width"] ?> </label><br>
-      <label for="fname">ROS host IP: <?php $data["display"]["width"] ?> </label><br>
-      <label for="fname">ROS Raspberry PI IP: <?php $data["display"]["width"] ?> </label><br>
+      <label for="fname">Display Width: <?php echo $data["display"]["width"]; ?> </label><br>
+      <label for="fname">Display Height: <?php echo $data["display"]["height"]; ?> </label><br>
+      <label for="fname">Display Brightness: <?php echo $data["display"]["brightness"]; ?> </label><br>
+      <label for="fname">ROS host IP: <?php echo $data["settings"]["ros"]["coreIP"]; ?>:<?php echo $data["settings"]["ros"]["port"]; ?></label><br>
+      <label for="fname">ROS Raspberry PI IP: <?php echo $data["settings"]["ros"]["riverIP"]; ?> </label><br>
   </div>
 
   <div class="container">
