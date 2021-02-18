@@ -62,7 +62,7 @@
           <input type=text id="UText" name="show-text" placeholder="<?php echo $data['show']['text']['msg']; ?>">
         </div>
         <div class="col-25">
-          <input type="color" id="UText" name="show-text-color" value="#ffffff">
+          <input type="color" id="UText" name="show-text-color" value="<?php echo $data['show']['text']['color']; ?>">
         </div>
       </div>
       <div class="row">
@@ -73,7 +73,7 @@
           <input type=text id="UStatus" name="show-status" placeholder="<?php echo $data['show']['status']['msg']; ?>">
         </div>
         <div class="col-25">
-          <input type="color" id="UStatus" name="show-status-color" value="#ff3232">
+          <input type="color" id="UStatus" name="show-status-color" value="<?php echo $data['show']['status']['color']; ?>">
         </div>
       </div>
       <br>

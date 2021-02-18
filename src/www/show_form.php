@@ -3,8 +3,6 @@
     $strData = file_get_contents($file);
     $data = json_decode($strData, true);
 
-    echo "test";
-
     if (!empty($_GET['show-text'])){
         $data["show"]["text"]["msg"] = $_GET['show-text'];
         echo "updated show-text<br>";
