@@ -90,6 +90,16 @@
   }
 
   @media screen and (min-width: 800px) {
+    .col-25, .col-75, .col-50, input[type="color"], input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
+    .grid-container {
+        grid-template-columns: auto auto;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
     .grid-container {
         grid-template-columns: auto auto;
     }
