@@ -3,11 +3,7 @@
         "status": {
             "msg": "2",
             "enabled": true,
-            "color": [
-                60,
-                60,
-                255
-            ]
+            "color": "ff0000"
         },
         "text": {
             "msg": "clear",
