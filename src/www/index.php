@@ -76,7 +76,6 @@
           <input type="color" id="UStatus" name="show-status-color" value="<?php echo $data['show']['status']['color']; ?>">
         </div>
       </div>
-      <br>
 	  <div class="row">
         <div class="col-75">
           <label for="Theartbeat">Toggle heartbeat</label>
