@@ -56,24 +56,24 @@
     <form action="show_form.php">
       <div class="row">
         <div class="col-25">
-          <label for="fname">Update text</label>
+          <label for="UText">Update text</label>
         </div>
         <div class="col-50">
-          <input type=text id="fname" name="show-text" placeholder="<?php echo $data['show']['text']['msg']; ?>">
+          <input type=text id="UText" name="show-text" placeholder="<?php echo $data['show']['text']['msg']; ?>">
         </div>
         <div class="col-25">
-          <input type="color" id="fname" id="fcolor" value="#ffffff">
+          <input type="color" id="UText" name="show-text-color" value="#ffffff">
         </div>
       </div>
       <div class="row">
         <div class="col-25">
-          <label for="fname">Update status</label>
+          <label for="UStatus">Update status</label>
         </div>
         <div class="col-50">
-          <input type=text id="fname" name="show-status" placeholder="<?php echo $data['show']['status']['msg']; ?>">
+          <input type=text id="UStatus" name="show-status" placeholder="<?php echo $data['show']['status']['msg']; ?>">
         </div>
         <div class="col-25">
-          <input type="color" id="fname" value="#ff3232">
+          <input type="color" id="UStatus" name="show-status-color" value="#ff3232">
         </div>
       </div>
       <br>
