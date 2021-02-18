@@ -76,7 +76,8 @@ def show():
 
 		if (data["settings"]["hartbeat"]["enabled"]):
 			if (time.gmtime().tm_sec % 2):
-				pixels[248] = data["settings"]["hartbeat"]["color"]
+				colorHex = data["settings"]["hartbeat"]["color"].lstrip('#')
+				pixels[248] = tuple(int(colorHex[i:i+2], 16) for i in (0, 2, 4))
 			else:
 				pixels[248] = [0, 0, 0]
 		gap = 1
@@ -103,7 +104,8 @@ def show():
 	for x in range (data["display"]["width"] - statusWidth - gap):
 		for y in range (data["display"]["height"]):
 			if (textImage.getpixel((x + offset, y)) is 255):
-				pixels[getIndex(x, y)] = data["show"]["text"]["color"] 
+				colorHex = data["show"]["text"]["color"].lstrip('#')
+				pixels[getIndex(x, y)] = tuple(int(colorHex[i:i+2], 16) for i in (0, 2, 4))
 			else:
 				pixels[getIndex(x, y)] = [0,0,0]
 

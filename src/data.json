@@ -3,15 +3,11 @@
         "status": {
             "msg": "2",
             "enabled": true,
-            "color": "ff0000"
+            "color": "#ff0000"
         },
         "text": {
             "msg": "clear",
-            "color": [
-                255,
-                255,
-                255
-            ]
+            "color": "#ffffff"
         }
     },
     "font": {
@@ -27,11 +23,7 @@
     "settings": {
         "rate": ".1",
         "hartbeat": {
-            "color": [
-                100,
-                100,
-                255
-            ],
+            "color": "#4296bd",
             "enabled": true
         },
         "ros": {
