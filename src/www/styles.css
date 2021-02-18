@@ -81,7 +81,7 @@
 
   @media screen and (min-width: 600px) {
     .grid-container {
-        grid-template-columns: auto;
+        grid-template-columns: auto auto;
     }
   }
 
