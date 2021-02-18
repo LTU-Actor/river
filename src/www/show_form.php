@@ -27,11 +27,11 @@
         if ($_GET['toggle-heartbeat'] == "on"){
             echo "on";
         }
-        else{
-            echo "false";
-        }
         #$data["show"]["status"]["color"] = $_GET['show-status-color'];
         #echo "<br>".$_GET['toggle-heartbeat'];
+    }
+    else{
+        echo "false";
     }
 
     $jsonData = json_encode($data,JSON_PRETTY_PRINT);
