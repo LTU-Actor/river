@@ -55,8 +55,13 @@
 
   input[type=color] {
     width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
     resize: vertical;
   }
+
   /* Clear floats after the columns */
   .row:after {
     content: "";
