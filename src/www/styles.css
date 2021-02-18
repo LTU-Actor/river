@@ -1,8 +1,8 @@
-/*
-* {
+
+  * {
     box-sizing: border-box;
   }
-  */
+  
   input[type=text], select, textarea {
     width: 100%;
     padding: 12px;
@@ -54,17 +54,7 @@
     margin-top: 6px;
   }
 
-  input[type=color] {
-    width: 80%;
-    height: 40px;
-    float: right;
-    padding: 2px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-    resize: vertical;
-  }
-
+  
   /* Clear floats after the columns */
   .row:after {
     content: "";
