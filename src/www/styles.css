@@ -89,7 +89,7 @@
     }
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 800px) {
     .grid-container {
         grid-template-columns: auto auto;
     }
