@@ -9,19 +9,23 @@
     $file = "/home/ubuntu/catkin_ws/src/river/src/data.json";
     $strData = file_get_contents($file);
     $data = json_decode($strData, true);
-
-    echo "Display Width: ".$data["display"]["width"]."<br>";
-    echo "Display Height: ".$data["display"]["height"]."<br>";
-    echo "Display Brightness: ".$data["display"]["brightness"]."<br><br>";
-
-    echo "ROS host IP: ".$data["settings"]["ros"]["coreIP"].":".$data["settings"]["ros"]["port"]."<br>";
-    echo "ROS Raspberry PI IP: ".$data["settings"]["ros"]["riverIP"]."<br><br>";
   ?>
 </head>
 <body>
 
 
 <div class="grid-container">
+  <div>
+      <?php
+        echo "Display Width: ".$data["display"]["width"]."<br>";
+        echo "Display Height: ".$data["display"]["height"]."<br>";
+        echo "Display Brightness: ".$data["display"]["brightness"]."<br><br>";
+    
+        echo "ROS host IP: ".$data["settings"]["ros"]["coreIP"].":".$data["settings"]["ros"]["port"]."<br>";
+        echo "ROS Raspberry PI IP: ".$data["settings"]["ros"]["riverIP"]."<br><br>";
+      ?>
+  </div>
+
   <div class="container">
     <h3>Show:</h3>
     <form action="show_form.php">
