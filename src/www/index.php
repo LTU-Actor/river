@@ -8,7 +8,7 @@
   <?php
     $file = "/home/ubuntu/catkin_ws/src/river/src/data.json";
     $strData = file_get_contents($file);
-    global $data = json_decode($strData, true);
+    static $data = json_decode($strData, true);
   ?>
 </head>
 <body>
