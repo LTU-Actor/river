@@ -24,11 +24,11 @@
     }
 
     if (!empty($_GET['toggle-heartbeat'])){
-        $data["settings"]["hartbeat"]["enabled"] = true;
+        $data["settings"]["hartbeat"]["enabled"] = $_GET['toggle-heartbeat'];
         echo "toggle-heartbeat true<br>";
     }
     else{
-        $data["settings"]["hartbeat"]["enabled"] = false;
+        $data["settings"]["hartbeat"]["enabled"] = "off";
         echo "toggle-heartbeat false<br>";
     }
 
