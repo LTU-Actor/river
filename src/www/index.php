@@ -18,11 +18,11 @@
   <div class="container">
       <h3>Defined Settings:</h3>
       <div class="row">
-        <div class="col-25">
-          <label for="fname">Display Width: <?php echo $data["display"]["width"]; ?> </label>
+        <div class="col-50">
+          <label for="fname">Display Width</label>
         </div>
-        <div class="col-75">
-          <input type=text id="fname" name="show-text" placeholder="<?php echo $data['show']['text']['msg']; ?>" disabled>
+        <div class="col-50">
+          <input type=text id="fname" name="show-text" placeholder="<?php echo $data["display"]["width"]; ?>" disabled>
         </div>
       </div>
       <label for="fname">Display Height: <?php echo $data["display"]["height"]; ?> </label><br>
