@@ -16,14 +16,12 @@
 
 <div class="grid-container">
   <div>
-      <?php
-        echo "Display Width: ".$data["display"]["width"]."<br>";
-        echo "Display Height: ".$data["display"]["height"]."<br>";
-        echo "Display Brightness: ".$data["display"]["brightness"]."<br><br>";
-    
-        echo "ROS host IP: ".$data["settings"]["ros"]["coreIP"].":".$data["settings"]["ros"]["port"]."<br>";
-        echo "ROS Raspberry PI IP: ".$data["settings"]["ros"]["riverIP"]."<br><br>";
-      ?>
+      <h3>Defined Settings:</h3>
+      <label for="fname">Display Width: <?php $data["display"]["width"] ?> </label>
+      <label for="fname">Display Height: <?php $data["display"]["width"] ?> </label>
+      <label for="fname">Display Brightness: <?php $data["display"]["width"] ?> </label>
+      <label for="fname">ROS host IP: <?php $data["display"]["width"] ?> </label>
+      <label for="fname">ROS Raspberry PI IP: <?php $data["display"]["width"] ?> </label>
   </div>
 
   <div class="container">
