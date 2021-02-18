@@ -3,6 +3,7 @@
     box-sizing: border-box;
   }
   
+  /*
   input[type=text], select, textarea {
     width: 100%;
     padding: 12px;
@@ -54,8 +55,9 @@
     margin-top: 6px;
   }
 
-  
+  */
   /* Clear floats after the columns */
+  /*
   .row:after {
     content: "";
     display: table;
@@ -74,7 +76,7 @@
     width: 100%;
     margin-top: 0;
   }
-  
+  */
   /*
   @media screen and (max-width: 1400px) {
     .col-25, .col-75, .col-50, input[type="color"], input[type=submit] {
