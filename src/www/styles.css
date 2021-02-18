@@ -79,14 +79,15 @@
     background-color: #3b5366;
     padding: 10px;
   }
-  
+
   .col-25, .col-75, .col-50, input[type="color"], input[type=submit] {
     width: 100%;
     margin-top: 0;
   }
+  
   .grid-container {
       display: grid;
-      grid-template-columns: auto auto;
+      grid-template-columns: auto;
       grid-gap: 10px;
       background-color: #3b5366;
       padding: 10px;
