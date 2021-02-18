@@ -75,6 +75,7 @@
     display: grid;
     grid-template-columns: auto auto auto;
     grid-gap: 10px;
+    background-color: #d5ecff;
     padding: 10px;
   }
 
@@ -87,6 +88,7 @@
           display: grid;
           grid-template-columns: auto auto;
           grid-gap: 10px;
+          background-color: #95cfff77;
           padding: 10px;
       }
   }
@@ -100,6 +102,7 @@
         display: grid;
         grid-template-columns: auto;
         grid-gap: 10px;
+        background-color: #95cfff77;
         padding: 10px;
     }
   }
