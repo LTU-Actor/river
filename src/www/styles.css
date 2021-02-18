@@ -85,7 +85,7 @@
       margin-top: 0;
     }
     .grid-container {
-        grid-template-columns: auto auto;
+        grid-template-columns: auto;
     }
   }
 
