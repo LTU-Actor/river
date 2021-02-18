@@ -32,6 +32,11 @@
         echo "toggle-heartbeat false<br>";
     }
 
+    if (!empty($_GET['heartbeat-color'])){
+        $data["settings"]["hartbeat"]["color"] = $_GET['heartbeat-color'];
+        echo "udpated heartbeat-color<br>";
+    }
+
     $jsonData = json_encode($data,JSON_PRETTY_PRINT);
     $handle = fopen($file, "w");
     if (!fwrite($handle, $jsonData)){

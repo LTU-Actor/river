@@ -82,7 +82,7 @@
 		  <input type=checkbox id="Theartbeat" name="toggle-heartbeat">
         </div>
 		<div class="col-25">
-          <input type="color" id="UStatus" name="show-status-color" value="<?php echo $data['settings']['hartbeat']['color']; ?>">
+          <input type="color" id="Theartbeat" name="heartbeat-color" value="<?php echo $data['settings']['hartbeat']['color']; ?>">
         </div>
       </div>
       <br>
