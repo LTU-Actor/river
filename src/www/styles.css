@@ -1,14 +1,6 @@
 * {
     box-sizing: border-box;
   }
-
-  .grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-gap: 10px;
-    background-color: #2196F3;
-    padding: 10px;
-  }
   
   input[type=text], select, textarea {
     width: 100%;
@@ -78,11 +70,32 @@
     display: table;
     clear: both;
   }
-  
+
+  @media screen and (max-width: 1200px) {
+    .col-25, .col-75, .col-50, input[type="color"], input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+      }
+      .grid-container {
+          display: grid;
+          grid-template-columns: auto auto;
+          grid-gap: 10px;
+          background-color: #2196F3;
+          padding: 10px;
+      }
+  }
+
   @media screen and (max-width: 600px) {
-    .col-25, .col-75, .col-50, 
-    input[type="color"], input[type=submit] {
+    .col-25, .col-75, .col-50, input[type="color"], input[type=submit] {
       width: 100%;
       margin-top: 0;
     }
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto;
+        grid-gap: 10px;
+        background-color: #2196F3;
+        padding: 10px;
+    }
   }
+
