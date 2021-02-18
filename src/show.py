@@ -40,6 +40,9 @@ def update():
 	data["display"]["brightness"] = float(data["display"]["brightness"])
 	data["settings"]["rate"] = float(data["settings"]["rate"])
 
+	data["display"]["height"] = int(data["display"]["height"])
+	data["display"]["width"] = int(data["display"]["width"])
+
 	font = ImageFont.truetype(data["font"]["path"], data["font"]["size"])
 
 	if not (proirText == data["show"]["text"]):
