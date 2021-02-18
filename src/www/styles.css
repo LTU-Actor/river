@@ -1,28 +1,20 @@
-
-  * {
+* {
     box-sizing: border-box;
   }
-
   
-  input[type=text], input[type="color"], select, textarea {
+  input[type=text], select, textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
     resize: vertical;
   }
-
-  input[type="color"] {
-    padding: 2px;
-  }
   
   label {
     padding: 12px 12px 12px 0;
     display: inline-block;
   }
-
-  /*
-
+  
   input[type=submit] {
     background-color: #4CAF50;
     color: white;
@@ -61,9 +53,18 @@
     margin-top: 6px;
   }
 
-  */
+  input[type=color] {
+    width: 80%;
+    height: 40px;
+    float: right;
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    resize: vertical;
+  }
+
   /* Clear floats after the columns */
-  /*
   .row:after {
     content: "";
     display: table;
@@ -72,19 +73,13 @@
   
   .grid-container {
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: auto auto auto;
     grid-gap: 10px;
     background-color: #3b5366;
     padding: 10px;
   }
 
-  .col-25, .col-75, .col-50, input[type=submit] {
-    width: 100%;
-    margin-top: 0;
-  }
-  */
-  /*
-  @media screen and (max-width: 1400px) {
+  @media screen and (max-width: 1300px) {
     .col-25, .col-75, .col-50, input[type="color"], input[type=submit] {
         width: 100%;
         margin-top: 0;
@@ -98,7 +93,7 @@
       }
   }
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 650px) {
     .col-25, .col-75, .col-50, input[type="color"], input[type=submit] {
       width: 100%;
       margin-top: 0;
@@ -112,4 +107,3 @@
     }
   }
 
-*/
