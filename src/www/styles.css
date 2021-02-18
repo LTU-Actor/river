@@ -73,7 +73,7 @@
   
   .grid-container {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto;
     grid-gap: 10px;
     background-color: #3b5366;
     padding: 10px;
