@@ -20,18 +20,16 @@
 
     if (!empty($_GET['show-status-color'])){
         $data["show"]["status"]["color"] = $_GET['show-status-color'];
-        echo "udpated show-status-color";
+        echo "udpated show-status-color<br>";
     }
 
     if (!empty($_GET['toggle-heartbeat'])){
-        if ($_GET['toggle-heartbeat'] == "on"){
-            echo "on";
-        }
-        #$data["show"]["status"]["color"] = $_GET['show-status-color'];
-        #echo "<br>".$_GET['toggle-heartbeat'];
+        $data["settings"]["hartbeat"]["enabled"] = true;
+        echo "toggle-heartbeat true<br>";
     }
     else{
-        echo "false";
+        $data["settings"]["hartbeat"]["enabled"] = false;
+        echo "toggle-heartbeat false<br>";
     }
 
     $jsonData = json_encode($data,JSON_PRETTY_PRINT);
