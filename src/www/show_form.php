@@ -24,7 +24,7 @@
     }
 
     if (!empty($_GET['toggle-heartbeat'])){
-        $data["settings"]["hartbeat"]["enabled"] = $_GET['toggle-heartbeat'];
+        $data["settings"]["hartbeat"]["enabled"] = "on";
         echo "toggle-heartbeat true<br>";
     }
     else{
