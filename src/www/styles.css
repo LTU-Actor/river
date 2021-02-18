@@ -67,10 +67,6 @@
     width: 20px;
     height: 20px;
     float: right;
-    padding: 2px;
-    padding-top: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
     cursor: pointer;
     resize: vertical;
   }
