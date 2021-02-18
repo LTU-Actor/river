@@ -62,7 +62,7 @@
           <input type=text id="fname" name="show-text" placeholder="<?php echo $data['show']['text']['msg']; ?>">
         </div>
         <div class="col-25">
-          <input type="color" id="fcolor" value="#ffffff">
+          <input type="color" id="fname" id="fcolor" value="#ffffff">
         </div>
       </div>
       <div class="row">
@@ -73,7 +73,7 @@
           <input type=text id="fname" name="show-status" placeholder="<?php echo $data['show']['status']['msg']; ?>">
         </div>
         <div class="col-25">
-          <input type="color" value="#ff3232">
+          <input type="color" id="fname" value="#ff3232">
         </div>
       </div>
       <br>
