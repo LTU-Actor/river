@@ -43,7 +43,7 @@
 	</div>
     <div class="row">
       <div class="col-50">
-        <label for="dWidth">Display Width</label>
+        <label for="dWidth">Display width</label>
       </div>
       <div class="col-50">
         <input type=text id="dWidth" name="show-text" placeholder="<?php echo $data["display"]["width"]; ?>" disabled>
@@ -51,10 +51,18 @@
     </div>
     <div class="row">
       <div class="col-50">
-        <label for="dHeight">Display Height</label>
+        <label for="dHeight">Display height</label>
       </div>
       <div class="col-50">
         <input type=text id="dHeight" name="show-text" placeholder="<?php echo $data["display"]["height"]; ?>" disabled>
+      </div>
+    </div>
+	<div class="row">
+      <div class="col-50">
+        <label for="dBrightness">Display brightness</label>
+      </div>
+      <div class="col-50">
+        <input type=text id="dBrightness" name="show-text" placeholder="<?php echo $data["display"]["brightness"]; ?>" disabled>
       </div>
     </div>
   </div>
