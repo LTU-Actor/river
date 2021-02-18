@@ -22,7 +22,7 @@
           <label for="fname">Display Width: <?php echo $data["display"]["width"]; ?> </label>
         </div>
         <div class="col-75">
-          <input id="fname" name="show-text" placeholder="<?php echo $data['show']['text']['msg']; ?>" disabled>
+          <input type=text id="fname" name="show-text" placeholder="<?php echo $data['show']['text']['msg']; ?>" disabled>
         </div>
       </div>
       <label for="fname">Display Height: <?php echo $data["display"]["height"]; ?> </label><br>
