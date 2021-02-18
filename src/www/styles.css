@@ -1,6 +1,11 @@
 * {
     box-sizing: border-box;
   }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+  }
   
   input[type=text], select, textarea {
     width: 100%;
