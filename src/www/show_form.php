@@ -8,10 +8,9 @@
         echo "updated show-text<br>";
     }
 
-    if (!empty($_GET['show-status'])){
-        $data["show"]["status"]["msg"] = $_GET['show-status'];
-        echo "udpated show-status<br>";
-    }
+    
+    $data["show"]["status"]["msg"] = $_GET['show-status'];
+    echo "udpated show-status<br>";
 
     if (!empty($_GET['show-text-color'])){
         $data["show"]["text"]["color"] = $_GET['show-text-color'];
@@ -43,5 +42,5 @@
         echo "Failed";
     }
     fclose($file);
-    #header('Location: http://192.168.1.38/')
+    header('Location: http://192.168.1.38/')
 ?>
