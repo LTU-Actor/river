@@ -155,7 +155,7 @@
     </div>
     <br>
     <div class="row">
-      <input type="submit" value="Submit and Reboot!">
+      <input type="submit" value="Submit and Reboot">
     </div>
     </form>
   </div>
