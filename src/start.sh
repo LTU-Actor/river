@@ -26,6 +26,7 @@ fi
 sudo cp -R "$WEBSITE_SRC" "/var/www"
 sudo chmod -R 775 "/var/www"
 
+sudo systemctl restart apache2
 
 . "$REMOTE_MASTER"
 
