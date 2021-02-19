@@ -8,6 +8,10 @@
     $data['display']['height'] = $_GET['show-height'];
     $data['display']['brightness'] = $_GET['show-brightness'];
 
+    $data["show"]["text"]["msg"] = "Rebooting";
+    $data["show"]["text"]["color"] = "#FFFFFF";
+    $data["show"]["status"]["msg"] = "";
+
     $jsonData = json_encode($data,JSON_PRETTY_PRINT);
     $handle = fopen($file, "w");
     if (!fwrite($handle, $jsonData)){

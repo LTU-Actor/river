@@ -29,6 +29,7 @@ sudo chmod -R 775 "/var/www"
 sudo chmod 777 "$DATA_JSON_SRC"
 
 sudo systemctl restart apache2
+systemctl daemon-reload
 
 . "$REMOTE_MASTER"
 
