@@ -13,8 +13,6 @@
   ?>
 </head>
 <body>
-THIS IS A TEST OF THE 
-
 <div class="grid-container">
   <div class="container">
     <h3>Defined Settings:</h3>
