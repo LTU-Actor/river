@@ -8,7 +8,7 @@
     $data['display']['height'] = $_GET['show-height'];
     $data['display']['brightness'] = $_GET['show-brightness'];
 
-    $data["show"]["text"]["msg"] = "Rebooting";
+    $data["show"]["text"]["msg"] = "Reboot";
     $data["show"]["text"]["color"] = "#FFFFFF";
     $data["show"]["status"]["msg"] = "";
 
