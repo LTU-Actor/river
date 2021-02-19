@@ -80,7 +80,7 @@ def show():
 				pixels[248] = tuple(int(colorHex[i:i+2], 16) for i in (0, 2, 4))
 			else:
 				pixels[248] = [0, 0, 0]
-		gap = 1
+		gap = 0
 	else:
 		statusWidth = 0
 		gap = 0
