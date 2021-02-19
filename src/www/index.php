@@ -87,7 +87,7 @@
           <label for="UStatus">Update status</label>
         </div>
         <div class="col-50">
-          <input type=text id="UStatus" name="show-status" placeholder="<?php echo $data['show']['status']['msg']; ?>">
+          <input type=number id="UStatus" name="show-status" placeholder="<?php echo $data['show']['status']['msg']; ?>">
         </div>
         <div class="col-25">
           <input type="color" id="UStatus" name="show-status-color" value="<?php echo $data['show']['status']['color']; ?>">
