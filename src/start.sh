@@ -31,6 +31,8 @@ sudo chmod 777 "$DATA_JSON_SRC"
 systemctl daemon-reload
 sudo systemctl restart apache2
 
+sudo apt-get isntall ros-kinetic-catkin
+
 . "$REMOTE_MASTER"
 
 cd "/home/ubuntu/catkin_ws" && catkin_make && source devel/setup.sh
