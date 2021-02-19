@@ -21,4 +21,8 @@ sudo cp "$START_PY_FILE_SRC" "$START_PY_FILE_BIN"
 
 cd "/home/ubuntu/catkin_ws" && catkin_make && source devel/setup.sh
 
+<<<<<<< HEAD
 sudo python3 "$SHOW_SRC" &
+=======
+sudo python3 "$SHOW_SRC" &
+>>>>>>> 4639f47881a1407b6a1e789a618e35b5d30b473d
