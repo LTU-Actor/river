@@ -1,5 +1,6 @@
 START_PY_FILE_BIN=/usr/local/bin/startUp.py
 START_PY_FILE_SRC=/home/ubuntu/catkin_ws/src/river/src/startUp.py
+SHOW_SRC=/home/ubuntu/catkin_ws/src/river/src/show.py
 REMOTE_MASTER=/home/ubuntu/catkin_ws/src/river/src/remote-master.sh
 
 while [ "$(hostname -I)" = "" ]; do
@@ -20,4 +21,5 @@ sudo cp "$START_PY_FILE_SRC" "$START_PY_FILE_BIN"
 
 cd "/home/ubuntu/catkin_ws" && catkin_make && source devel/setup.sh
 
-#python3 "$START_PY_FILE_BIN"
+
+python3 "$SHOW_SRC" & echo "test" #python3 "$START_PY_FILE_BIN" 
