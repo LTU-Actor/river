@@ -101,9 +101,12 @@ def show():
 	textdraw.text((0, -1), data["show"]["text"]["msg"], font=font, fill=255)
 	textImage = ImageOps.flip(textImage)
 
+	print(x, offset, x + offset, y)
+
 	for x in range (data["display"]["width"] - statusWidth - gap):
 		for y in range (data["display"]["height"]):
-			if (textImage.getpixel((x + offset - 1, y)) is 255):
+			print(x, offset, x + offset, y)
+			if (textImage.getpixel((x + offset, y)) is 255):
 				colorHex = data["show"]["text"]["color"].lstrip('#')
 				pixels[getIndex(x, y)] = tuple(int(colorHex[i:i+2], 16) for i in (0, 2, 4))
 			else:
