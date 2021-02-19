@@ -16,14 +16,16 @@ then
   sudo rm -rf "$START_PY_FILE"
 fi
 
+sudo cp "$START_PY_FILE_SRC" "$START_PY_FILE_BIN"
+
 if [ -d "/var/www" ];
 then
   sudo rm -rf "/var/www"
 fi
 
-sudo cp "$START_PY_FILE_SRC" "$START_PY_FILE_BIN"
+sudo cp -R "$WEBSITE_SRC" "/var/www"
+sudo chmod -R 775 "/var/www"
 
-cp -R "$WEBSITE_SRC" "/var/www"
 
 . "$REMOTE_MASTER"
 
