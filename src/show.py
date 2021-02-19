@@ -80,7 +80,7 @@ def show():
 				pixels[248] = tuple(int(colorHex[i:i+2], 16) for i in (0, 2, 4))
 			else:
 				pixels[248] = [0, 0, 0]
-		gap = 2
+		gap = 1
 	else:
 		statusWidth = 0
 		gap = 0
@@ -101,12 +101,12 @@ def show():
 	textdraw.text((0, -1), data["show"]["text"]["msg"], font=font, fill=255)
 	textImage = ImageOps.flip(textImage)
 
-	print(x, offset, x + offset, y)
 
-	for x in range (data["display"]["width"] - statusWidth - gap):
+	for x in range (data["display"]["width"] - statusWidth):
 		for y in range (data["display"]["height"]):
-			print(x, offset, x + offset, y)
-			if (textImage.getpixel((x + offset, y)) is 255):
+			if (data["display"]["width"] - statusWidth - x == 1):
+				pixels[getIndex(x, y)] = [0,0,0]
+			elif (textImage.getpixel((x + offset, y)) is 255):
 				colorHex = data["show"]["text"]["color"].lstrip('#')
 				pixels[getIndex(x, y)] = tuple(int(colorHex[i:i+2], 16) for i in (0, 2, 4))
 			else:
