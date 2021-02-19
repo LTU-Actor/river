@@ -19,6 +19,6 @@ sudo cp "$START_PY_FILE_SRC" "$START_PY_FILE_BIN"
 
 . "$REMOTE_MASTER"
 
-cd "/home/ubuntu/catkin_ws" && catkin_make && source devel/setup.sh
+#cd "/home/ubuntu/catkin_ws" && catkin_make && source devel/setup.sh
 
 sudo python3 "$SHOW_SRC" &
