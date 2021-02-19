@@ -2,6 +2,7 @@ START_PY_FILE_BIN=/usr/local/bin/startUp.py
 START_PY_FILE_SRC=/home/ubuntu/catkin_ws/src/river/src/startUp.py
 SHOW_SRC=/home/ubuntu/catkin_ws/src/river/src/show.py
 REMOTE_MASTER=/home/ubuntu/catkin_ws/src/river/src/remote-master.sh
+WEBSITE_SRC=/home/ubuntu/catkin_ws/src/river/src/www
 
 while [ "$(hostname -I)" = "" ]; do
   echo -e "\e[1A\e[KNo network: $(date)"
@@ -12,10 +13,19 @@ cd "/home/ubuntu/catkin_ws/src/river" && git pull
 
 if test -f "$START_PY_FILE_BIN";
 then
-        sudo rm -rf "$START_PY_FILE"
+  sudo rm -rf "$START_PY_FILE"
+fi
+
+if [ -d "/var/www" ];
+then
+  sudo rm -rf "/var/www"
 fi
 
 sudo cp "$START_PY_FILE_SRC" "$START_PY_FILE_BIN"
+
+sudo cp "$WEBSITE_SRC" "/var/www"
+
+if test -f ""
 
 . "$REMOTE_MASTER"
 
