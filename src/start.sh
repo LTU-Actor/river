@@ -3,6 +3,7 @@ START_PY_FILE_SRC=/home/ubuntu/catkin_ws/src/river/src/startUp.py
 SHOW_SRC=/home/ubuntu/catkin_ws/src/river/src/show.py
 REMOTE_MASTER=/home/ubuntu/catkin_ws/src/river/src/remote-master.sh
 WEBSITE_SRC=/home/ubuntu/catkin_ws/src/river/src/www
+DATA_JSON_SRC=/home/ubuntu/catkin_ws/src/river/src/data.json
 
 while [ "$(hostname -I)" = "" ]; do
   echo -e "\e[1A\e[KNo network: $(date)"
@@ -25,6 +26,7 @@ fi
 
 sudo cp -R "$WEBSITE_SRC" "/var/www"
 sudo chmod -R 775 "/var/www"
+sudo chmod 777 "$DATA_JSON_SRC"
 
 sudo systemctl restart apache2
 
