@@ -14,5 +14,6 @@
         echo "Failed";
     }
     fclose($file);
+    header('Location: http://192.168.1.38/');
     shell_exec('sudo /sbin/reboot');
 ?>
