@@ -8,7 +8,8 @@
         echo "updated show-text<br>";
     }
 
-    if (!empty($_GET['show-status']) || $_GET['show-status'] == 0){
+    echo "<br><br>".$_GET['show-status']."<br><br>";
+    if (!empty($_GET['show-status'])){
         $data["show"]["status"]["msg"] = $_GET['show-status'];
         echo "udpated show-status<br>";
     }
