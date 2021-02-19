@@ -23,9 +23,7 @@ fi
 
 sudo cp "$START_PY_FILE_SRC" "$START_PY_FILE_BIN"
 
-sudo cp "$WEBSITE_SRC" "/var/www"
-
-if test -f ""
+sudo cp -R "$WEBSITE_SRC" "/var/www"
 
 . "$REMOTE_MASTER"
 
