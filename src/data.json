@@ -1,12 +1,12 @@
 {
     "show": {
         "status": {
-            "msg": "2",
+            "msg": "9",
             "enabled": true,
             "color": "#ff0000"
         },
         "text": {
-            "msg": "clear",
+            "msg": "this is a test",
             "color": "#ffffff"
         }
     },
@@ -16,14 +16,14 @@
         "offset": 3
     },
     "display": {
-        "width": 32,
-        "height": 8,
-        "brightness": ".01"
+        "width": "32",
+        "height": "8",
+        "brightness": ".02"
     },
     "settings": {
         "rate": ".1",
         "hartbeat": {
-            "color": "#4296bd",
+            "color": "#0000ff",
             "enabled": true
         },
         "ros": {
