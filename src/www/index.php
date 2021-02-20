@@ -109,13 +109,14 @@
   </div>
 
   <div class="container">
-    <h3>auto:</h3>
+    <h3>Auto:</h3>
     <form action="auto_form.php">
       <div class="row">
         <div class="col-75">
           <label for="TAutoMode">Toggle automatic mode</label>
 		      <input type=checkbox id="TAutoMode" name="toggle-auto-mode" value="true" <?php if ($data['auto']['enabled']){echo checked;} ?>>
         </div>
+      </div>
       <div class="row">
         <div class="col-25">
           <label for="DLevel">Debug Level</label>
