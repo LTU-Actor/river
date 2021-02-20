@@ -1,8 +1,11 @@
 * {
     box-sizing: border-box;
-    background-color: #3b5366;
   }
   
+  html {
+    background-color: #3b5366;
+  }
+
   input[type=text], select, textarea {
     width: 100%;
     padding: 12px;
