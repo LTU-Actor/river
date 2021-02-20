@@ -69,7 +69,6 @@ def enabledCB(msg):
 	if data["auto"]["enabled"]:
 		data["auto"]["data"]["dbw_enabled"] = msg.data
 
-		print(data["auto"]["data"]["dbw_enabled"])
 		jsonObj = json.dumps(data, indent = 4)
 
 		with open(dataFile, "w") as file:

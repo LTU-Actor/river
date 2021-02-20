@@ -105,7 +105,10 @@ def auto():
 			else:
 				currentMsg = None
 		if currentMsg is None:
-				data["show"]["text"]["msg"] = "No Errors"
+				if data["auto"]["data"]["dbw_enabled"]:
+					data["show"]["text"]["msg"] = "Sript Running"
+				else:
+					data["show"]["text"]["msg"] = "Manual Mode"
 				data["show"]["status"]["msg"] = "0"
 	
 				jsonObj = json.dumps(data, indent = 4)
@@ -203,7 +206,7 @@ pixels = neopixel.NeoPixel(
 	auto_write = False)
 
 while True:
-	#try:
+	try:
 		if not(lastUpdate == pathlib.Path(dataFile).stat().st_mtime):
 			update()
 		auto()
@@ -213,8 +216,7 @@ while True:
 		if (count > 1000000):
 			count = 0
 		time.sleep(data["settings"]["rate"])
-	#except Exception as e:
-	#	print(e)
-	#	pixels.fill(0)
-	#	pixels.show()
-	#	exit(0)
+	except:
+		pixels.fill(0)
+		pixels.show()
+		exit(0)
