@@ -13,6 +13,8 @@
         "status": {
             "msg": "9",
             "enabled": true,
+            "clear0" : false,
+            "colorGrade" : true,
             "color": "#ff0000"
         },
         "text": {

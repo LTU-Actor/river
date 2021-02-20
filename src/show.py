@@ -21,6 +21,13 @@ dataFile = "/home/ubuntu/catkin_ws/src/river/src/data.json"
 offset = 0
 count = 0
 
+statusColors = {
+	"success": "#4F8A10",
+	"info" : "#00529B",
+	"warning": "#9F6000",
+	"error": "#D8000C"
+}
+
 assert os.geteuid() is 0, '\'show.py\' must be run as administrator!'
 assert os.path.exists(dataFile), 'No such file: \'data.json\''
 
@@ -53,6 +60,8 @@ def update():
 	data["auto"]["data"]["dbw_enabled"] = bool(data["auto"]["data"]["dbw_enabled"])
 	data["show"]["text"]["msg"] = str(data["show"]["text"]["msg"])
 	data["show"]["status"]["msg"] = str(data["show"]["status"]["msg"])
+	data["show"]["status"]["colorGrade"] = bool(data["show"]["status"]["colorGrade"])
+	data["show"]["status"]["clear0"] = bool(data["show"]["status"]["clear0"])
 
 	font = ImageFont.truetype(data["font"]["path"], data["font"]["size"])
 
@@ -92,7 +101,6 @@ def auto():
 					file.write(jsonObj)
 				
 				update()
-				print("______________________:", currentMsg)
 				return
 			else:
 				currentMsg = None
@@ -116,6 +124,19 @@ def show():
 
 	textWidth, _ = font.getsize(data["show"]["text"]["msg"])
 	if (data["show"]["status"]["enabled"]):
+		if data["show"]["status"]["clear0"]:
+			if int(data["show"]["status"]["msg"]) == 0:
+				data["show"]["status"]["msg"] == ""
+		if data["show"]["status"]["colorGrade"]:
+			if (int(data["show"]["status"]["msg"]) == 0):
+				data["show"]["status"]["color"] = statusColors["success"]
+			elif (int(data["show"]["status"]["msg"]) <= 2):
+				data["show"]["status"]["color"] = statusColors["info"]
+			elif (int(data["show"]["status"]["msg"]) <= 4):
+				data["show"]["status"]["color"] = statusColors["warning"]
+			else:
+				data["show"]["status"]["color"] = statusColors["error"]
+
 		statusWidth, _ = font.getsize(data["show"]["status"]["msg"])
 
 		statusImage = Image.new('P', (statusWidth, data["display"]["height"]), 0)
