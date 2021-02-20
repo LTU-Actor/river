@@ -134,7 +134,7 @@
           <label for="DLevel">Debug Level</label>
         </div>
         <div class="col-75">
-          <input type=text id="DLevel" name="show-debug-level" value="<?php echo $data['auto']['level']; ?>" <?php if (!$data['auto']['enabled']){echo disabled;} ?>>
+          <input type=text id="DLevel" name="show-debug-level" value="<?php echo $data['auto']['level']; ?>">
         </div>
       </div>
       <div class="row">
@@ -142,7 +142,7 @@
           <label for="Duration">Duration</label>
         </div>
         <div class="col-75">
-          <input type=text id="Duration" name="show-duration" value="<?php echo $data['auto']['duration']; ?>" <?php if (!$data['auto']['enabled']){echo disabled;} ?>>
+          <input type=text id="Duration" name="show-duration" value="<?php echo $data['auto']['duration']; ?>">
         </div>
       </div>
       <div class="row">
@@ -150,7 +150,7 @@
           <label for="Timeout">Timeout</label>
         </div>
         <div class="col-75">
-          <input type=text id="Timeout" name="show-timeout" value="<?php echo $data['auto']['timeout']; ?>" <?php if (!$data['auto']['enabled']){echo disabled;} ?>>
+          <input type=text id="Timeout" name="show-timeout" value="<?php echo $data['auto']['timeout']; ?>">
         </div>
       </div>
 
