@@ -109,7 +109,7 @@
   </div>
 
   <div class="container">
-    <h3>Auto:</h3>
+    <h3>Automatic mode:</h3>
     <form action="auto_form.php">
       <div class="row">
         <div class="col-75">
