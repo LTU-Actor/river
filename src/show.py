@@ -67,8 +67,8 @@ def auto():
 		return
 	
 	for msg in data["auto"]["data"]["msgs"]:
-		print(msg)
 		if data["auto"]["level"] >= msg["level"]:
+			print(msg)
 			displayQueue.append(msg)
 
 	#if the message has been shown for the duration amount clear it
