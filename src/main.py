@@ -59,10 +59,12 @@ def statusCB(msg):
 	update()
 
 def logCB(msg):
+	print(str(msg.level) + " : " + str(msg.msg) + " : " + str(msg.header.stamp.to_sec()))
 	logging.info(str(msg.level) + " : " + str(msg.msg) + " : " + str(msg.header.stamp.to_sec()))
 
 if __name__ == '__main__':
 	rospy.init_node('display_node')
+	logging.info('display_node')
 
 	rospy.Subscriber("display/text", String, textCB)
 	rospy.Subscriber("display/status", Int8, statusCB)
