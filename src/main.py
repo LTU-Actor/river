@@ -18,7 +18,7 @@ text = None
 status = None
 log = None
 
-logging.basicConfig(filename=logFile, encoding='utf-8', level=logging.DEBUG)
+logging.basicConfig(filename=logFile, encoding='utf-8', level=logging.INFO)
 
 assert os.path.exists(dataFile), 'No such file: \'data.json\''
 
