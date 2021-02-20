@@ -67,6 +67,7 @@ def auto():
 		return
 	
 	for msg in data["auto"]["data"]["msgs"]:
+		print(msg)
 		if data["auto"]["level"] >= msg["level"]:
 			displayQueue.append(msg)
 
