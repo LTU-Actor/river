@@ -88,7 +88,7 @@
           <input type=text id="UStatus" name="show-status" value="<?php echo $data['show']['status']['msg']; ?>">
         </div>
         <div class="col-25">
-          <input type="color" id="UStatus" name="show-status-color" value="<?php echo $data['show']['status']['color']; ?>">
+          <input type="color" id="UStatus" name="show-status-color" value="<?php echo $data['show']['status']['color']; ?>" disabled>
         </div>
       </div>
 	    <div class="row">
@@ -98,6 +98,18 @@
         </div>
 		    <div class="col-25">
           <input type="color" id="Theartbeat" name="heartbeat-color" value="<?php echo $data['settings']['hartbeat']['color']; ?>">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-75">
+          <label for="TColorGrade">Toggle status color grade</label>
+		      <input type=checkbox id="TColorGrade" name="toggle-color-grade" value="true" <?php if ($data['show']['status']['colorGrade']){echo checked;} ?>>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-75">
+          <label for="TClearZero">Toggle clear zero</label>
+		      <input type=checkbox id="TClearZero" name="toggle-clear-zero" value="true" <?php if ($data['show']['status']['clear0']){echo checked;} ?>>
         </div>
       </div>
       <br>

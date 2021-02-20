@@ -36,6 +36,24 @@
         echo "udpated heartbeat-color<br>";
     }
 
+    if (!empty($_GET['toggle-color-grade'])){
+        $data["show"]["status"]["colorGrade"] = true;
+        echo "toggle-heartbeat true<br>";
+    }
+    else{
+        $data["show"]["status"]["colorGrade"] = false;
+        echo "toggle-heartbeat false<br>";
+    }
+
+    if (!empty($_GET['toggle-clear-zero'])){
+        $data["show"]["status"]["clear0"] = true;
+        echo "toggle-heartbeat true<br>";
+    }
+    else{
+        $data["show"]["status"]["clear0"] = false;
+        echo "toggle-heartbeat false<br>";
+    }
+
     $jsonData = json_encode($data,JSON_PRETTY_PRINT);
     $handle = fopen($file, "w");
     if (!fwrite($handle, $jsonData)){
