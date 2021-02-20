@@ -4,17 +4,21 @@ import os
 import rospy
 import json
 import pathlib
+import logging
 from std_msgs.msg import String
 from std_msgs.msg import Int8
 from rosgraph_msgs.msg import Log
 
 dataFile = "/home/ubuntu/catkin_ws/src/river/src/data.json"
+logFile = "/home/ubuntu/catkin_ws/src/river/src/main.log"
 
 lastUpdate = None
 data = None
 text = None
 status = None
 log = None
+
+logging.basicConfig(filename=logFile, encoding='utf-8', level=logging.DEBUG)
 
 assert os.path.exists(dataFile), 'No such file: \'data.json\''
 
@@ -55,7 +59,7 @@ def statusCB(msg):
 	update()
 
 def logCB(msg):
-	print(msg.level, msg.msg, msg.header.stamp.to_sec())
+	logging.info(str(msg.level) + " : " + str(msg.msg) + " : " + str(msg.header.stamp.to_sec()))
 
 if __name__ == '__main__':
 	rospy.init_node('display_node')
