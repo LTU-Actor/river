@@ -18,8 +18,6 @@ text = None
 status = None
 log = None
 
-logging.basicConfig(filename=logFile, encoding='utf-8', level=logging.INFO)
-
 assert os.path.exists(dataFile), 'No such file: \'data.json\''
 
 def update():
@@ -59,13 +57,11 @@ def statusCB(msg):
 	update()
 
 def logCB(msg):
-	print(str(msg.level) + " : " + str(msg.name) + " : " + str(msg.topics) + " : " + str(msg.msg) + " : " + str(msg.header.stamp.to_sec()))
-	#logging.info(str(msg.level) + " : " + str(msg.name) + " : " + str(msg.topics) + " : " + str(msg.msg) + " : " + str(msg.header.stamp.to_sec()))
+	print(str(msg.level) + " : " + str(msg.name) + " : " + str(msg.topics) + " : " + str(msg.msg) + " : " + str(msg.header.stamp.to_sec())+ " : " + str(msg.file))
 
 if __name__ == '__main__':
 	rospy.init_node('display_node')
 	print('display_node')
-	#logging.info('display_node')
 
 	rospy.Subscriber("display/text", String, textCB)
 	rospy.Subscriber("display/status", Int8, statusCB)

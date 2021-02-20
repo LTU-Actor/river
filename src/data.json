@@ -1,4 +1,9 @@
 {
+    "auto": {
+        "enabled" : true,
+        "level": 4,
+        "duration": 6
+    },
     "show": {
         "status": {
             "msg": "9",
