@@ -74,10 +74,9 @@ def auto():
 
 	#if the message has been shown for the duration amount clear it
 	if currentMsg is not None:
-		if (int(time.time()) - currentMsg["PItime"] < data["auto"]["duration"]):
+		if (int(time.time()) - currentMsg["PItime"] > data["auto"]["duration"]):
 			currentMsg = None
 
-	print(displayQueue)
 	#if message is clear find the next one or print no errors
 	if currentMsg is None:
 		while displayQueue:
