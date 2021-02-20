@@ -64,7 +64,7 @@ def auto():
 	if not data["auto"]["enabled"]:
 		return
 	
-	for msg in data["auto"]["data"]["msg"]:
+	for msg in data["auto"]["data"]["msgs"]:
 		if data["auto"]["level"] >= msg["level"]:
 			displayQueue.append(msg)
 
