@@ -176,7 +176,7 @@ pixels = neopixel.NeoPixel(
 	auto_write = False)
 
 while True:
-	try:
+	#try:
 		if not(lastUpdate == pathlib.Path(dataFile).stat().st_mtime):
 			update()
 		auto()
@@ -186,8 +186,8 @@ while True:
 		if (count > 1000000):
 			count = 0
 		time.sleep(data["settings"]["rate"])
-	except Exception as e:
-		print(e)
-		pixels.fill(0)
-		pixels.show()
-		exit(0)
+	#except Exception as e:
+	#	print(e)
+	#	pixels.fill(0)
+	#	pixels.show()
+	#	exit(0)
