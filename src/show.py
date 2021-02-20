@@ -209,7 +209,10 @@ while True:
 	try:
 		if not(lastUpdate == pathlib.Path(dataFile).stat().st_mtime):
 			update()
-		auto()
+		try:
+			auto()
+		except Exception as e:
+			print("Function auto() Failed!", e)
 		show()
 
 		count += 1

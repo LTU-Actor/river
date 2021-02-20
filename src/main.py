@@ -30,51 +30,63 @@ def update():
 
 
 def textCB(msg):
-	data["show"]["text"]["msg"] = str(msg.data)
+	try:
+		data["show"]["text"]["msg"] = str(msg.data)
 
-	jsonObj = json.dumps(data, indent = 4)
+		jsonObj = json.dumps(data, indent = 4)
 
-	with open(dataFile, "w") as file:
-		file.write(jsonObj)
-	update()
+		with open(dataFile, "w") as file:
+			file.write(jsonObj)
+		update()
+	except:
+		print("Function error: textCB, in main.py!")
 
 def statusCB(msg):
-	data["show"]["status"]["msg"] = str(msg.data)
+	try:
+		data["show"]["status"]["msg"] = str(msg.data)
 
-	jsonObj = json.dumps(data, indent = 4)
+		jsonObj = json.dumps(data, indent = 4)
 
-	with open(dataFile, "w") as file:
-		file.write(jsonObj)
+		with open(dataFile, "w") as file:
+			file.write(jsonObj)
 
-	update()
+		update()
+	except:
+		print("Function error: statusCB, in main.py!")
 
 def logCB(msg):
-	if data["auto"]["enabled"]:
-		data["auto"]["data"]["msgs"].append(
-			{"level": msg.level, 
-			"ROStime": msg.header.stamp.to_sec(), 
-			"PItime": int(time.time()), 
-			"name": msg.name, 
-			"topics": msg.topics, 
-			"msg": msg.msg})
+	try:
+		if data["auto"]["enabled"]:
+			data["auto"]["data"]["msgs"].append(
+				{"level": msg.level, 
+				"ROStime": msg.header.stamp.to_sec(), 
+				"PItime": int(time.time()), 
+				"name": msg.name, 
+				"topics": msg.topics, 
+				"msg": msg.msg})
 
-		jsonObj = json.dumps(data, indent = 4)
+			jsonObj = json.dumps(data, indent = 4)
 
-		with open(dataFile, "w") as file:
-			file.write(jsonObj)
+			with open(dataFile, "w") as file:
+				file.write(jsonObj)
 
-		update()
+			update()
+	except:
+		print("Function error: logCB, in main.py!")
 
 def enabledCB(msg):
-	if data["auto"]["enabled"]:
-		data["auto"]["data"]["dbw_enabled"] = msg.data
+	try:
+		if data["auto"]["enabled"]:
+			data["auto"]["data"]["dbw_enabled"] = msg.data
 
-		jsonObj = json.dumps(data, indent = 4)
+			jsonObj = json.dumps(data, indent = 4)
 
-		with open(dataFile, "w") as file:
-			file.write(jsonObj)
+			with open(dataFile, "w") as file:
+				file.write(jsonObj)
 
-		update()
+			update()
+	except:
+		print("Function error: enabledCB, in main.py!")
 
 if __name__ == '__main__':
 	rospy.init_node('display_node')
