@@ -51,6 +51,8 @@ def update():
 	data["auto"]["duration"] = int(data["auto"]["duration"])
 	data["auto"]["timeout"] = int(data["auto"]["timeout"])
 	data["auto"]["data"]["dbw_enabled"] = bool(data["auto"]["data"]["dbw_enabled"])
+	data["show"]["text"]["msg"] = str(data["show"]["text"]["msg"])
+	data["show"]["status"]["msg"] = str(data["show"]["status"]["msg"])
 
 	font = ImageFont.truetype(data["font"]["path"], data["font"]["size"])
 
@@ -93,7 +95,7 @@ def auto():
 				currentMsg = None
 		if currentMsg is None:
 				data["show"]["text"]["msg"] = "No Errors"
-				data["show"]["status"]["msg"] = 0
+				data["show"]["status"]["msg"] = "0"
 	
 				jsonObj = json.dumps(data, indent = 4)
 
