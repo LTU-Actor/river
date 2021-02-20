@@ -71,6 +71,7 @@ def update():
 def auto():
 	global displayQueue
 	global currentMsg
+	global count
 
 	if not data["auto"]["enabled"]:
 		return
@@ -91,6 +92,7 @@ def auto():
 		while displayQueue:
 			currentMsg = displayQueue.pop()
 			if (int(time.time()) - currentMsg["PItime"] < data["auto"]["timeout"]):
+				count = 0
 				currentMsg["PItime"] = int(time.time())
 				data["show"]["text"]["msg"] = currentMsg["msg"]
 				data["show"]["status"]["msg"] = currentMsg["level"]
