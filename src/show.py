@@ -67,19 +67,22 @@ def auto():
 		return
 	
 	for msg in data["auto"]["data"]["msgs"]:
-		if data["auto"]["level"] >= msg["level"]:
-			print(msg)
+		if msg["level"] >= data["auto"]["level"]:
 			displayQueue.append(msg)
+
+	data["auto"]["data"]["msgs"] = []
 
 	#if the message has been shown for the duration amount clear it
 	if currentMsg is not None:
 		if (int(time.time()) - currentMsg["PItime"] < data["auto"]["duration"]):
 			currentMsg = None
 
+	print(displayQueue)
 	#if message is clear find the next one or print no errors
 	if currentMsg is None:
 		while displayQueue:
 			currentMsg = displayQueue.pop()
+			print("loop: ", currentMsg)
 			if (int(time.time()) - currentMsg["PItime"] < data["auto"]["timeout"]):
 				currentMsg["PItime"] = int(time.time())
 				data["show"]["text"]["msg"] = currentMsg["msg"]
