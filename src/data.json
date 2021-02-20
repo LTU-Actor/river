@@ -2,7 +2,11 @@
     "auto": {
         "enabled" : true,
         "level": 4,
-        "duration": 6
+        "duration": 6,
+        "data": {
+            "dbw_enabled": false,
+            "msg": []
+        }
     },
     "show": {
         "status": {

@@ -57,7 +57,7 @@ def statusCB(msg):
 	update()
 
 def logCB(msg):
-	print(str(msg.level) + " : " + str(msg.name) + " : " + str(msg.topics) + " : " + str(msg.msg) + " : " + str(msg.header.stamp.to_sec())+ " : " + str(msg.file))
+	print([msg.level, msg.header.stamp.to_sec(), msg.name, msg.topics, msg.msg])
 
 if __name__ == '__main__':
 	rospy.init_node('display_node')
