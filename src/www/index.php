@@ -92,9 +92,12 @@
         </div>
       </div>
 	    <div class="row">
-        <div class="col-75">
+        <div class="col-50">
           <label for="Theartbeat">Toggle heartbeat</label>
 		      <input type=checkbox id="Theartbeat" name="toggle-heartbeat" value="true" <?php if ($data['settings']['hartbeat']['enabled']){echo checked;} ?>>
+        </div>
+        <div class="col-25">
+        <label for="heartbeat-color">Heartbeat color</label>
         </div>
 		    <div class="col-25">
           <input type="color" id="Theartbeat" name="heartbeat-color" value="<?php echo $data['settings']['hartbeat']['color']; ?>">
