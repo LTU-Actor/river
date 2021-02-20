@@ -3,6 +3,7 @@
 import os
 import rospy
 import json
+import time
 import pathlib
 import logging
 from std_msgs.msg import String
@@ -48,41 +49,44 @@ def statusCB(msg):
 	update()
 
 def logCB(msg):
-	data["auto"]["data"]["msg"].append(
-		[msg.level, 
-		msg.header.stamp.to_sec(), 
-		msg.name, 
-		msg.topics, 
-		msg.msg])
+	if data["auto"]["enabled"]:
+		data["auto"]["data"]["msgs"].append(
+			{"level": msg.level, 
+			"ROStime": msg.header.stamp.to_sec(), 
+			"PItime": int(time.time()), 
+			"name": msg.name, 
+			"topics": msg.topics, 
+			"msg": msg.msg})
 
-	jsonObj = json.dumps(data, indent = 4)
+		jsonObj = json.dumps(data, indent = 4)
 
-	with open(dataFile, "w") as file:
-		file.write(jsonObj)
+		with open(dataFile, "w") as file:
+			file.write(jsonObj)
 
-	update()
+		update()
 
 def enabledCB(msg):
-	data["auto"]["data"]["dbw_enabled"] = msg.data
+	if data["auto"]["enabled"]:
+		data["auto"]["data"]["dbw_enabled"] = msg.data
 
-	jsonObj = json.dumps(data, indent = 4)
+		jsonObj = json.dumps(data, indent = 4)
 
-	with open(dataFile, "w") as file:
-		file.write(jsonObj)
+		with open(dataFile, "w") as file:
+			file.write(jsonObj)
 
-	update()
+		update()
 
 if __name__ == '__main__':
 	rospy.init_node('display_node')
+	print("display_node started!")
 
 	update()
-	data["auto"]["data"]["msg"] = []
+	data["auto"]["data"]["msgs"] = []
 
 	jsonObj = json.dumps(data, indent = 4)
-	
+
 	with open(dataFile, "w") as file:
 		file.write(jsonObj)
-
 
 	rospy.Subscriber("display/text", String, textCB)
 	rospy.Subscriber("display/status", Int8, statusCB)

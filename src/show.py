@@ -13,6 +13,9 @@ data = None
 pixels = None
 lastUpdate = None
 
+displayQueue = []
+currentMsg = None
+
 dataFile = "/home/ubuntu/catkin_ws/src/river/src/data.json"
 
 offset = 0
@@ -43,10 +46,61 @@ def update():
 	data["display"]["height"] = int(data["display"]["height"])
 	data["display"]["width"] = int(data["display"]["width"])
 
+	data["auto"]["enabled"] = bool(data["auto"]["enabled"])
+	data["auto"]["level"] = int(data["auto"]["level"])
+	data["auto"]["duration"] = int(data["auto"]["duration"])
+	data["auto"]["timeout"] = int(data["auto"]["timeout"])
+	data["auto"]["data"]["dbw_enabled"] = bool(data["auto"]["data"]["dbw_enabled"])
+
 	font = ImageFont.truetype(data["font"]["path"], data["font"]["size"])
 
 	if not (proirText == data["show"]["text"]):
 		offset = 0
+
+def auto():
+	global displayQueue
+	global currentMsg
+
+	if not data["auto"]["enabled"]:
+		return
+	
+	for msg in data["auto"]["data"]["msg"]:
+		if data["auto"]["level"] >= msg["level"]:
+			displayQueue.append(msg)
+
+	#if the message has been shown for the duration amount clear it
+	if (int(time.time()) - currentMsg["PItime"] < data["auto"]["duration"]):
+		currentMsg = None
+
+	#if message is clear find the next one or print no errors
+	if currentMsg is None:
+		while displayQueue:
+			currentMsg = displayQueue.pop()
+			if (int(time.time()) - currentMsg["PItime"] < data["auto"]["timeout"]):
+				currentMsg["PItime"] = int(time.time())
+				data["show"]["text"]["msg"] = currentMsg["msg"]
+				data["show"]["status"]["msg"] = currentMsg["level"]
+
+				jsonObj = json.dumps(data, indent = 4)
+
+				with open(dataFile, "w") as file:
+					file.write(jsonObj)
+				
+				update()
+				break
+			else:
+				currentMsg = None
+		if currentMsg is None:
+				data["show"]["text"]["msg"] = "No Errors"
+				data["show"]["status"]["msg"] = 0
+	
+				jsonObj = json.dumps(data, indent = 4)
+
+				with open(dataFile, "w") as file:
+					file.write(jsonObj)
+				
+				update()
+
 
 def show():
 	def getIndex(x, y):
@@ -124,11 +178,13 @@ pixels = neopixel.NeoPixel(
 while True:
 	try:
 		if not(lastUpdate == pathlib.Path(dataFile).stat().st_mtime):
-			print("Update")
 			update()
+		auto()
 		show()
 
 		count += 1
+		if (count > 1000000):
+			count = 0
 		time.sleep(data["settings"]["rate"])
 	except:
 		pixels.fill(0)

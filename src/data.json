@@ -3,9 +3,10 @@
         "enabled" : true,
         "level": 4,
         "duration": 6,
+        "timeout" : 30,
         "data": {
             "dbw_enabled": false,
-            "msg": []
+            "msgs": []
         }
     },
     "show": {
