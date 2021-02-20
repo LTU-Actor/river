@@ -20,13 +20,16 @@ data = None
 assert os.path.exists(dataFile), 'No such file: \'data.json\''
 
 def update():
-	global lastUpdate
-	global data
+	try:
+		global lastUpdate
+		global data
 
-	with open(dataFile) as file:
-		data = json.load(file)
+		with open(dataFile) as file:
+			data = json.load(file)
 
-	lastUpdate = pathlib.Path(dataFile).stat().st_mtime
+		lastUpdate = pathlib.Path(dataFile).stat().st_mtime
+	except Exception as e:
+		print("Update Function Failed:", e)
 
 
 def textCB(msg):
