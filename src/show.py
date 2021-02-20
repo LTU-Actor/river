@@ -82,9 +82,7 @@ def auto():
 	if currentMsg is None:
 		while displayQueue:
 			currentMsg = displayQueue.pop()
-			print(int(time.time()) - currentMsg["PItime"], "<", data["auto"]["timeout"])
 			if (int(time.time()) - currentMsg["PItime"] < data["auto"]["timeout"]):
-				print("______________________")
 				currentMsg["PItime"] = int(time.time())
 				data["show"]["text"]["msg"] = currentMsg["msg"]
 				data["show"]["status"]["msg"] = currentMsg["level"]
@@ -95,7 +93,7 @@ def auto():
 					file.write(jsonObj)
 				
 				update()
-				break
+				return
 			else:
 				currentMsg = None
 		if currentMsg is None:
