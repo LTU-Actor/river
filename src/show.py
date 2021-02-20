@@ -93,6 +93,7 @@ def auto():
 					file.write(jsonObj)
 				
 				update()
+				print("______________________:", currentMsg)
 				return
 			else:
 				currentMsg = None
