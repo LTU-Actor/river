@@ -64,6 +64,7 @@ def logCB(msg):
 
 if __name__ == '__main__':
 	rospy.init_node('display_node')
+	print('display_node')
 	logging.info('display_node')
 
 	rospy.Subscriber("display/text", String, textCB)
