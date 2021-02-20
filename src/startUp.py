@@ -39,7 +39,6 @@ def show(text, status):
 
 firstrun = True
 mainProcess = None
-#showProcess = subprocess.Popen('sudo python3 /home/ubuntu/catkin_ws/src/river/src/show.py', stdout = subprocess.PIPE, shell = True)
 
 try:
     while True:

@@ -55,7 +55,7 @@ def statusCB(msg):
 	update()
 
 def logCB(msg):
-	pass
+	print(msg.level, msg.msg, msg.header.stamp.to_sec())
 
 if __name__ == '__main__':
 	rospy.init_node('display_node')
