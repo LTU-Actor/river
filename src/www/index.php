@@ -88,7 +88,7 @@
           <input type=text id="UStatus" name="show-status" value="<?php echo $data['show']['status']['msg']; ?>">
         </div>
         <div class="col-25">
-          <input type="color" id="UStatus" name="show-status-color" value="<?php echo $data['show']['status']['color']; ?>" disabled>
+          <input type="color" id="UStatus" name="show-status-color" value="<?php echo $data['show']['status']['color']; ?>" <?php if ($data['show']['status']['colorGrade']){echo disabled;} ?>>
         </div>
       </div>
 	    <div class="row">
