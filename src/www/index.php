@@ -20,14 +20,13 @@
         return false;
       }
     }
-    /*
     function validateAutoForm(){
       debug = document.forms["auto_form"]["show-debug-level"].value;
       if (isNaN(debug)){
         alert("Debug Level: must be a number!");
         return false;
       }
-      if (0 > parseInt(debug) or parseInt(debug) > 8){
+      if (0 > parseInt(debug) || parseInt(debug) > 8){
         alert("Debug Level: must be a number between 0 and 8!");
         return false;
       }
@@ -50,6 +49,7 @@
         return false;
       }
     }
+    /*
     function validateRestartForm(){
       port = document.forms["restart_form"]["show-port"].value;
       if (isNaN(port)){
@@ -83,7 +83,7 @@
         alert("Brightness: must be a number!");
         return false;
       }
-      if (0 >= parseInt(brightness) or parseInt(brightness) > 1){
+      if (0 >= parseInt(brightness) || parseInt(brightness) > 1){
         alert("Brightness: must be a number between 0 and 1!");
         return false;
       }
