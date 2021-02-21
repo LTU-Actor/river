@@ -4,7 +4,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <script>
-
+    function validateShowForm(){
+      text = document.forms["show_form"]["show-text"].value;
+      if (text.length > 50){
+        alert("Text cannot be longer then 50 characters!");
+        return false;
+      }
+      status = document.forms["show_form"]["show-status"].value;
+      if (status.length > 2){
+        alert("Status cannot be longer then 2 characters!");
+        return false;
+      }
+      if (isNaN(status)){
+        alert("Status must be a number!");
+        return false;
+      }
+    }
   </script>
   <?php
     $file = "/home/ubuntu/catkin_ws/src/river/src/data.json";
@@ -68,7 +83,7 @@
 
   <div class="container">
     <h3>Show:</h3>
-    <form action="show_form.php">
+    <form name="show_form" action="show_form.php" onsubmit="return validateShowForm()">
       <div class="row">
         <div class="col-25">
           <label for="UText">Update text</label>
