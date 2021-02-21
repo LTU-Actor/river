@@ -20,6 +20,7 @@
         return false;
       }
     }
+    /*
     function validateAutoForm(){
       debug = document.forms["auto_form"]["show-debug-level"].value;
       if (isNaN(debug)){
@@ -88,6 +89,7 @@
       }
       return confirm("Are you sure you want to submit, this will cause a restart!");
     }
+    */
   </script>
   <?php
     $file = "/home/ubuntu/catkin_ws/src/river/src/data.json";
