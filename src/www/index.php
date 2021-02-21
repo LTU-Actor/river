@@ -49,7 +49,6 @@
         return false;
       }
     }
-    /*
     function validateRestartForm(){
       port = document.forms["restart_form"]["show-port"].value;
       if (isNaN(port)){
@@ -89,7 +88,6 @@
       }
       return confirm("Are you sure you want to submit, this will cause a restart!");
     }
-    */
   </script>
   <?php
     $file = "/home/ubuntu/catkin_ws/src/river/src/data.json";
