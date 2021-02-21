@@ -24,53 +24,67 @@
       debug = document.forms["auto_form"]["show-debug-level"].value;
       if (isNaN(debug)){
         alert("Debug Level: must be a number!");
+        return false;
       }
       if (0 > parseInt(debug) or parseInt(debug) > 8){
         alert("Debug Level: must be a number between 0 and 8!");
+        return false;
       }
       duration = document.forms["auto_form"]["show-duration"].value;
       if (isNaN(duration)){
         alert("Duration: must be a number!");
+        return false;
       }
       if (0 >= parseInt(duration)){
         alert("Duration: must be a number greater then 0!");
+        return false;
       }
       timeout = document.forms["auto_form"]["show-timeout"].value;
       if (isNaN(timeout)){
         alert("Timeout: must be a number!");
+        return false;
       }
       if (0 >= parseInt(timeout)){
         alert("Timeout: must be a number greater then 0!");
+        return false;
       }
     }
     function validateRestartForm(){
       port = document.forms["auto_form"]["show-port"].value;
       if (isNaN(port)){
         alert("Port: must be a number!");
+        return false;
       }
       if (0 > parseInt(port)){
         alert("Port: must be a number greater then 0!");
+        return false;
       }
       width = document.forms["auto_form"]["show-width"].value;
       if (isNaN(width)){
         alert("Width: must be a number!");
+        return false;
       }
       if (0 > parseInt(width)){
         alert("Width: must be a number greater then 0!");
+        return false;
       }
       height = document.forms["auto_form"]["show-height"].value;
       if (isNaN(height)){
         alert("Height: must be a number!");
+        return false;
       }
       if (0 > parseInt(height)){
         alert("Height: must be a number greater then 0!");
+        return false;
       }
       brightness = document.forms["auto_form"]["show-brightness"].value;
       if (isNaN(brightness)){
         alert("Brightness: must be a number!");
+        return false;
       }
       if (0 >= parseInt(brightness) or parseInt(brightness) > 1){
         alert("Brightness: must be a number between 0 and 1!");
+        return false;
       }
       return confirm("Are you sure you want to submit, this will cause a restart!");
     }
