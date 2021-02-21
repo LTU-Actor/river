@@ -82,7 +82,7 @@
         alert("Brightness: must be a number!");
         return false;
       }
-      if (0 >= parseInt(brightness) || parseInt(brightness) > 1){
+      if (0 >= parseFloat(brightness) || parseFloat(brightness) > 1){
         alert("Brightness: must be a number between 0 and 1!");
         return false;
       }
