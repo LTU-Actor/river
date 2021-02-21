@@ -7,18 +7,72 @@
     function validateShowForm(){
       text = document.forms["show_form"]["show-text"].value;
       if (text.length > 50){
-        alert("Text cannot be longer then 50 characters!");
+        alert("Text: cannot be longer then 50 characters!");
         return false;
       }
       status = document.forms["show_form"]["show-status"].value;
       if (status.length > 2){
-        alert("Status cannot be longer then 2 characters!");
+        alert("Status: cannot be longer then 2 characters!");
         return false;
       }
       if (isNaN(status)){
-        alert("Status must be a number!");
+        alert("Status: must be a number!");
         return false;
       }
+    }
+    function validateAutoForm(){
+      debug = document.forms["auto_form"]["show-debug-level"].value;
+      if (isNaN(debug)){
+        alert("Debug Level: must be a number!");
+      }
+      if (0 > parseInt(debug) or parseInt(debug) > 8){
+        alert("Debug Level: must be a number between 0 and 8!");
+      }
+      duration = document.forms["auto_form"]["show-duration"].value;
+      if (isNaN(duration)){
+        alert("Duration: must be a number!");
+      }
+      if (0 >= parseInt(duration)){
+        alert("Duration: must be a number greater then 0!");
+      }
+      timeout = document.forms["auto_form"]["show-timeout"].value;
+      if (isNaN(timeout)){
+        alert("Timeout: must be a number!");
+      }
+      if (0 >= parseInt(timeout)){
+        alert("Timeout: must be a number greater then 0!");
+      }
+    }
+    function validateRestartForm(){
+      port = document.forms["auto_form"]["show-port"].value;
+      if (isNaN(port)){
+        alert("Port: must be a number!");
+      }
+      if (0 > parseInt(port)){
+        alert("Port: must be a number greater then 0!");
+      }
+      width = document.forms["auto_form"]["show-width"].value;
+      if (isNaN(width)){
+        alert("Width: must be a number!");
+      }
+      if (0 >= parseInt(width)){
+        alert("Width: must be a number greater then 0!");
+      }
+      height = document.forms["auto_form"]["show-height"].value;
+      if (isNaN(height)){
+        alert("Height: must be a number!");
+      }
+      if (0 >= parseInt(height)){
+        alert("Height: must be a number greater then 0!");
+      }
+      brightness = document.forms["auto_form"]["show-brightness"].value;
+      if (isNaN(brightness)){
+        alert("Brightness: must be a number!");
+      }
+      if (0 >= parseInt(brightness) or parseInt(brightness) > 1){
+        alert("Brightness: must be a number between 0 and 1!");
+      }
+      return confirm("Are you sure you want to submit, this will cause a restart!");
     }
   </script>
   <?php
@@ -140,7 +194,7 @@
 
   <div class="container">
     <h3>Automatic mode:</h3>
-    <form action="auto_form.php">
+    <form name="auto_form" action="auto_form.php" onsubmit="return validateAutoForm()">
       <div class="row">
         <div class="col-75">
           <label for="TAutoMode">Toggle automatic mode</label>
@@ -181,7 +235,7 @@
 
   <div class="container">
     <h3>Settings (Restart Required):</h3>
-    <form action="restart_form.php">
+    <form name="restart_form" action="restart_form.php" onsubmit="return validateRestartForm()">
     <div class="row">
       <div class="col-25">
         <label for="HostIP">Host IP</label>
@@ -195,7 +249,7 @@
         <label for="Port">ROS port</label>
       </div>
       <div class="col-75">
-        <input type=text id="Port" name="show-post" value="<?php echo $data['settings']['ros']['port']; ?>">
+        <input type=text id="Port" name="show-port" value="<?php echo $data['settings']['ros']['port']; ?>">
       </div>
     </div>
     <div class="row">
