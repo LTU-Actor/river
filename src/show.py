@@ -107,7 +107,6 @@ def auto():
 			else:
 				currentMsg = None
 		if currentMsg is None:
-				count = 0
 				if data["auto"]["data"]["dbw_enabled"]:
 					data["show"]["text"]["msg"] = "Sript Running"
 				else:
