@@ -18,5 +18,5 @@
         echo "Failed";
     }
     fclose($file);
-    shell_exec('sudo /sbin/reboot');
+    #shell_exec('sudo /sbin/reboot');
 ?>
