@@ -55,14 +55,14 @@
       if (isNaN(width)){
         alert("Width: must be a number!");
       }
-      if (0 >= parseInt(width)){
+      if (0 > parseInt(width)){
         alert("Width: must be a number greater then 0!");
       }
       height = document.forms["auto_form"]["show-height"].value;
       if (isNaN(height)){
         alert("Height: must be a number!");
       }
-      if (0 >= parseInt(height)){
+      if (0 > parseInt(height)){
         alert("Height: must be a number greater then 0!");
       }
       brightness = document.forms["auto_form"]["show-brightness"].value;
