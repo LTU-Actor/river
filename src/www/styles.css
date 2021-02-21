@@ -20,7 +20,7 @@
   }
   
   input[type=submit] {
-    background-color: #4CAF50;
+    background-color: #269e2a;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -30,7 +30,7 @@
   }
   
   input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #1e7e22;
   }
   
   .container {

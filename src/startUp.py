@@ -44,13 +44,13 @@ try:
     while True:
             if isROS():
                 if mainProcess is None:
-                    show("ROS River Running", "0")
+                    show("Ready: ROS River Running", "0")
                     print("ROS River running.")
                     mainProcess = subprocess.Popen('exec rosrun river main.py', stdout = subprocess.PIPE, shell = True)
             else:
                 if not mainProcess is None or firstrun:
                     firstrun = False
-                    show("Waiting for ROS core.", "1")
+                    show("Waiting for ROS core", "4")
                     print("Waiting for ROS core.")
                     try:
                         mainProcess.kill()

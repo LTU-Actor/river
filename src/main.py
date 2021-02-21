@@ -32,7 +32,7 @@ def update():
 		print("Update Function Failed:", e)
 
 
-def textCB(msg):
+def textMsgCB(msg):
 	try:
 		data["show"]["text"]["msg"] = str(msg.data)
 
@@ -42,9 +42,34 @@ def textCB(msg):
 			file.write(jsonObj)
 		update()
 	except:
-		print("Function error: textCB, in main.py!")
+		print("Function error: textMsgCB, in main.py!")
 
-def statusCB(msg):
+def textColorCB(msg):
+	try:
+		data["show"]["text"]["color"] = str(msg.data)
+
+		jsonObj = json.dumps(data, indent = 4)
+
+		with open(dataFile, "w") as file:
+			file.write(jsonObj)
+		update()
+	except:
+		print("Function error: textColorCB, in main.py!")
+
+def statusEnabledCB(msg):
+	try:
+		data["show"]["status"]["enabled"] = msg.data
+
+		jsonObj = json.dumps(data, indent = 4)
+
+		with open(dataFile, "w") as file:
+			file.write(jsonObj)
+
+		update()
+	except:
+		print("Function error: statusEnabledCB, in main.py!")
+
+def statusNumCB(msg):
 	try:
 		data["show"]["status"]["msg"] = str(msg.data)
 
@@ -55,7 +80,32 @@ def statusCB(msg):
 
 		update()
 	except:
-		print("Function error: statusCB, in main.py!")
+		print("Function error: statusNumCB, in main.py!")
+
+def statusColorCB(msg):
+	try:
+		data["show"]["status"]["color"] = str(msg.data)
+
+		jsonObj = json.dumps(data, indent = 4)
+
+		with open(dataFile, "w") as file:
+			file.write(jsonObj)
+		update()
+	except:
+		print("Function error: statusColorCB, in main.py!")
+
+def autoEnabledCB(msg):
+	try:
+		data["auto"]["enabled"] = msg.data
+
+		jsonObj = json.dumps(data, indent = 4)
+
+		with open(dataFile, "w") as file:
+			file.write(jsonObj)
+
+		update()
+	except:
+		print("Function error: autoEnabledCB, in main.py!")
 
 def logCB(msg):
 	try:
@@ -103,8 +153,15 @@ if __name__ == '__main__':
 	with open(dataFile, "w") as file:
 		file.write(jsonObj)
 
-	rospy.Subscriber("display/text", String, textCB)
-	rospy.Subscriber("display/status", Int8, statusCB)
+	rospy.Subscriber("display/text/msg", String, textMsgCB)
+	rospy.Subscriber("display/text/color", String, textColorCB)
+
+	rospy.Subscriber("display/status/enabled", Bool, statusEnabledCB)
+	rospy.Subscriber("display/status/num", Int8, statusNumCB)
+	rospy.Subscriber("display/status/color", String, statusColorCB)
+
+	rospy.Subscriber("display/auto/enabled", Bool, autoEnabledCB)
+
 	rospy.Subscriber("rosout", Log, logCB)
 	rospy.Subscriber("/vehicle/dbw_enabled", Bool, enabledCB)
 
