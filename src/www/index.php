@@ -50,7 +50,7 @@
       }
     }
     function validateRestartForm(){
-      port = document.forms["auto_form"]["show-port"].value;
+      port = document.forms["restart_form"]["show-port"].value;
       if (isNaN(port)){
         alert("Port: must be a number!");
         return false;
@@ -59,7 +59,7 @@
         alert("Port: must be a number greater then 0!");
         return false;
       }
-      width = document.forms["auto_form"]["show-width"].value;
+      width = document.forms["restart_form"]["show-width"].value;
       if (isNaN(width)){
         alert("Width: must be a number!");
         return false;
@@ -68,7 +68,7 @@
         alert("Width: must be a number greater then 0!");
         return false;
       }
-      height = document.forms["auto_form"]["show-height"].value;
+      height = document.forms["restart_form"]["show-height"].value;
       if (isNaN(height)){
         alert("Height: must be a number!");
         return false;
@@ -77,7 +77,7 @@
         alert("Height: must be a number greater then 0!");
         return false;
       }
-      brightness = document.forms["auto_form"]["show-brightness"].value;
+      brightness = document.forms["restart_form"]["show-brightness"].value;
       if (isNaN(brightness)){
         alert("Brightness: must be a number!");
         return false;
