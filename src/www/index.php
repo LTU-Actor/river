@@ -248,6 +248,16 @@
   </div>
 
   <div class="container">
+    <h3>Network and Updates:</h3>
+    <form name="update" action="update.php">
+
+    <div class="row">
+      <input type="submit" value="Update ROS River!">
+    </div>
+    </form>
+  </div>
+
+  <div class="container">
     <h3>Settings (Restart Required):</h3>
     <form name="restart_form" action="restart_form.php" onsubmit="return validateRestartForm()">
     <div class="row">
