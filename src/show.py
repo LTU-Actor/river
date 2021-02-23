@@ -16,7 +16,7 @@ lastUpdate = None
 displayQueue = []
 currentMsg = None
 
-dataFile = "/home/ubuntu/catkin_ws/src/river/src/data.json"
+dataFile = "/home/ubuntu/catkin_ws/src/river/src/dataTemp.json"
 
 offset = 0
 count = 0

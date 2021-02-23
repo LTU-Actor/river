@@ -22,5 +22,11 @@
         echo "Failed";
     }
     fclose($file);
-    header('Location: http://192.168.1.38/')
+
+
+    $output = shell_exec('. /home/ubuntu/catkin_ws/src/river/src/start.sh')
+
+    echo "<pre>$output</pre>";
+
+    #header('Location: http://192.168.1.38/')
 ?>

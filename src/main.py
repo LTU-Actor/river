@@ -11,7 +11,7 @@ from std_msgs.msg import Int8
 from rosgraph_msgs.msg import Log
 from std_msgs.msg import Bool
 
-dataFile = "/home/ubuntu/catkin_ws/src/river/src/data.json"
+dataFile = "/home/ubuntu/catkin_ws/src/river/src/dataTemp.json"
 logFile = "/home/ubuntu/catkin_ws/src/river/src/main.log"
 
 lastUpdate = None

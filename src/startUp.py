@@ -6,7 +6,7 @@ import signal
 import rosgraph
 import subprocess
 
-dataFile = "/home/ubuntu/catkin_ws/src/river/src/data.json"
+dataFile = "/home/ubuntu/catkin_ws/src/river/src/dataTemp.json"
 
 class timeout:
     def __init__(self, seconds=1, error_message='Timeout'):
