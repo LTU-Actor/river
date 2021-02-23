@@ -24,7 +24,8 @@
     fclose($file);
 
 
-    $output = shell_exec('. /home/ubuntu/catkin_ws/src/river/src/start.sh')
+    #$output = shell_exec('. /home/ubuntu/catkin_ws/src/river/src/start.sh')
+    $output = shell_exec('ip link')
 
     echo "<pre>$output</pre>";
 
