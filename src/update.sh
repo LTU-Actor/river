@@ -5,6 +5,7 @@ SHOW_SRC=/home/ubuntu/catkin_ws/src/river/src/show.py
 REMOTE_MASTER=/home/ubuntu/catkin_ws/src/river/src/remote-master.sh
 WEBSITE_SRC=/home/ubuntu/catkin_ws/src/river/src/www
 DATA_JSON_SRC=/home/ubuntu/catkin_ws/src/river/src/data.json
+UPDATE_SH_FILE=/home/ubuntu/catkin_ws/src/river/src/update.sh
 
 while [ "$(hostname -I)" = "" ]; do
   echo -e "\e[1A\e[KNo network: $(date)"
@@ -29,6 +30,7 @@ sudo cp -R "$WEBSITE_SRC" "/var/www"
 sudo chmod -R 775 "/var/www"
 sudo chmod 777 "$DATA_JSON_SRC"
 sudo chmod 777 "$START_SH_FILE"
+sudo chmod 777 "$UPDATE_SH_FILE"
 
 systemctl daemon-reload
 sudo systemctl restart apache2
