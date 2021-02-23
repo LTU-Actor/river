@@ -25,6 +25,7 @@
 
 
     $output = exec('. /home/ubuntu/catkin_ws/src/river/src/start.sh 2>&1');
+    $output = exec('who');
     #$output = shell_exec('ip link')
 
     echo "<pre>$output</pre>";
