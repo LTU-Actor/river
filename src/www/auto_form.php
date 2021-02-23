@@ -1,16 +1,11 @@
 <?php
     $file = "/home/ubuntu/catkin_ws/src/river/src/data.json";
-    $strData = file_get_contents($file);
-    $data = json_decode($strData, true);
-    
     $fileTemp = "/home/ubuntu/catkin_ws/src/river/src/dataTemp.json";
+
     $strDataTemp = file_get_contents($fileTemp);
-    $dataTemp = json_decode($strDataTemp, true);
-
-    $data = $dataTemp
-
     fclose($fileTemp);
-
+    $data = json_decode($strDataTemp, true);
+    
     if (!empty($_GET["toggle-auto-mode"])){
         $data['auto']['enabled'] = true;
     }
@@ -18,11 +13,9 @@
         $data['auto']['enabled'] = false;
     }
 
-
     $data['auto']['level'] = $_GET["show-debug-level"];
     $data['auto']['duration'] = $_GET["show-duration"];
     $data['auto']['timeout'] = $_GET["show-timeout"];
-
 
     $jsonData = json_encode($data,JSON_PRETTY_PRINT);
     $handle = fopen($file, "w");

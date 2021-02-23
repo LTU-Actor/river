@@ -1,15 +1,10 @@
 <?php
-    $file = "/home/ubuntu/catkin_ws/src/river/src/data.json";
-    $strData = file_get_contents($file);
-    $data = json_decode($strData, true);
-    
+     $file = "/home/ubuntu/catkin_ws/src/river/src/data.json";
     $fileTemp = "/home/ubuntu/catkin_ws/src/river/src/dataTemp.json";
+    
     $strDataTemp = file_get_contents($fileTemp);
-    $dataTemp = json_decode($strDataTemp, true);
-
-    $data = $dataTemp
-
     fclose($fileTemp);
+    $data = json_decode($strDataTemp, true);
 
     if (!empty($_GET['show-text'])){
         $data["show"]["text"]["msg"] = $_GET['show-text'];
