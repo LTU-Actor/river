@@ -29,5 +29,5 @@
 
     echo "<pre>$output</pre>";
 
-    header('Location: http://192.168.1.38/');
+    #header('Location: http://192.168.1.38/');
 ?>
