@@ -28,7 +28,5 @@
     #$output = shell_exec("id -u -n");
     #$output = shell_exec('ip link')
 
-    echo "<pre>$output</pre>";
-
-    #header('Location: http://192.168.1.38/');
+    header('Location: http://192.168.1.38/');
 ?>
