@@ -2,6 +2,14 @@
     $file = "/home/ubuntu/catkin_ws/src/river/src/data.json";
     $strData = file_get_contents($file);
     $data = json_decode($strData, true);
+    
+    $fileTemp = "/home/ubuntu/catkin_ws/src/river/src/dataTemp.json";
+    $strDataTemp = file_get_contents($fileTemp);
+    $dataTemp = json_decode($strDataTemp, true);
+
+    $data = $dataTemp
+
+    fclose($fileTemp);
 
     if (!empty($_GET['show-text'])){
         $data["show"]["text"]["msg"] = $_GET['show-text'];
@@ -60,7 +68,7 @@
         echo "Failed";
     }
     fclose($file);
-    
+
     shell_exec('cd /home/ubuntu/catkin_ws/src/river/src/ && sudo ./start.sh 2>&1');
 
     header('Location: http://192.168.1.38/')
