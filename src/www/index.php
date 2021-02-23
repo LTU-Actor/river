@@ -255,7 +255,8 @@
         <label for="updateRiver">Force Github update</label>
       </div>
       <div class="col-25">
-      <input type="submit" id="updateRiver" value="Update ROS River">
+        <input type="submit" id="updateRiver" value="Update ROS River">
+      </div>
     </div>
     </form>
   </div>
