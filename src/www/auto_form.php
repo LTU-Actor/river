@@ -28,7 +28,7 @@
     #$output = shell_exec('ip link')
 
     echo "<pre>$output</pre>";
-    echo "$USER";
+    echo "$USER hello";
 
     #header('Location: http://192.168.1.38/');
 ?>
