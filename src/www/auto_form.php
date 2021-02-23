@@ -24,7 +24,7 @@
     fclose($file);
 
 
-    $output = shell_exec('sudo -S ./home/ubuntu/catkin_ws/src/river/src/start.sh 2>&1');
+    $output = shell_exec('sudo ./start.sh 2>&1');
     #$output = shell_exec("id -u -n");
     #$output = shell_exec('ip link')
 
