@@ -96,7 +96,6 @@
   ?>
 </head>
 <body>
-test
 <div class="grid-container">
   <div class="container">
     <h3>Defined Settings:</h3>
@@ -251,9 +250,12 @@ test
   <div class="container">
     <h3>Network and Updates:</h3>
     <form name="update" action="update.php">
-
     <div class="row">
-      <input type="submit" value="Update ROS River!">
+      <div class="col-75">
+        <label for="updateRiver">Force Github update</label>
+      </div>
+      <div class="col-25">
+      <input type="submit" id="updateRiver" value="Update ROS River">
     </div>
     </form>
   </div>
