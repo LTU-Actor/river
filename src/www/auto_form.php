@@ -27,7 +27,7 @@
     $output = exec('. /home/ubuntu/catkin_ws/src/river/src/start.sh 2>&1')
     #$output = shell_exec('ip link')
 
-    echo $output;
+    echo "$output";
 
     #header('Location: http://192.168.1.38/')
 ?>
