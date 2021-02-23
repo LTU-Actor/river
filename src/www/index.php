@@ -90,7 +90,7 @@
     }
   </script>
   <?php
-    $file = "/home/ubuntu/catkin_ws/src/river/src/data.json";
+    $file = "/home/ubuntu/catkin_ws/src/river/src/dataTemp.json";
     $strData = file_get_contents($file);
     $data = json_decode($strData, true);
   ?>

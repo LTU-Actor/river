@@ -23,10 +23,7 @@
     }
     fclose($file);
 
-
-    $output = shell_exec('cd /home/ubuntu/catkin_ws/src/river/src/ && sudo ./start.sh 2>&1');
-    #$output = shell_exec("id -u -n");
-    #$output = shell_exec('ip link')
+    shell_exec('cd /home/ubuntu/catkin_ws/src/river/src/ && sudo ./start.sh 2>&1');
 
     header('Location: http://192.168.1.38/');
 ?>
