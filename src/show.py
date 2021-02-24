@@ -35,7 +35,7 @@ assert os.path.exists(dataFile), 'No such file: \'data.json\''
 root_logger= logging.getLogger()
 root_logger.setLevel(logging.DEBUG)
 handler = logging.FileHandler('show.log', 'w', 'utf-8')
-handler.setFormatter(logging.Formatter("%(asctime)s;%(levelname)s;%(name)s;%(message)s", "%Y-%m-%d %H:%M:%S"))
+handler.setFormatter(logging.Formatter("%(levelname)s; %(asctime)s; %(name)s; %(message)s", "%H:%M:%S"))
 root_logger.addHandler(handler)
 
 def update():
