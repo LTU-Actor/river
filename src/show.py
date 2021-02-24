@@ -136,7 +136,7 @@ def show():
 				return (x * data["display"]["height"]) + y
 			return (x * data["display"]["height"]) + (data["display"]["height"] - 1 - y)
 		except Exception as e:
-			logging.error("In show() getIndex(): index calculation failed. " + str(e))
+			logging.error("In show() getIndex(): index calculation failed. \n\t" + str(e))
 			return None
 	
 	def setColor(hexColor):
@@ -144,14 +144,14 @@ def show():
 			colorHex = hexColor.lstrip('#')
 			return tuple(int(colorHex[i:i+2], 16) for i in (0, 2, 4))
 		except Exception as e:
-			logging.error("In show() setColor(): conversion of " + str(hexColor) + " hex to RGB failed. \n\t" + str(e), exc_info=True)
+			logging.error("In show() setColor(): conversion of " + str(hexColor) + " hex to RGB failed. \n\t" + str(e))
 			return None
 
 	#set level
 	try:
 		level = int(data["show"]["status"]["msg"])
 	except Exception as e:
-		logging.error("In show(): debug level can not be converted to int. " + str(e))
+		logging.error("In show(): debug level can not be converted to int. \n\t" + str(e))
 		return 1
 
 	#set text color
@@ -175,7 +175,7 @@ def show():
 			if statusColor is None:
 				return 1
 	except Exception as e:
-		logging.error("In show(): status color set failed. " + str(e))
+		logging.error("In show(): status color set failed. \n\t" + str(e))
 		return 1
 	
 	#set heartbeat color
@@ -189,7 +189,7 @@ def show():
 			if level == 0:
 				data["show"]["status"]["msg"] = ""
 	except Exception as e:
-		logging.error("In show(): clear status failed. " + str(e))
+		logging.error("In show(): clear status failed. \n\t" + str(e))
 		return 1
 
 	#enable status
@@ -197,7 +197,7 @@ def show():
 		if data["show"]["status"]["enabled"]:
 			data["show"]["status"]["msg"] = ""
 	except Exception as e:
-		logging.error("In show(): enable status failed. " + str(e))
+		logging.error("In show(): enable status failed. \n\t" + str(e))
 		return 1
 	
 	#get status and text pixel width
@@ -205,7 +205,7 @@ def show():
 		textWidth, _ = font.getsize(data["show"]["text"]["msg"])
 		statusWidth, _ = font.getsize(data["show"]["status"]["msg"])
 	except Exception as e:
-		logging.error("In show(): text and status pixel width failed set " + str(e))
+		logging.error("In show(): text and status pixel width failed set \n\t" + str(e))
 		return 1
 
 	#sets off set for scrolling text
@@ -220,7 +220,7 @@ def show():
 		else:
 			offset -= 6
 	except Exception as e:
-		logging.error("In show(): offset failed set " + str(e))
+		logging.error("In show(): offset failed set \n\t" + str(e))
 		return 1
 
 	#display text
@@ -245,7 +245,7 @@ def show():
 				else:
 					pixels[getIndex(x, y)] = [0,0,0]
 	except Exception as e:
-		logging.error("In show(): display text failed. " + str(e))
+		logging.error("In show(): display text failed. \n\t" + str(e))
 		return 1
 
 	#display status
@@ -265,7 +265,7 @@ def show():
 				else:
 					pixels[getIndex(x + loc, y)] = [0, 0, 0]
 	except Exception as e:
-		logging.error("In show(): display status failed. " + str(e))
+		logging.error("In show(): display status failed. \n\t" + str(e))
 		return 1
 
 	#display Hearbeat
@@ -276,14 +276,14 @@ def show():
 			else:
 				pixels[248] = [0, 0, 0]
 	except Exception as e:
-		logging.error("In show(): display Heartbeat failed. " + str(e))
+		logging.error("In show(): display Heartbeat failed. \n\t" + str(e))
 		return 1
 	
 	#push all updates to display
 	try:
 		pixels.show()
 	except Exception as e:
-		logging.error("In show(): display pixels.show() failed. " + str(e))
+		logging.error("In show(): display pixels.show() failed. \n\t" + str(e))
 		return 1
 	
 	return 0
@@ -303,7 +303,7 @@ while True:
 		try:
 			auto()
 		except Exception as e:
-			logging.error("audo function failed! " + str(e))
+			logging.error("audo function failed! \n\t" + str(e))
 		print(show())
 
 		count += 1
@@ -312,7 +312,7 @@ while True:
 			count = 0
 		time.sleep(data["settings"]["rate"])
 	except Exception as e:
-		logging.info("try&except Exit: " + str(e))
+		logging.info("try&except Exit: \n\t" + str(e))
 		pixels.fill(0)
 		pixels.show()
 		exit(0)
