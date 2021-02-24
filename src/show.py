@@ -32,7 +32,11 @@ statusColors = {
 assert os.geteuid() is 0, '\'show.py\' must be run as administrator!'
 assert os.path.exists(dataFile), 'No such file: \'data.json\''
 
-logging.basicConfig(filename="show.log", encoding='utf-8', level=logging.DEBUG)
+root_logger= logging.getLogger()
+root_logger.setLevel(logging.DEBUG)
+handler = logging.FileHandler('show.log', 'w', 'utf-8')
+handler.setFormatter(logging.Formatter('%(name)s %(message)s'))
+root_logger.addHandler(handler)
 
 def update():
 	global font
