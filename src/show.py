@@ -149,6 +149,7 @@ def show():
 
 	#set level
 	try:
+		print(data["show"]["status"]["msg"], type(data["show"]["status"]["msg"]))
 		level = int(data["show"]["status"]["msg"])
 	except Exception as e:
 		logging.error("In show(): debug level can not be converted to int. \n\tError: " + str(e))
