@@ -216,17 +216,13 @@ pixels = neopixel.NeoPixel(
 
 while True:
 	try:
-		logging.info("loop and count: " + str(count))
 		if not(lastUpdate == pathlib.Path(dataFile).stat().st_mtime):
-			logging.info("update")
 			update()
 		try:
 			logging.info("auto")
 			auto()
 		except Exception as e:
 			logging.error("audo function failed! " + str(e))
-			print("Function auto() Failed!", e)
-		logging.info("show")
 		show()
 
 		count += 1
