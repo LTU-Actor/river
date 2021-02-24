@@ -35,7 +35,7 @@ assert os.path.exists(dataFile), 'No such file: \'data.json\''
 root_logger= logging.getLogger()
 root_logger.setLevel(logging.DEBUG)
 handler = logging.FileHandler('show.log', 'w', 'utf-8')
-handler.setFormatter(logging.Formatter('%(name)s %(message)s'))
+handler.setFormatter(logging.Formatter("%(asctime)s;%(levelname)s;%(name)s;%(message)s", "%Y-%m-%d %H:%M:%S"))
 root_logger.addHandler(handler)
 
 def update():
@@ -144,7 +144,7 @@ def show():
 			colorHex = hexColor.lstrip('#')
 			return tuple(int(colorHex[i:i+2], 16) for i in (0, 2, 4))
 		except Exception as e:
-			logging.error("In show() setColor(): conversion of " + str(hexColor) + " hex to RGB failed. \n\tError: " + str(e))
+			logging.error("In show() setColor(): conversion of <" + str(hexColor) + "> hex to RGB failed. \n\tError: " + str(e))
 			return None
 
 	#set level
