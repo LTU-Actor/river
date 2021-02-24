@@ -144,7 +144,7 @@ def show():
 			colorHex = hexColor.lstrip('#')
 			return tuple(int(colorHex[i:i+2], 16) for i in (0, 2, 4))
 		except Exception as e:
-			logging.error("In show() setColor(): conversion of " + str(hexColor) + " hex to RGB failed. " + str(e), exc_info=True)
+			logging.error("In show() setColor(): conversion of " + str(hexColor) + " hex to RGB failed. \n\t" + str(e), exc_info=True)
 			return None
 
 	#set level
