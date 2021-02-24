@@ -147,10 +147,11 @@ def show():
 			logging.error("In show() setColor(): conversion of <" + str(hexColor) + "> hex to RGB failed. \n\tError: " + str(e))
 			return None
 
+	statusmsg = data["show"]["status"]["msg"]
+
 	#set level
 	try:
-		print(data["show"]["status"]["msg"], type(data["show"]["status"]["msg"]))
-		level = int(data["show"]["status"]["msg"])
+		level = int(statusmsg)
 	except Exception as e:
 		logging.error("In show(): debug level can not be converted to int. \n\tError: " + str(e))
 		return 1
@@ -188,7 +189,7 @@ def show():
 	try:
 		if data["show"]["status"]["clear0"]:
 			if level == 0:
-				data["show"]["status"]["msg"] = ""
+				statusmsg = ""
 	except Exception as e:
 		logging.error("In show(): clear status failed. \n\tError: " + str(e))
 		return 1
@@ -196,7 +197,7 @@ def show():
 	#enable status
 	try:
 		if data["show"]["status"]["enabled"]:
-			data["show"]["status"]["msg"] = ""
+			statusmsg = ""
 	except Exception as e:
 		logging.error("In show(): enable status failed. \n\tError: " + str(e))
 		return 1
@@ -204,7 +205,7 @@ def show():
 	#get status and text pixel width
 	try:
 		textWidth, _ = font.getsize(data["show"]["text"]["msg"])
-		statusWidth, _ = font.getsize(data["show"]["status"]["msg"])
+		statusWidth, _ = font.getsize(statusmsg)
 	except Exception as e:
 		logging.error("In show(): text and status pixel width failed set \n\tError: " + str(e))
 		return 1
@@ -226,7 +227,7 @@ def show():
 
 	#display text
 	try:
-		if data["show"]["status"]["msg"] == "":
+		if statusmsg == "":
 			gap = 0
 		else:
 			gap = 1
@@ -254,7 +255,7 @@ def show():
 		statusImage = Image.new('P', (statusWidth, data["display"]["height"]), 0)
 		statusDraw = ImageDraw.Draw(statusImage)
 
-		statusDraw.text((0, -1), data["show"]["status"]["msg"], font=font, fill=255)
+		statusDraw.text((0, -1), statusmsg, font=font, fill=255)
 		statusImage = ImageOps.flip(statusImage)
 
 		loc = data["display"]["width"] - statusWidth
