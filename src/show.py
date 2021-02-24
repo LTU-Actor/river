@@ -6,6 +6,7 @@ import json
 import board
 import pathlib
 import neopixel
+import logging
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 font = None
@@ -30,6 +31,8 @@ statusColors = {
 
 assert os.geteuid() is 0, '\'show.py\' must be run as administrator!'
 assert os.path.exists(dataFile), 'No such file: \'data.json\''
+
+logging.basicConfig("show.log", encoding='utf-8', level=logging.DEBUG)
 
 def update():
 	global font
@@ -209,19 +212,26 @@ pixels = neopixel.NeoPixel(
 
 while True:
 	try:
+		logging.info("loop and count: " + str(count))
 		if not(lastUpdate == pathlib.Path(dataFile).stat().st_mtime):
+			logging.info("update")
 			update()
 		try:
+			logging.info("auto")
 			auto()
 		except Exception as e:
+			logging.error("audo function failed! " + str(e))
 			print("Function auto() Failed!", e)
+		logging.info("show")
 		show()
 
 		count += 1
 		if (count > 1000000):
+			logging.info("count reset: " + str(count))
 			count = 0
 		time.sleep(data["settings"]["rate"])
-	except:
+	except Exception as e:
+		logging.info("try+except Exit: " + str(e))
 		pixels.fill(0)
 		pixels.show()
 		exit(0)
