@@ -67,6 +67,7 @@ def update():
 	data["auto"]["data"]["dbw_enabled"] = bool(data["auto"]["data"]["dbw_enabled"])
 	data["show"]["text"]["msg"] = str(data["show"]["text"]["msg"])
 	data["show"]["status"]["msg"] = str(data["show"]["status"]["msg"])
+
 	data["show"]["status"]["colorGrade"] = bool(data["show"]["status"]["colorGrade"])
 	data["show"]["status"]["clear0"] = bool(data["show"]["status"]["clear0"])
 
@@ -130,27 +131,125 @@ def auto():
 
 def show():
 	def getIndex(x, y):
-		if x % 2 != 0:
-			return (x * data["display"]["height"]) + y
-		return (x * data["display"]["height"]) + (data["display"]["height"] - 1 - y)
+		try:
+			if x % 2 != 0:
+				return (x * data["display"]["height"]) + y
+			return (x * data["display"]["height"]) + (data["display"]["height"] - 1 - y)
+		except Exception as e:
+			logging.error("In show() getIndex(): index calculation failed. " + str(e))
+			return None
+	
+	def setColor(hexColor):
+		try:
+			colorHex = hexColor.lstrip('#')
+			return tuple(int(colorHex[i:i+2], 16) for i in (0, 2, 4))
+		except Exception as e:
+			logging.error("In show() setColor(): conversion of " + str(hexColor) + " hex to RGB failed. " + str(e))
+			return None
 
-	textWidth, _ = font.getsize(data["show"]["text"]["msg"])
-	if (data["show"]["status"]["enabled"]):
-		if data["show"]["status"]["clear0"]:
-			if int(data["show"]["status"]["msg"]) == 0:
-				data["show"]["status"]["msg"] == ""
+	#set level
+	try:
+		level = int(data["show"]["status"]["msg"])
+	except Exception as e:
+		logging.error("In show(): debug level can not be converted to int. " + str(e))
+		return 1
+
+	#set text color
+	textColor = setColor(data["show"]["text"]["color"])
+	if textColor is None:
+		return 1
+
+	#set status color
+	try:
 		if data["show"]["status"]["colorGrade"]:
-			if (int(data["show"]["status"]["msg"]) == 0):
-				data["show"]["status"]["color"] = statusColors["success"]
-			elif (int(data["show"]["status"]["msg"]) <= 2):
-				data["show"]["status"]["color"] = statusColors["info"]
-			elif (int(data["show"]["status"]["msg"]) <= 4):
-				data["show"]["status"]["color"] = statusColors["warning"]
+			if (level < 2):
+				statusColor = statusColors["success"]
+			elif (level < 4):
+				statusColor = statusColors["info"]
+			elif (level < 8):
+				statusColor = statusColors["warning"]
 			else:
-				data["show"]["status"]["color"] = statusColors["error"]
+				statusColor = statusColors["error"]
+		else:
+			statusColor = setColor(data["show"]["status"]["color"])
+			if statusColor is None:
+				return 1
+	except Exception as e:
+		logging.error("In show(): status color set failed. " + str(e))
+		return 1
+	
+	#set heartbeat color
+	heartbeatColor = setColor(data["settings"]["hartbeat"]["color"])
+	if heartbeatColor is None:
+		return 1
 
+	#set status to empty if 0
+	try:
+		if data["show"]["status"]["clear0"]:
+			if level == 0:
+				data["show"]["status"]["msg"] = ""
+	except Exception as e:
+		logging.error("In show(): clear status failed. " + str(e))
+		return 1
+
+	#enable status
+	try:
+		if data["show"]["status"]["enabled"]:
+			data["show"]["status"]["msg"] = ""
+	except Exception as e:
+		logging.error("In show(): enable status failed. " + str(e))
+		return 1
+	
+	#get status and text pixel width
+	try:
+		textWidth, _ = font.getsize(data["show"]["text"]["msg"])
 		statusWidth, _ = font.getsize(data["show"]["status"]["msg"])
+	except Exception as e:
+		logging.error("In show(): text and status pixel width failed set " + str(e))
+		return 1
 
+	#sets off set for scrolling text
+	try:
+		offset = count % (textWidth - data["display"]["width"] + statusWidth + 12)
+		if (textWidth < data["display"]["width"]):
+			offset = 0
+		elif (offset < 6):
+			offset = 0
+		elif (offset > (textWidth - data["display"]["width"] + statusWidth + 6)):
+			offset = (textWidth - data["display"]["width"] + statusWidth)
+		else:
+			offset -= 6
+	except Exception as e:
+		logging.error("In show(): offset failed set " + str(e))
+		return 1
+
+	#display text
+	try:
+		if data["show"]["status"]["msg"] == "":
+			gap = 0
+		else:
+			gap = 1
+
+		textImage = Image.new('P', (textWidth + data["display"]["width"] - statusWidth - gap, data["display"]["height"]), 0)
+		textdraw = ImageDraw.Draw(textImage)
+
+		textdraw.text((0, -1), data["show"]["text"]["msg"], font=font, fill=255)
+		textImage = ImageOps.flip(textImage)
+
+		for x in range (data["display"]["width"] - statusWidth):
+			for y in range (data["display"]["height"]):
+				if (data["display"]["width"] - statusWidth - x == 1):
+					pixels[getIndex(x, y)] = [0,0,0]
+				elif (textImage.getpixel((x + offset, y)) is 255):
+					pixels[getIndex(x, y)] = textColor
+				else:
+					pixels[getIndex(x, y)] = [0,0,0]
+	except Exception as e:
+		logging.error("In show(): display text failed. " + str(e))
+		return 1
+
+	#display status
+	try:
 		statusImage = Image.new('P', (statusWidth, data["display"]["height"]), 0)
 		statusDraw = ImageDraw.Draw(statusImage)
 
@@ -162,50 +261,33 @@ def show():
 		for x in range (statusWidth):
 			for y in range (data["display"]["height"]):
 				if (statusImage.getpixel((x,y)) == 255):
-					colorHex = data["show"]["status"]["color"].lstrip('#')
-					pixels[getIndex(x + loc, y)] = tuple(int(colorHex[i:i+2], 16) for i in (0, 2, 4))
+					pixels[getIndex(x + loc, y)] = statusColor
 				else:
 					pixels[getIndex(x + loc, y)] = [0, 0, 0]
+	except Exception as e:
+		logging.error("In show(): display status failed. " + str(e))
+		return 1
 
+	#display Hearbeat
+	try:
 		if (data["settings"]["hartbeat"]["enabled"]):
 			if (time.gmtime().tm_sec % 2):
-				colorHex = data["settings"]["hartbeat"]["color"].lstrip('#')
-				pixels[248] = tuple(int(colorHex[i:i+2], 16) for i in (0, 2, 4))
+				pixels[248] = heartbeatColor
 			else:
 				pixels[248] = [0, 0, 0]
-		gap = 1
-	else:
-		statusWidth = 0
-		gap = 0
+	except Exception as e:
+		logging.error("In show(): display Heartbeat failed. " + str(e))
+		return 1
+	
+	#push all updates to display
+	try:
+		pixels.show()
+	except Exception as e:
+		logging.error("In show(): display pixels.show() failed. " + str(e))
+		return 1
+	
+	return 0
 
-	offset = count % (textWidth - data["display"]["width"] + statusWidth + 12)
-	if (textWidth < data["display"]["width"]):
-		offset = 0
-	elif (offset < 6):
-		offset = 0
-	elif (offset > (textWidth - data["display"]["width"] + statusWidth + 6)):
-		offset = (textWidth - data["display"]["width"] + statusWidth)
-	else:
-		offset -= 6
-
-	textImage = Image.new('P', (textWidth + data["display"]["width"] - statusWidth - gap, data["display"]["height"]), 0)
-	textdraw = ImageDraw.Draw(textImage)
-
-	textdraw.text((0, -1), data["show"]["text"]["msg"], font=font, fill=255)
-	textImage = ImageOps.flip(textImage)
-
-
-	for x in range (data["display"]["width"] - statusWidth):
-		for y in range (data["display"]["height"]):
-			if (data["display"]["width"] - statusWidth - x == 1):
-				pixels[getIndex(x, y)] = [0,0,0]
-			elif (textImage.getpixel((x + offset, y)) is 255):
-				colorHex = data["show"]["text"]["color"].lstrip('#')
-				pixels[getIndex(x, y)] = tuple(int(colorHex[i:i+2], 16) for i in (0, 2, 4))
-			else:
-				pixels[getIndex(x, y)] = [0,0,0]
-
-	pixels.show()
 
 update()
 pixels = neopixel.NeoPixel(
@@ -222,7 +304,7 @@ while True:
 			auto()
 		except Exception as e:
 			logging.error("audo function failed! " + str(e))
-		show()
+		print(show())
 
 		count += 1
 		if (count > 1000000):
@@ -230,7 +312,7 @@ while True:
 			count = 0
 		time.sleep(data["settings"]["rate"])
 	except Exception as e:
-		logging.info("try+except Exit: " + str(e))
+		logging.info("try&except Exit: " + str(e))
 		pixels.fill(0)
 		pixels.show()
 		exit(0)
