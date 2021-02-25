@@ -348,14 +348,16 @@ def show():
 
 while True:
 	try:
-		print("sleep")
-		time.sleep(data["settings"]["rate"])
-		
+		time.sleep(1)
+
 		print(pixels is None)
 		if (lastUpdate != pathlib.Path(dataFile).stat().st_mtime or pixels is None):
 			print("update")
 			if not update():
 				continue
+		
+		print("sleep")
+		time.sleep(data["settings"]["rate"])
 		
 		print("auto")
 		if not auto():
