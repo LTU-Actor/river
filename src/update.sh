@@ -12,7 +12,7 @@ while [ "$(hostname -I)" = "" ]; do
   sleep 1
 done
 
-cd "/home/ubuntu/catkin_ws/src/river" && git pull
+cd "/home/ubuntu/catkin_ws/src/river" && git reset --hard HEAD &&git pull
 
 if test -f "$START_PY_FILE_BIN";
 then
