@@ -98,10 +98,8 @@ def update():
 	data["font"]["size"] = verify(data["font"]["size"], int)
 
 	for x in data:
-		print(x)
-		for y in x:
-			print(y)
-			for z in y:
+		for y in data[x]:
+			for z in data[x][y]:
 				print(z)
 
 	font = ImageFont.truetype(data["font"]["path"], data["font"]["size"])
