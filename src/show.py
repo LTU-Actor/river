@@ -42,7 +42,7 @@ def update():
 	def verify(data, excpectedType):
 		try:
 			if type(data) is not excpectedType:
-				data = excpectedType(data)
+				return excpectedType(data)
 		except Exception as e:
 			logging.error("In update() verify(): " + str(data) + " could not be converted to " + excpectedType + ". \n\tError: " + str(e))
 			return None
@@ -65,35 +65,39 @@ def update():
 	if not (proirText == data["show"]["text"]):
 		offset = 0
 	
-	#Verify Setting atributes
-	verify(data["settings"]["rate"], float)
-	verify(data["settings"]["heartbeat"]["color"], str)
-	verify(data["settings"]["heartbeat"]["enabled"], bool)
+	try:
+		#Verify Setting atributes
+		data = verify(data["settings"]["rate"], float)
+		data = verify(data["settings"]["heartbeat"]["color"], str)
+		data = verify(data["settings"]["heartbeat"]["enabled"], bool)
 
-	#Veridy Display atributes
-	verify(data["display"]["brightness"], float)
-	verify(data["display"]["height"], int)
-	verify(data["display"]["width"], int)
+		#Veridy Display atributes
+		data = verify(data["display"]["brightness"], float)
+		data = verify(data["display"]["height"], int)
+		data = verify(data["display"]["width"], int)
 
-	#Verify Auto atributes
-	verify(data["auto"]["enabled"], bool)
-	verify(data["auto"]["level"], int)
-	verify(data["auto"]["duration"], int)
-	verify(data["auto"]["timeout"], int)
-	verify(data["auto"]["data"]["dbw_enabled"], bool)
+		#Verify Auto atributes
+		data = verify(data["auto"]["enabled"], bool)
+		data = verify(data["auto"]["level"], int)
+		data = verify(data["auto"]["duration"], int)
+		data = verify(data["auto"]["timeout"], int)
+		data = verify(data["auto"]["data"]["dbw_enabled"], bool)
 
-	#Verify Show atributes
-	verify(data["show"]["status"]["msg"], int)
-	verify(data["show"]["status"]["enabled"], bool)
-	verify(data["show"]["status"]["colorGrade"], bool)
-	verify(data["show"]["status"]["clear0"], bool)
-	verify(data["show"]["status"]["color"], str)
-	verify(data["show"]["text"]["msg"], str)
-	verify(data["show"]["text"]["color"], str)
+		#Verify Show atributes
+		data = verify(data["show"]["status"]["msg"], int)
+		data = verify(data["show"]["status"]["enabled"], bool)
+		data = verify(data["show"]["status"]["colorGrade"], bool)
+		data = verify(data["show"]["status"]["clear0"], bool)
+		data = verify(data["show"]["status"]["color"], str)
+		data = verify(data["show"]["text"]["msg"], str)
+		data = verify(data["show"]["text"]["color"], str)
 
-	#Verify Fonts atributes
-	verify(data["font"]["path"], str)
-	verify(data["font"]["size"], int)
+		#Verify Fonts atributes
+		data = verify(data["font"]["path"], str)
+		data = verify(data["font"]["size"], int)
+	except Exception as e:
+		print(e)
+		time.sleep(100)
 
 	font = ImageFont.truetype(data["font"]["path"], data["font"]["size"])
 
