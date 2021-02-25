@@ -79,8 +79,8 @@
     display: grid;
     grid-template-columns: auto;
     grid-gap: 10px;
-    /* background-color: #3b5366; */
-    background-color: #0056B3;
+    background-color: #3b5366;
+    /* background-color: #0056B3; */
     padding: 10px;
   }
 
