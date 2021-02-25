@@ -365,9 +365,12 @@ while True:
 		tick += 1
 		if (tick > 1000000):
 			tick = 0
+	except KeyboardInterrupt:
+		exit(0)
 	except Exception as e:
 		logging.info("try&except Exit: \n\tError: " + str(e))
-		pixels.fill(0)
-		pixels.show()
-		exit(0)
+		if pixels is not None:
+			pixels.fill(0)
+			pixels.show()
+		
 
