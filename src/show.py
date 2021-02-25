@@ -349,19 +349,24 @@ def show():
 while True:
 	try:
 		if (lastUpdate != pathlib.Path(dataFile).stat().st_mtime or pixels is None):
+			print("update")
 			if not update():
 				continue
 		
+		print("auto")
 		if not auto():
 			continue
 
+		print("show")
 		if not show():
 			continue
 
+		print("tick")
 		tick += 1
 		if (tick > 1000000):
 			tick = 0
 		
+		print("sleep")
 		time.sleep(data["settings"]["rate"])
 	except Exception as e:
 		logging.info("try&except Exit: \n\tError: " + str(e))
