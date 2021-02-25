@@ -87,7 +87,9 @@ def update():
 
 		#Verify Show atributes
 		data["show"]["status"]["msg"] = verify(data["show"]["status"]["msg"], int)
+		print(data["show"]["status"]["enabled"])
 		data["show"]["status"]["enabled"] = verify(data["show"]["status"]["enabled"], bool)
+		print(data["show"]["status"]["enabled"])
 		data["show"]["status"]["colorGrade"] = verify(data["show"]["status"]["colorGrade"], bool)
 		data["show"]["status"]["clear0"] = verify(data["show"]["status"]["clear0"], bool)
 		data["show"]["status"]["color"] = verify(data["show"]["status"]["color"], str)
