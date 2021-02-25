@@ -60,12 +60,13 @@ def update():
 	else:
 		proirText = data["show"]["text"]
 
-	with open(dataFile) as file:
-		data = json.load(file)
-	lastUpdate = pathlib.Path(dataFile).stat().st_mtime
-
-	if not (proirText == data["show"]["text"]):
-		offset = 0
+	try:
+		with open(dataFile) as file:
+			data = json.load(file)
+		lastUpdate = pathlib.Path(dataFile).stat().st_mtime
+	except Exception as e:
+		logging.error("In update(): Failed to open json file. \n\tError: " + str(e))
+		return None 
 	
 	try:
 		#Verify Setting atributes
@@ -98,19 +99,31 @@ def update():
 		data["font"]["path"] = verify(data["font"]["path"], str)
 		data["font"]["size"] = verify(data["font"]["size"], int)
 	except TypeError:
-		raise TypeError
+		return None
 	
+	if not (proirText == data["show"]["text"]):
+		offset = 0
 
-	font = ImageFont.truetype(data["font"]["path"], data["font"]["size"])
+	try:
+		font = ImageFont.truetype(data["font"]["path"], data["font"]["size"])
+	except Exception as e:
+		logging.error("In update(): font file open failed. \n\tError: " + str(e))
+		return None
 
 	#Setup pixels for display
-	if pixels is not None:
-		del pixels
-	pixels = neopixel.NeoPixel(
-		board.D18,
-		data["display"]["width"] * data["display"]["height"],
-		brightness = data["display"]["brightness"],
-		auto_write = False)
+	try:
+		if pixels is not None:
+			del pixels
+		pixels = neopixel.NeoPixel(
+			board.D18,
+			data["display"]["width"] * data["display"]["height"],
+			brightness = data["display"]["brightness"],
+			auto_write = False)
+	except Exception as e:
+		logging.error("In update(): Pixel initalization failed. \n\tError: " + str(e))
+		return None
+	
+	return True
 
 def auto():
 	global displayQueue
@@ -326,7 +339,12 @@ def show():
 	
 	return 0
 
-update()
+while True:
+	if update() is not None:
+		break
+	time.sleep(1)
+	print("loop")
+
 '''
 while True:
 	try:
