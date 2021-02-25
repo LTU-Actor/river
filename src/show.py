@@ -133,7 +133,7 @@ def auto():
 
 	try:
 		if not data["auto"]["enabled"]:
-			return
+			return True
 		
 		for msg in data["auto"]["data"]["msgs"]:
 			if msg["level"] >= data["auto"]["level"]:
@@ -348,9 +348,6 @@ def show():
 
 while True:
 	try:
-		time.sleep(1)
-
-		print(pixels is None)
 		if (lastUpdate != pathlib.Path(dataFile).stat().st_mtime or pixels is None):
 			print("update")
 			if not update():
