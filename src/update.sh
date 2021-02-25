@@ -37,6 +37,6 @@ sudo systemctl restart apache2
 
 . "$REMOTE_MASTER"
 
-#cd "/home/ubuntu/catkin_ws" && catkin_make && source devel/setup.sh
+cd "/home/ubuntu/catkin_ws" && catkin_make && source devel/setup.sh
 
-#cd "/home/ubuntu/catkin_ws/src/river/src"
+cd "/home/ubuntu/catkin_ws/src/river/src"
