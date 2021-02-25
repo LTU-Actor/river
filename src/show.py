@@ -290,7 +290,6 @@ def show():
 	
 	return 0
 
-
 update()
 pixels = neopixel.NeoPixel(
 	board.D18,
