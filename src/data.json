@@ -1,6 +1,6 @@
 {
     "auto": {
-        "enabled" : true,
+        "enabled" : false,
         "level": 4,
         "duration": 6,
         "timeout" : 30,

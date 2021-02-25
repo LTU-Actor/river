@@ -20,7 +20,7 @@ currentMsg = None
 dataFile = "/home/ubuntu/catkin_ws/src/river/src/dataTemp.json"
 
 offset = 0
-count = 0
+tick = 0
 
 statusColors = {
 	"success": "#4F8A10",
@@ -48,9 +48,9 @@ def update():
 			raise TypeError
 		return data
 			
-
 	global font
 	global data
+	global tick
 	global pixels
 	global lastUpdate
 	global offset
@@ -103,6 +103,7 @@ def update():
 	
 	if not (proirText == data["show"]["text"]):
 		offset = 0
+		tick = 0
 
 	try:
 		font = ImageFont.truetype(data["font"]["path"], data["font"]["size"])
@@ -128,55 +129,61 @@ def update():
 def auto():
 	global displayQueue
 	global currentMsg
-	global count
+	global tick
 
-	if not data["auto"]["enabled"]:
-		return
-	
-	for msg in data["auto"]["data"]["msgs"]:
-		if msg["level"] >= data["auto"]["level"]:
-			displayQueue.append(msg)
+	try:
+		if not data["auto"]["enabled"]:
+			return
+		
+		for msg in data["auto"]["data"]["msgs"]:
+			if msg["level"] >= data["auto"]["level"]:
+				displayQueue.append(msg)
 
-	data["auto"]["data"]["msgs"] = []
+		data["auto"]["data"]["msgs"] = []
 
-	#if the message has been shown for the duration amount clear it
-	if currentMsg is not None:
-		if (int(time.time()) - currentMsg["PItime"] > data["auto"]["duration"]):
-			currentMsg = None
-
-	#if message is clear find the next one or print no errors
-	if currentMsg is None:
-		while displayQueue:
-			currentMsg = displayQueue.pop()
-			if (int(time.time()) - currentMsg["PItime"] < data["auto"]["timeout"]):
-				count = 0
-				currentMsg["PItime"] = int(time.time())
-				data["show"]["text"]["msg"] = currentMsg["msg"]
-				data["show"]["status"]["msg"] = currentMsg["level"]
-
-				jsonObj = json.dumps(data, indent = 4)
-
-				with open(dataFile, "w") as file:
-					file.write(jsonObj)
-				
-				update()
-				return
-			else:
+		#if the message has been shown for the duration time, clear it
+		if currentMsg is not None:
+			if (int(time.time()) - currentMsg["PItime"] > data["auto"]["duration"]):
 				currentMsg = None
+
+		#if message is clear find the next one or print no errors
 		if currentMsg is None:
-				if data["auto"]["data"]["dbw_enabled"]:
-					data["show"]["text"]["msg"] = "Sript Running"
+			while displayQueue:
+				currentMsg = displayQueue.pop()
+				if (int(time.time()) - currentMsg["PItime"] < data["auto"]["timeout"]):
+					tick = 0
+					currentMsg["PItime"] = int(time.time())
+					data["show"]["text"]["msg"] = currentMsg["msg"]
+					data["show"]["status"]["msg"] = currentMsg["level"]
+
+					jsonObj = json.dumps(data, indent = 4)
+
+					with open(dataFile, "w") as file:
+						file.write(jsonObj)
+					
+					if update() is None:
+						raise Exception("Update returned None")
+					return True
 				else:
-					data["show"]["text"]["msg"] = "Manual Mode"
-				data["show"]["status"]["msg"] = "0"
-	
-				jsonObj = json.dumps(data, indent = 4)
+					currentMsg = None
+			if currentMsg is None:
+					if data["auto"]["data"]["dbw_enabled"]:
+						data["show"]["text"]["msg"] = "Sript Running"
+					else:
+						data["show"]["text"]["msg"] = "Manual Mode"
+					data["show"]["status"]["msg"] = "0"
+		
+					jsonObj = json.dumps(data, indent = 4)
 
-				with open(dataFile, "w") as file:
-					file.write(jsonObj)
-				
-				update()
-
+					with open(dataFile, "w") as file:
+						file.write(jsonObj)
+					
+					if update() is None:
+						raise Exception("Update returned None")
+	except Exception as e:
+		logging.error("auto function failed! \n\tError: " + str(e))
+		return None
+	return True
 
 def show():
 	def getIndex(x, y):
@@ -203,12 +210,12 @@ def show():
 		level = int(statusmsg)
 	except Exception as e:
 		logging.error("In show(): debug level can not be converted to int. \n\tError: " + str(e))
-		return 1
+		return None
 
 	#set text color
 	textColor = setColor(data["show"]["text"]["color"])
 	if textColor is None:
-		return 1
+		return None
 
 	#set status color
 	try:
@@ -224,15 +231,15 @@ def show():
 		else:
 			statusColor = setColor(data["show"]["status"]["color"])
 			if statusColor is None:
-				return 1
+				return None
 	except Exception as e:
 		logging.error("In show(): status color set failed. \n\tError: " + str(e))
-		return 1
+		return None
 	
 	#set heartbeat color
 	heartbeatColor = setColor(data["settings"]["heartbeat"]["color"])
 	if heartbeatColor is None:
-		return 1
+		return None
 
 	#set status to empty if 0
 	try:
@@ -241,7 +248,7 @@ def show():
 				statusmsg = ""
 	except Exception as e:
 		logging.error("In show(): clear status failed. \n\tError: " + str(e))
-		return 1
+		return None
 
 	#enable status
 	try:
@@ -249,7 +256,7 @@ def show():
 			statusmsg = ""
 	except Exception as e:
 		logging.error("In show(): enable status failed. \n\tError: " + str(e))
-		return 1
+		return None
 	
 	#get status and text pixel width
 	try:
@@ -257,11 +264,11 @@ def show():
 		statusWidth, _ = font.getsize(statusmsg)
 	except Exception as e:
 		logging.error("In show(): text and status pixel width failed set \n\tError: " + str(e))
-		return 1
+		return None
 
 	#sets off set for scrolling text
 	try:
-		offset = count % (textWidth - data["display"]["width"] + statusWidth + 12)
+		offset = tick % (textWidth - data["display"]["width"] + statusWidth + 12)
 		if (textWidth < data["display"]["width"]):
 			offset = 0
 		elif (offset < 6):
@@ -272,7 +279,7 @@ def show():
 			offset -= 6
 	except Exception as e:
 		logging.error("In show(): offset failed set \n\tError: " + str(e))
-		return 1
+		return None
 
 	#display text
 	try:
@@ -297,7 +304,7 @@ def show():
 					pixels[getIndex(x, y)] = [0,0,0]
 	except Exception as e:
 		logging.error("In show(): display text failed. \n\tError: " + str(e))
-		return 1
+		return None
 
 	#display status
 	try:
@@ -317,7 +324,7 @@ def show():
 					pixels[getIndex(x + loc, y)] = [0, 0, 0]
 	except Exception as e:
 		logging.error("In show(): display status failed. \n\tError: " + str(e))
-		return 1
+		return None
 
 	#display Hearbeat
 	try:
@@ -328,42 +335,37 @@ def show():
 				pixels[248] = [0, 0, 0]
 	except Exception as e:
 		logging.error("In show(): display Heartbeat failed. \n\tError: " + str(e))
-		return 1
+		return None
 	
 	#push all updates to display
 	try:
 		pixels.show()
 	except Exception as e:
 		logging.error("In show(): display pixels.show() failed. \n\tError: " + str(e))
-		return 1
+		return None
 	
-	return 0
+	return True
 
-while True:
-	if update() is not None:
-		break
-	time.sleep(1)
-	print("loop")
-
-'''
 while True:
 	try:
-		if not(lastUpdate == pathlib.Path(dataFile).stat().st_mtime):
-			update()
-		try:
-			auto()
-		except Exception as e:
-			logging.error("audo function failed! \n\tError: " + str(e))
-		print(show())
+		if (lastUpdate != pathlib.Path(dataFile).stat().st_mtime or pixels is None):
+			if not update():
+				continue
+		
+		if not auto():
+			continue
 
-		count += 1
-		if (count > 1000000):
-			logging.info("count reset: " + str(count))
-			count = 0
+		if not show():
+			continue
+
+		tick += 1
+		if (tick > 1000000):
+			tick = 0
+		
 		time.sleep(data["settings"]["rate"])
 	except Exception as e:
 		logging.info("try&except Exit: \n\tError: " + str(e))
 		pixels.fill(0)
 		pixels.show()
 		exit(0)
-'''
+
