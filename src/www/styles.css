@@ -7,10 +7,6 @@
     background-color: #3b5366;
   }
 
-  body {
-    color: 424242;
-  }
-
   input[type=text], select, textarea {
     width: 100%;
     padding: 12px;
@@ -22,6 +18,7 @@
   label {
     padding: 12px 12px 12px 0;
     display: inline-block;
+    color: 424242;
   }
   
   input[type=submit] {
