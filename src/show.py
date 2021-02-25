@@ -30,7 +30,7 @@ statusColors = {
 }
 
 assert os.geteuid() is 0, '\'show.py\' must be run as administrator!'
-assert os.path.exists(dataFile), 'No such file: \'dataTemp.json\''
+assert os.path.exists(dataFile), 'No such file: \'data.json\''
 
 root_logger= logging.getLogger()
 root_logger.setLevel(logging.DEBUG)
@@ -46,6 +46,8 @@ def update():
 		except Exception as e:
 			logging.error("In update() verify(): " + str(data) + " could not be converted to " + excpectedType + ". \n\tError: " + str(e))
 			return None
+		return data
+			
 
 	global font
 	global data
@@ -65,39 +67,40 @@ def update():
 	if not (proirText == data["show"]["text"]):
 		offset = 0
 	
-	try:
-		#Verify Setting atributes
-		data = verify(data["settings"]["rate"], float)
-		data = verify(data["settings"]["heartbeat"]["color"], str)
-		data = verify(data["settings"]["heartbeat"]["enabled"], bool)
+	#Verify Setting atributes
+	data["settings"]["rate"] = verify(data["settings"]["rate"], float)
+	data["settings"]["heartbeat"]["color"] = verify(data["settings"]["heartbeat"]["color"], str)
+	data["settings"]["heartbeat"]["enabled"] = verify(data["settings"]["heartbeat"]["enabled"], bool)
 
-		#Veridy Display atributes
-		data = verify(data["display"]["brightness"], float)
-		data = verify(data["display"]["height"], int)
-		data = verify(data["display"]["width"], int)
+	#Veridy Display atributes
+	data["display"]["brightness"] = verify(data["display"]["brightness"], float)
+	data["display"]["height"] = verify(data["display"]["height"], int)
+	data["display"]["width"] = verify(data["display"]["width"], int)
 
-		#Verify Auto atributes
-		data = verify(data["auto"]["enabled"], bool)
-		data = verify(data["auto"]["level"], int)
-		data = verify(data["auto"]["duration"], int)
-		data = verify(data["auto"]["timeout"], int)
-		data = verify(data["auto"]["data"]["dbw_enabled"], bool)
+	#Verify auto atributes
+	data["auto"]["enabled"] = verify(data["auto"]["enabled"], bool)
+	data["auto"]["level"] = verify(data["auto"]["level"], int)
+	data["auto"]["duration"] = verify(data["auto"]["duration"], int)
+	data["auto"]["timeout"] = verify(data["auto"]["timeout"], int)
+	data["auto"]["data"]["dbw_enabled"] = verify(data["auto"]["data"]["dbw_enabled"], bool)
 
-		#Verify Show atributes
-		data = verify(data["show"]["status"]["msg"], int)
-		data = verify(data["show"]["status"]["enabled"], bool)
-		data = verify(data["show"]["status"]["colorGrade"], bool)
-		data = verify(data["show"]["status"]["clear0"], bool)
-		data = verify(data["show"]["status"]["color"], str)
-		data = verify(data["show"]["text"]["msg"], str)
-		data = verify(data["show"]["text"]["color"], str)
+	#Verify Show atributes
+	data["show"]["status"]["msg"] = verify(data["show"]["status"]["msg"], int)
+	data["show"]["status"]["enabled"] = verify(data["show"]["status"]["enabled"], bool)
+	data["show"]["status"]["colorGrade"] = verify(data["show"]["status"]["colorGrade"], bool)
+	data["show"]["status"]["clear0"] = verify(data["show"]["status"]["clear0"], bool)
+	data["show"]["status"]["color"] = verify(data["show"]["status"]["color"], str)
+	data["show"]["text"]["msg"] = verify(data["show"]["text"]["msg"], str)
+	data["show"]["text"]["color"] = verify(data["show"]["text"]["color"], str)
 
-		#Verify Fonts atributes
-		data = verify(data["font"]["path"], str)
-		data = verify(data["font"]["size"], int)
-	except Exception as e:
-		print(e)
-		time.sleep(100)
+	#Verify Fonts atributes
+	data["font"]["path"] = verify(data["font"]["path"], str)
+	data["font"]["size"] = verify(data["font"]["size"], int)
+
+	for item in data:
+		print(item)
+		if item is None:
+			print(item, " IS None")
 
 	font = ImageFont.truetype(data["font"]["path"], data["font"]["size"])
 
