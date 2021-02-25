@@ -353,18 +353,14 @@ while True:
 			if not update():
 				continue
 		
-		print("sleep")
 		time.sleep(data["settings"]["rate"])
-		
-		print("auto")
+
 		if not auto():
 			continue
 
-		print("show")
 		if not show():
 			continue
 
-		print("tick")
 		tick += 1
 		if (tick > 1000000):
 			tick = 0
