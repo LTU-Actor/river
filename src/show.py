@@ -42,10 +42,10 @@ def update():
 	def verify(data, excpectedType):
 		try:
 			if type(data) is not excpectedType:
-				return excpectedType(data)
+				data = excpectedType(data)
 		except Exception as e:
 			logging.error("In update() verify(): " + str(data) + " could not be converted to " + excpectedType + ". \n\tError: " + str(e))
-			return None
+			raise TypeError
 		return data
 			
 
@@ -67,40 +67,39 @@ def update():
 	if not (proirText == data["show"]["text"]):
 		offset = 0
 	
-	#Verify Setting atributes
-	data["settings"]["rate"] = verify(data["settings"]["rate"], float)
-	data["settings"]["heartbeat"]["color"] = verify(data["settings"]["heartbeat"]["color"], str)
-	data["settings"]["heartbeat"]["enabled"] = verify(data["settings"]["heartbeat"]["enabled"], bool)
+	try:
+		#Verify Setting atributes
+		data["settings"]["rate"] = verify(data["settings"]["rate"], float)
+		data["settings"]["heartbeat"]["color"] = verify(data["settings"]["heartbeat"]["color"], str)
+		data["settings"]["heartbeat"]["enabled"] = verify(data["settings"]["heartbeat"]["enabled"], bool)
 
-	#Veridy Display atributes
-	data["display"]["brightness"] = verify(data["display"]["brightness"], float)
-	data["display"]["height"] = verify(data["display"]["height"], int)
-	data["display"]["width"] = verify(data["display"]["width"], int)
+		#Veridy Display atributes
+		data["display"]["brightness"] = verify(data["display"]["brightness"], float)
+		data["display"]["height"] = verify(data["display"]["height"], int)
+		data["display"]["width"] = verify(data["display"]["width"], int)
 
-	#Verify auto atributes
-	data["auto"]["enabled"] = verify(data["auto"]["enabled"], bool)
-	data["auto"]["level"] = verify(data["auto"]["level"], int)
-	data["auto"]["duration"] = verify(data["auto"]["duration"], int)
-	data["auto"]["timeout"] = verify(data["auto"]["timeout"], int)
-	data["auto"]["data"]["dbw_enabled"] = verify(data["auto"]["data"]["dbw_enabled"], bool)
+		#Verify auto atributes
+		data["auto"]["enabled"] = verify(data["auto"]["enabled"], bool)
+		data["auto"]["level"] = verify(data["auto"]["level"], int)
+		data["auto"]["duration"] = verify(data["auto"]["duration"], int)
+		data["auto"]["timeout"] = verify(data["auto"]["timeout"], int)
+		data["auto"]["data"]["dbw_enabled"] = verify(data["auto"]["data"]["dbw_enabled"], bool)
 
-	#Verify Show atributes
-	data["show"]["status"]["msg"] = verify(data["show"]["status"]["msg"], int)
-	data["show"]["status"]["enabled"] = verify(data["show"]["status"]["enabled"], bool)
-	data["show"]["status"]["colorGrade"] = verify(data["show"]["status"]["colorGrade"], bool)
-	data["show"]["status"]["clear0"] = verify(data["show"]["status"]["clear0"], bool)
-	data["show"]["status"]["color"] = verify(data["show"]["status"]["color"], str)
-	data["show"]["text"]["msg"] = verify(data["show"]["text"]["msg"], str)
-	data["show"]["text"]["color"] = verify(data["show"]["text"]["color"], str)
+		#Verify Show atributes
+		data["show"]["status"]["msg"] = verify(data["show"]["status"]["msg"], int)
+		data["show"]["status"]["enabled"] = verify(data["show"]["status"]["enabled"], bool)
+		data["show"]["status"]["colorGrade"] = verify(data["show"]["status"]["colorGrade"], bool)
+		data["show"]["status"]["clear0"] = verify(data["show"]["status"]["clear0"], bool)
+		data["show"]["status"]["color"] = verify(data["show"]["status"]["color"], str)
+		data["show"]["text"]["msg"] = verify(data["show"]["text"]["msg"], str)
+		data["show"]["text"]["color"] = verify(data["show"]["text"]["color"], str)
 
-	#Verify Fonts atributes
-	data["font"]["path"] = verify(data["font"]["path"], str)
-	data["font"]["size"] = verify(data["font"]["size"], int)
-
-	for x in data:
-		for y in data[x]:
-			for z in data[x][y]:
-				print(z)
+		#Verify Fonts atributes
+		data["font"]["path"] = verify(data["font"]["path"], str)
+		data["font"]["size"] = verify(data["font"]["size"], int)
+	except TypeError:
+		raise TypeError
+	
 
 	font = ImageFont.truetype(data["font"]["path"], data["font"]["size"])
 
