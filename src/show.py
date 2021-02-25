@@ -346,31 +346,32 @@ def show():
 	
 	return True
 
-while True:
-	try:
-		if data is not None:
-			time.sleep(data["settings"]["rate"])
-		
-		if (lastUpdate != pathlib.Path(dataFile).stat().st_mtime or pixels is None):
-			print("update")
-			if not update():
+if __name__ == "__main__":
+	while True:
+		try:
+			if data is not None:
+				time.sleep(data["settings"]["rate"])
+			
+			if (lastUpdate != pathlib.Path(dataFile).stat().st_mtime or pixels is None):
+				print("update")
+				if not update():
+					continue
+
+			if not auto():
 				continue
 
-		if not auto():
-			continue
+			if not show():
+				continue
 
-		if not show():
-			continue
-
-		tick += 1
-		if (tick > 1000000):
-			tick = 0
-	except KeyboardInterrupt:
-		exit(0)
-	except Exception as e:
-		logging.info("try&except Exit: \n\tError: " + str(e))
-		if pixels is not None:
-			pixels.fill(0)
-			pixels.show()
+			tick += 1
+			if (tick > 1000000):
+				tick = 0
+		except KeyboardInterrupt:
+			exit(0)
+		except Exception as e:
+			logging.info("try&except Exit: \n\tError: " + str(e))
+			if pixels is not None:
+				pixels.fill(0)
+				pixels.show()
 		
 
