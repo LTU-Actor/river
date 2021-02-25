@@ -65,16 +65,22 @@ def update():
 	data["auto"]["duration"] = int(data["auto"]["duration"])
 	data["auto"]["timeout"] = int(data["auto"]["timeout"])
 	data["auto"]["data"]["dbw_enabled"] = bool(data["auto"]["data"]["dbw_enabled"])
-	data["show"]["text"]["msg"] = str(data["show"]["text"]["msg"])
-	data["show"]["status"]["msg"] = str(data["show"]["status"]["msg"])
-
 	data["show"]["status"]["colorGrade"] = bool(data["show"]["status"]["colorGrade"])
+	print(data["show"]["status"]["clear0"])
 	data["show"]["status"]["clear0"] = bool(data["show"]["status"]["clear0"])
-
+	print(data["show"]["status"]["clear0"])
 	font = ImageFont.truetype(data["font"]["path"], data["font"]["size"])
 
 	if not (proirText == data["show"]["text"]):
 		offset = 0
+
+	if pixels is not None:
+		del pixels
+	pixels = neopixel.NeoPixel(
+		board.D18,
+		data["display"]["width"] * data["display"]["height"],
+		brightness = data["display"]["brightness"],
+		auto_write = False)
 
 def auto():
 	global displayQueue
@@ -291,17 +297,6 @@ def show():
 	return 0
 
 update()
-pixels = neopixel.NeoPixel(
-	board.D18,
-	data["display"]["width"] * data["display"]["height"],
-	brightness = data["display"]["brightness"],
-	auto_write = False)
-
-
-print(pixels)
-del(pixels)
-
-print(pixels)
 '''
 while True:
 	try:
