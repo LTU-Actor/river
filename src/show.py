@@ -297,6 +297,12 @@ pixels = neopixel.NeoPixel(
 	brightness = data["display"]["brightness"],
 	auto_write = False)
 
+
+print(pixels)
+del(pixels)
+
+print(pixels)
+'''
 while True:
 	try:
 		if not(lastUpdate == pathlib.Path(dataFile).stat().st_mtime):
@@ -317,3 +323,4 @@ while True:
 		pixels.fill(0)
 		pixels.show()
 		exit(0)
+'''
