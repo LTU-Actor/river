@@ -5,6 +5,7 @@
   html {
     font-family: "Segoe UI";
     background-color: #3b5366;
+    color: 424242;
   }
 
   input[type=text], select, textarea {
