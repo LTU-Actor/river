@@ -348,6 +348,7 @@ def show():
 
 while True:
 	try:
+		print(pixels is None)
 		if (lastUpdate != pathlib.Path(dataFile).stat().st_mtime or pixels is None):
 			print("update")
 			if not update():
