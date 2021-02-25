@@ -66,9 +66,9 @@ def update():
 	data["auto"]["timeout"] = int(data["auto"]["timeout"])
 	data["auto"]["data"]["dbw_enabled"] = bool(data["auto"]["data"]["dbw_enabled"])
 	data["show"]["status"]["colorGrade"] = bool(data["show"]["status"]["colorGrade"])
-	print(data["show"]["status"]["clear0"])
+	if (type(data["show"]["status"]["clear0"]) is not bool):
+		print("Clear0 not a bool")
 	data["show"]["status"]["clear0"] = bool(data["show"]["status"]["clear0"])
-	print(data["show"]["status"]["clear0"])
 	font = ImageFont.truetype(data["font"]["path"], data["font"]["size"])
 
 	if not (proirText == data["show"]["text"]):
