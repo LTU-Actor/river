@@ -26,16 +26,16 @@
     }
 
     if (!empty($_GET['toggle-heartbeat'])){
-        $data["settings"]["hartbeat"]["enabled"] = true;
+        $data["settings"]["heartbeat"]["enabled"] = true;
         echo "toggle-heartbeat true<br>";
     }
     else{
-        $data["settings"]["hartbeat"]["enabled"] = false;
+        $data["settings"]["heartbeat"]["enabled"] = false;
         echo "toggle-heartbeat false<br>";
     }
 
     if (!empty($_GET['heartbeat-color'])){
-        $data["settings"]["hartbeat"]["color"] = $_GET['heartbeat-color'];
+        $data["settings"]["heartbeat"]["color"] = $_GET['heartbeat-color'];
         echo "udpated heartbeat-color<br>";
     }
 

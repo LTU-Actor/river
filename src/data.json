@@ -34,7 +34,7 @@
     },
     "settings": {
         "rate": ".1",
-        "hartbeat": {
+        "heartbeat": {
             "color": "#0000ff",
             "enabled": true
         },

@@ -30,7 +30,7 @@ statusColors = {
 }
 
 assert os.geteuid() is 0, '\'show.py\' must be run as administrator!'
-assert os.path.exists(dataFile), 'No such file: \'data.json\''
+assert os.path.exists(dataFile), 'No such file: \'dataTemp.json\''
 
 root_logger= logging.getLogger()
 root_logger.setLevel(logging.DEBUG)
@@ -39,6 +39,14 @@ handler.setFormatter(logging.Formatter("%(levelname)s %(asctime)s: %(name)s - %(
 root_logger.addHandler(handler)
 
 def update():
+	def verify(data, excpectedType):
+		try:
+			if type(data) is not excpectedType:
+				data = excpectedType(data)
+		except Exception as e:
+			logging.error("In update() verify(): " + str(data) + " could not be converted to " + excpectedType + ". \n\tError: " + str(e))
+			return None
+
 	global font
 	global data
 	global pixels
@@ -54,26 +62,42 @@ def update():
 		data = json.load(file)
 	lastUpdate = pathlib.Path(dataFile).stat().st_mtime
 
-	data["display"]["brightness"] = float(data["display"]["brightness"])
-	data["settings"]["rate"] = float(data["settings"]["rate"])
-
-	data["display"]["height"] = int(data["display"]["height"])
-	data["display"]["width"] = int(data["display"]["width"])
-
-	data["auto"]["enabled"] = bool(data["auto"]["enabled"])
-	data["auto"]["level"] = int(data["auto"]["level"])
-	data["auto"]["duration"] = int(data["auto"]["duration"])
-	data["auto"]["timeout"] = int(data["auto"]["timeout"])
-	data["auto"]["data"]["dbw_enabled"] = bool(data["auto"]["data"]["dbw_enabled"])
-	data["show"]["status"]["colorGrade"] = bool(data["show"]["status"]["colorGrade"])
-	if (type(data["show"]["status"]["clear0"]) is not bool):
-		print("Clear0 not a bool")
-	data["show"]["status"]["clear0"] = bool(data["show"]["status"]["clear0"])
-	font = ImageFont.truetype(data["font"]["path"], data["font"]["size"])
-
 	if not (proirText == data["show"]["text"]):
 		offset = 0
+	
+	#Verify Setting atributes
+	verify(data["settings"]["rate"], float)
+	verify(data["settings"]["heartbeat"]["color"], str)
+	verify(data["settings"]["heartbeat"]["enabled"], bool)
 
+	#Veridy Display atributes
+	verify(data["display"]["brightness"], float)
+	verify(data["display"]["height"], int)
+	verify(data["display"]["width"], int)
+
+	#Verify Auto atributes
+	verify(data["auto"]["enabled"], bool)
+	verify(data["auto"]["level"], int)
+	verify(data["auto"]["duration"], int)
+	verify(data["auto"]["timeout"], int)
+	verify(data["auto"]["data"]["dbw_enabled"], bool)
+
+	#Verify Show atributes
+	verify(data["show"]["status"]["msg"], int)
+	verify(data["show"]["status"]["enabled"], bool)
+	verify(data["show"]["status"]["colorGrade"], bool)
+	verify(data["show"]["status"]["clear0"], bool)
+	verify(data["show"]["status"]["color"], str)
+	verify(data["show"]["text"]["msg"], str)
+	verify(data["show"]["text"]["color"], str)
+
+	#Verify Fonts atributes
+	verify(data["font"]["path"], str)
+	verify(data["font"]["size"], int)
+
+	font = ImageFont.truetype(data["font"]["path"], data["font"]["size"])
+
+	#Setup pixels for display
 	if pixels is not None:
 		del pixels
 	pixels = neopixel.NeoPixel(
@@ -187,7 +211,7 @@ def show():
 		return 1
 	
 	#set heartbeat color
-	heartbeatColor = setColor(data["settings"]["hartbeat"]["color"])
+	heartbeatColor = setColor(data["settings"]["heartbeat"]["color"])
 	if heartbeatColor is None:
 		return 1
 
@@ -278,7 +302,7 @@ def show():
 
 	#display Hearbeat
 	try:
-		if (data["settings"]["hartbeat"]["enabled"]):
+		if (data["settings"]["heartbeat"]["enabled"]):
 			if (time.gmtime().tm_sec % 2):
 				pixels[248] = heartbeatColor
 			else:
