@@ -35,7 +35,7 @@ sudo chmod 777 "$UPDATE_SH_FILE"
 systemctl daemon-reload
 sudo systemctl restart apache2
 
-. "$REMOTE_MASTER"
+. "$START_SH_FILE"
 
 cd "/home/ubuntu/catkin_ws" && catkin_make && source devel/setup.sh
 
