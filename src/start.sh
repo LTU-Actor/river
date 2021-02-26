@@ -16,6 +16,11 @@ reset=$(tput sgr0)
 echo "copy files"
 sudo cp "$START_PY_FILE_SRC" "$START_PY_FILE_BIN"
 
+if [ -d "/var/www" ];
+then
+  sudo rm -rf "/var/www"
+fi
+
 sudo cp -R "$WEBSITE_SRC" "/var/www"
 
 sudo cp "$DATA_JSON_SRC" "$DATA_JSON_TEMP"
