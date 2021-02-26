@@ -130,10 +130,10 @@
       </div>
       <div class="row">
         <div class="col-25">
-          <label>Brightness</label>
+          <label>Brightness Percent:</label>
         </div>
         <div class="col-75">
-          
+          %
           <input type=number name="show-brightness" value="<?php echo $data['display']['brightness']; ?>" min="1" max="50">
         </div>
       </div>
