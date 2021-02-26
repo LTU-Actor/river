@@ -50,8 +50,8 @@ input[type=submit]:hover {
 .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 54px;
+    height: 31px;
   }
   
   /* Hide default HTML checkbox */
