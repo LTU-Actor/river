@@ -40,11 +40,13 @@
         <div class="row">
           <label>Toggle heartbeat</label>
           <input type=checkbox name="toggle-heartbeat" value="true" <?php if ($data['settings']['hartbeat']['enabled']){echo checked;} ?>>
+          <span class="slider round"></span>
         </div>
         <div class="row">
           <div class="col-75">
             <label>Toggle clear zero</label>
             <input type=checkbox name="toggle-clear-zero" value="true" <?php if ($data['show']['status']['clear0']){echo checked;} ?>>
+            <span class="slider round"></span>
           </div>
         </div>
         <br>
@@ -62,6 +64,7 @@
           <div class="col-75">
             <label>Toggle automatic mode</label>
             <input type=checkbox name="toggle-auto-mode" value="true" <?php if ($data['auto']['enabled']){echo checked;} ?>>
+            <span class="slider round"></span>
           </div>
         </div>
         <div class="row">
