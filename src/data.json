@@ -30,7 +30,7 @@
     "display": {
         "width": "32",
         "height": "8",
-        "brightness": ".02"
+        "brightness": "2"
     },
     "settings": {
         "rate": ".1",

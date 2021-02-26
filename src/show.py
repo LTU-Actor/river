@@ -74,8 +74,9 @@ def update():
 		data["settings"]["heartbeat"]["color"] = verify(data["settings"]["heartbeat"]["color"], str)
 		data["settings"]["heartbeat"]["enabled"] = verify(data["settings"]["heartbeat"]["enabled"], bool)
 
-		#Veridy Display atributes
-		data["display"]["brightness"] = verify(data["display"]["brightness"], float)
+		#Verify Display atributes
+		data["display"]["brightness"] = (verify(data["display"]["brightness"], int)) / 100
+		print(data["display"]["brightness"])
 		data["display"]["height"] = verify(data["display"]["height"], int)
 		data["display"]["width"] = verify(data["display"]["width"], int)
 
