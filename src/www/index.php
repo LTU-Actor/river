@@ -69,7 +69,7 @@
 
     <div class="container">
       <h3>Automatic mode:</h3>
-      <form name="auto_form" action="auto_form.php" onsubmit="return validateAutoForm()">
+      <form name="auto_form" action="auto_form.php">
         <div class="row">
           <div class="col-75">
             <label>Toggle automatic mode</label>
