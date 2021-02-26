@@ -39,10 +39,10 @@
         </div>
         <div class="row">
           <label>Toggle heartbeat</label>
-          <div class="switch">
+          <label class="switch">
             <input type=checkbox name="toggle-heartbeat" value="true" <?php if ($data['settings']['hartbeat']['enabled']){echo checked;} ?>>
             <span class="slider round"></span>
-          </div>
+          </label>
         </div>
         <div class="row">
           <div class="col-75">
