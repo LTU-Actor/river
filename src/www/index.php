@@ -31,22 +31,29 @@
             <label>Update status</label>
           </div>
           <div class="col-50">
-            <input type=text name="show-status" value="<?php echo $data['show']['status']['msg']; ?>">
+            <input type=number name="show-status" value="<?php echo $data['show']['status']['msg']; ?>" min=0 max=992>
           </div>
           <div class="col-25">
             <input type="color" name="show-status-color" value="<?php echo $data['show']['status']['color']; ?>" <?php if ($data['show']['status']['colorGrade']){echo disabled;} ?>>
           </div>
         </div>
         <div class="row">
-          <label>Toggle heartbeat</label>
-          <label class="switch">
-            <input type=checkbox name="toggle-heartbeat" value="true" <?php if ($data['settings']['hartbeat']['enabled']){echo checked;} ?>>
-            <span class="slider round"></span>
-          </label>
+          <div class="col-75">
+            <label>Toggle heartbeat</label>
+          </div>
+          <div class="col-25">
+            <label class="switch">
+              <input type=checkbox name="toggle-heartbeat" value="true" <?php if ($data['settings']['hartbeat']['enabled']){echo checked;} ?>>
+              <span class="slider round"></span>
+            </label>
+          </div>
         </div>
         <div class="row">
           <div class="col-75">
-            <label class="switch">Toggle Clear Zero
+            <label>Toggle Clear Zero</label>
+          </div>
+          <div class="col-25">
+            <label class="switch">
               <input type=checkbox name="toggle-clear-zero" value="true" <?php if ($data['show']['status']['clear0']){echo checked;} ?>>
               <span class="slider round"></span>
             </label>
@@ -65,7 +72,10 @@
       <form name="auto_form" action="auto_form.php" onsubmit="return validateAutoForm()">
         <div class="row">
           <div class="col-75">
-            <label class="switch">Toggle automatic mode
+            <label>Toggle automatic mode</label>
+          </div>
+          <div class="col-25">
+            <label class="switch">
               <input type=checkbox name="toggle-auto-mode" value="true" <?php if ($data['auto']['enabled']){echo checked;} ?>>
               <span class="slider round"></span>
             </label>
@@ -76,7 +86,7 @@
             <label>Debug Level</label>
           </div>
           <div class="col-75">
-            <input type=text name="show-debug-level" value="<?php echo $data['auto']['level']; ?>">
+            <input type=number name="show-debug-level" value="<?php echo $data['auto']['level']; ?>" min=0 max=8>
           </div>
         </div>
         <div class="row">
@@ -84,7 +94,7 @@
             <label>Duration</label>
           </div>
           <div class="col-75">
-            <input type=text name="show-duration" value="<?php echo $data['auto']['duration']; ?>">
+            <input type=number name="show-duration" value="<?php echo $data['auto']['duration']; ?>" min=0 max=60>
           </div>
         </div>
         <div class="row">
@@ -92,7 +102,7 @@
             <label>Timeout</label>
           </div>
           <div class="col-75">
-            <input type=text name="show-timeout" value="<?php echo $data['auto']['timeout']; ?>">
+            <input type=number name="show-timeout" value="<?php echo $data['auto']['timeout']; ?>" min=1 max=300>
           </div>
         </div>
 
@@ -173,7 +183,7 @@
           <label>ROS Port</label>
         </div>
         <div class="col-75">
-          <input type=text name="show-port" value="<?php echo $data['settings']['ros']['port']; ?>">
+          <input type=number name="show-port" value="<?php echo $data['settings']['ros']['port']; ?>" min=0 max=99999>
         </div>
       </div>
       
