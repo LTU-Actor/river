@@ -1,7 +1,11 @@
+* {
+    box-sizing: border-box;
+  }
+
 html {
     font-family: "Segoe UI";
     background-color: #599191;
-}
+  }
 
 input[type=text], select, textarea {
     width: 100%;
