@@ -117,7 +117,7 @@
           <label>Width</label>
         </div>
         <div class="col-75">
-          <input type=text name="show-width" value="<?php echo $data['display']['width']; ?>">
+          <input type=number name="show-width" value="<?php echo $data['display']['width']; ?>" min=1 max=255>
         </div>
       </div>
       <div class="row">
@@ -125,7 +125,7 @@
           <label>Height</label>
         </div>
         <div class="col-75">
-          <input type=text name="show-height" value="<?php echo $data['display']['height']; ?>">
+          <input type=number name="show-height" value="<?php echo $data['display']['height']; ?>" min=1 max=255>
         </div>
       </div>
       <div class="row">
