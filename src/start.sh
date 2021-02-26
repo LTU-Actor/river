@@ -22,8 +22,6 @@ sudo cp "$DATA_JSON_SRC" "$DATA_JSON_TEMP"
 
 echo "Permissions changed: /var/www"
 sudo chmod -R 775 "/var/www"
-echo "Permissions changed: START_SH_FILE"
-sudo chmod 777 "$START_SH_FILE"
 echo "Permissions changed: UPDATE_SH_FILE"
 sudo chmod 777 "$UPDATE_SH_FILE"
 echo "Permissions changed: DATA_JSON_TEMP"
