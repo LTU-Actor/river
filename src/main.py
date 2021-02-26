@@ -17,13 +17,13 @@ logFile = "/home/ubuntu/catkin_ws/src/river/src/main.log"
 lastUpdate = None
 data = None
 
-assert os.path.exists(dataFile), 'No such file: \'dataTemp.json\''
-
 root_logger= logging.getLogger()
 root_logger.setLevel(logging.DEBUG)
 handler = logging.FileHandler('main.log', 'w', 'utf-8')
 handler.setFormatter(logging.Formatter("%(levelname)s %(asctime)s: %(name)s - %(message)s", "%H:%M:%S"))
 root_logger.addHandler(handler)
+
+assert os.path.exists(dataFile), 'No such file: \'dataTemp.json\''
 
 def update():
 	try:
@@ -39,7 +39,6 @@ def update():
 		return None
 	return True
 
-
 def textMsgCB(msg):
 	try:
 		data["show"]["text"]["msg"] = str(msg.data)
@@ -51,7 +50,6 @@ def textMsgCB(msg):
 		update()
 	except Exception as e:
 		logging.error("Call back function textMsgCB failed. \n\tError: " + str(e))
-
 
 def textColorCB(msg):
 	try:

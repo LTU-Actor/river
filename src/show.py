@@ -29,14 +29,14 @@ statusColors = {
 	"error": "#D8000C"
 }
 
-assert os.geteuid() is 0, '\'show.py\' must be run as administrator!'
-assert os.path.exists(dataFile), 'No such file: \'data.json\''
-
 root_logger= logging.getLogger()
 root_logger.setLevel(logging.DEBUG)
 handler = logging.FileHandler('show.log', 'w', 'utf-8')
 handler.setFormatter(logging.Formatter("%(levelname)s %(asctime)s: %(name)s - %(message)s", "%H:%M:%S"))
 root_logger.addHandler(handler)
+
+assert os.geteuid() is 0, '\'show.py\' must be run as administrator!'
+assert os.path.exists(dataFile), 'No such file: \'data.json\''
 
 def update():
 	def verify(data, excpectedType):
