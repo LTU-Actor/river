@@ -29,7 +29,6 @@ sudo chmod 777 "$DATA_JSON_SRC"
 
 . "$REMOTE_MASTER"
 
-echo "begin boot"
 if [ "$1" == "boot" ]
 then
     echo "$green Starting ROS River in 5 seconds...$reset"
