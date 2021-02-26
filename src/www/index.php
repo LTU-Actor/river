@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
   <script src="formValidate.js"></script>
   <?php
     $file = "/home/ubuntu/catkin_ws/src/river/src/dataTemp.json";
