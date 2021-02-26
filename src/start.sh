@@ -25,7 +25,7 @@ sudo chmod 777 "$DATA_JSON_SRC"
 
 . "$REMOTE_MASTER"
 
-if ["$1" == "boot"]
+if [ "$1" == "boot" ]
 then
     echo "boot"
     sudo python3 "$SHOW_SRC" &
