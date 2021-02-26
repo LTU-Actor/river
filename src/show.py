@@ -76,7 +76,6 @@ def update():
 
 		#Verify Display atributes
 		data["display"]["brightness"] = (verify(data["display"]["brightness"], int)) / 100
-		print(data["display"]["brightness"])
 		data["display"]["height"] = verify(data["display"]["height"], int)
 		data["display"]["width"] = verify(data["display"]["width"], int)
 
