@@ -38,15 +38,17 @@
           </div>
         </div>
         <div class="row">
-          <label>Toggle heartbeat</label>
-          <input type=checkbox name="toggle-heartbeat" value="true" <?php if ($data['settings']['hartbeat']['enabled']){echo checked;} ?>>
-          <span class="slider round"></span>
+          <label class="switch">Toggle heartbeat
+            <input type=checkbox name="toggle-heartbeat" value="true" <?php if ($data['settings']['hartbeat']['enabled']){echo checked;} ?>>
+            <span class="slider round"></span>
+          </label>
         </div>
         <div class="row">
           <div class="col-75">
-            <label>Toggle clear zero</label>
-            <input type=checkbox name="toggle-clear-zero" value="true" <?php if ($data['show']['status']['clear0']){echo checked;} ?>>
-            <span class="slider round"></span>
+            <label class="switch">Toggle Clear Zero
+              <input type=checkbox name="toggle-clear-zero" value="true" <?php if ($data['show']['status']['clear0']){echo checked;} ?>>
+              <span class="slider round"></span>
+            </label>
           </div>
         </div>
         <br>
@@ -62,9 +64,10 @@
       <form name="auto_form" action="auto_form.php" onsubmit="return validateAutoForm()">
         <div class="row">
           <div class="col-75">
-            <label>Toggle automatic mode</label>
-            <input type=checkbox name="toggle-auto-mode" value="true" <?php if ($data['auto']['enabled']){echo checked;} ?>>
-            <span class="slider round"></span>
+            <label class="switch">Toggle automatic mode
+              <input type=checkbox name="toggle-auto-mode" value="true" <?php if ($data['auto']['enabled']){echo checked;} ?>>
+              <span class="slider round"></span>
+            </label>
           </div>
         </div>
         <div class="row">
