@@ -83,7 +83,6 @@
             <input type=checkbox name="toggle-clear-zero" value="true" <?php if ($data['show']['status']['clear0']){echo checked;} ?>>
           </div>
         </div>
-
         <br>
 
         <div class="row">
@@ -148,27 +147,10 @@
     </div>
 
     <div class="container">
-      <h3>Settings (Restart Required):</h3>
-      <form name="restart_form" action="restart_form.php" onsubmit="return validateRestartForm()">
+      <h3>Display Settings</h3>
       <div class="row">
         <div class="col-25">
-          <label>Host IP</label>
-        </div>
-        <div class="col-75">
-          <input type=text name="show-host-IP" value="<?php echo $data['settings']['ros']['coreIP']; ?>">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-25">
-          <label>ROS port</label>
-        </div>
-        <div class="col-75">
-          <input type=text name="show-port" value="<?php echo $data['settings']['ros']['port']; ?>">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-25">
-          <label>Display Width</label>
+          <label>Width</label>
         </div>
         <div class="col-75">
           <input type=text name="show-width" value="<?php echo $data['display']['width']; ?>">
@@ -176,7 +158,7 @@
       </div>
       <div class="row">
         <div class="col-25">
-          <label>Display Height</label>
+          <label>Height</label>
         </div>
         <div class="col-75">
           <input type=text name="show-height" value="<?php echo $data['display']['height']; ?>">
@@ -184,12 +166,46 @@
       </div>
       <div class="row">
         <div class="col-25">
-          <label>Display Brightness</label>
+          <label>Brightness</label>
         </div>
         <div class="col-75">
           <input type=text name="show-brightness" value="<?php echo $data['display']['brightness']; ?>">
         </div>
       </div>
+      <br>
+      <div class="row">
+        <input type="submit" value="Submit">
+      </div>
+    </div>
+
+    <div class="container">
+      <h3>ROS Settings (Restart Required):</h3>
+      <form name="restart_form" action="restart_form.php" onsubmit="return validateRestartForm()">
+      <div class="row">
+        <div class="col-25">
+          <label>ROS Host IP</label>
+        </div>
+        <div class="col-75">
+          <input type=text name="show-host-IP" value="<?php echo $data['settings']['ros']['coreIP']; ?>">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label>Raspberry PI IP</label>
+        </div>
+        <div class="col-75">
+          <input type=text name="show-host-IP" value="<?php echo $data['settings']['ros']['coreIP']; ?>">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label>ROS Port</label>
+        </div>
+        <div class="col-75">
+          <input type=text name="show-port" value="<?php echo $data['settings']['ros']['port']; ?>">
+        </div>
+      </div>
+      
       <br>
       <div class="row">
         <input type="submit" value="Submit and Reboot">
