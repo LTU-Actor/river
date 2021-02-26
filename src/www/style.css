@@ -99,7 +99,7 @@ input[type=submit]:hover {
   
   /* Rounded sliders */
   .slider.round {
-    border-radius: 34px;
+    border-radius: 28px;
   }
   
   .slider.round:before {
