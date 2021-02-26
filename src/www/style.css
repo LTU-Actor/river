@@ -7,7 +7,7 @@ html {
     background-color: #3b5366;
 }
 
-input[type=text], select, textarea {
+input[type=text], select, textarea, input[type=number]{
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
