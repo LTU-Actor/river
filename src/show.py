@@ -369,7 +369,7 @@ if __name__ == "__main__":
 		except KeyboardInterrupt:
 			exit(0)
 		except Exception as e:
-			logging.info("try&except Exit: \n\tError: " + str(e))
+			logging.error("try&except Exit: \n\tError: " + str(e))
 			if pixels is not None:
 				pixels.fill(0)
 				pixels.show()

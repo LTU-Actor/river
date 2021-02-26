@@ -17,7 +17,13 @@ logFile = "/home/ubuntu/catkin_ws/src/river/src/main.log"
 lastUpdate = None
 data = None
 
-assert os.path.exists(dataFile), 'No such file: \'data.json\''
+assert os.path.exists(dataFile), 'No such file: \'dataTemp.json\''
+
+root_logger= logging.getLogger()
+root_logger.setLevel(logging.DEBUG)
+handler = logging.FileHandler('main.log', 'w', 'utf-8')
+handler.setFormatter(logging.Formatter("%(levelname)s %(asctime)s: %(name)s - %(message)s", "%H:%M:%S"))
+root_logger.addHandler(handler)
 
 def update():
 	try:
@@ -29,7 +35,9 @@ def update():
 
 		lastUpdate = pathlib.Path(dataFile).stat().st_mtime
 	except Exception as e:
-		print("Update Function Failed:", e)
+		logging.error("Update Function failed. \n\tError: " + str(e))
+		return None
+	return True
 
 
 def textMsgCB(msg):
@@ -41,8 +49,9 @@ def textMsgCB(msg):
 		with open(dataFile, "w") as file:
 			file.write(jsonObj)
 		update()
-	except:
-		print("Function error: textMsgCB, in main.py!")
+	except Exception as e:
+		logging.error("Call back function textMsgCB failed. \n\tError: " + str(e))
+
 
 def textColorCB(msg):
 	try:
@@ -54,8 +63,8 @@ def textColorCB(msg):
 		with open(dataFile, "w") as file:
 			file.write(jsonObj)
 		update()
-	except:
-		print("Function error: textColorCB, in main.py!")
+	except Exception as e:
+		logging.error("Call back function textColorCB failed. \n\tError: " + str(e))
 
 def statusEnabledCB(msg):
 	try:
@@ -67,8 +76,8 @@ def statusEnabledCB(msg):
 			file.write(jsonObj)
 
 		update()
-	except:
-		print("Function error: statusEnabledCB, in main.py!")
+	except Exception as e:
+		logging.error("Call back function statusEnabledCB failed. \n\tError: " + str(e))
 
 def statusNumCB(msg):
 	try:
@@ -80,8 +89,8 @@ def statusNumCB(msg):
 			file.write(jsonObj)
 
 		update()
-	except:
-		print("Function error: statusNumCB, in main.py!")
+	except Exception as e:
+		logging.error("Call back function statusNumCB failed. \n\tError: " + str(e))
 
 def statusColorCB(msg):
 	try:
@@ -92,8 +101,8 @@ def statusColorCB(msg):
 		with open(dataFile, "w") as file:
 			file.write(jsonObj)
 		update()
-	except:
-		print("Function error: statusColorCB, in main.py!")
+	except Exception as e:
+		logging.error("Call back function statusColorCB failed. \n\tError: " + str(e))
 
 def autoEnabledCB(msg):
 	try:
@@ -105,8 +114,8 @@ def autoEnabledCB(msg):
 			file.write(jsonObj)
 
 		update()
-	except:
-		print("Function error: autoEnabledCB, in main.py!")
+	except Exception as e:
+		logging.error("Call back function autoEnabledCB failed. \n\tError: " + str(e))
 
 def logCB(msg):
 	try:
@@ -125,8 +134,8 @@ def logCB(msg):
 				file.write(jsonObj)
 
 			update()
-	except:
-		print("Function error: logCB, in main.py!")
+	except Exception as e:
+		logging.error("Call back function logCB failed. \n\tError: " + str(e))
 
 def enabledCB(msg):
 	try:
@@ -139,14 +148,16 @@ def enabledCB(msg):
 				file.write(jsonObj)
 
 			update()
-	except:
-		print("Function error: enabledCB, in main.py!")
+	except Exception as e:
+		logging.error("Call back function enabledCB failed. \n\tError: " + str(e))
 
 if __name__ == '__main__':
 	rospy.init_node('display_node')
 	print("display_node started!")
 
-	update()
+	while update() is None:
+		logging.error("function call update() returned None state, looping: \n\tError: " + str(e))
+		time.sleep(.1)
 	data["auto"]["data"]["msgs"] = []
 
 	jsonObj = json.dumps(data, indent = 4)
@@ -168,6 +179,12 @@ if __name__ == '__main__':
 
 	rate = rospy.Rate(10)
 	while not rospy.is_shutdown():
-		if (lastUpdate != pathlib.Path(dataFile).stat().st_mtime):
-			update()
-		rate.sleep()
+		try:
+			if (lastUpdate != pathlib.Path(dataFile).stat().st_mtime):
+				if update() is None:
+					logging.error("function call update() returned None state: \n\tError: " + str(e))
+			rate.sleep()
+		except KeyboardInterrupt:
+			exit(0)
+		except Exception as e:
+			logging.info("try&except Exit: \n\tError: " + str(e))
