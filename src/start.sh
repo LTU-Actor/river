@@ -9,6 +9,10 @@ DATA_JSON_TEMP=/home/ubuntu/catkin_ws/src/river/src/dataTemp.json
 WEBSITE_SRC=/home/ubuntu/catkin_ws/src/river/src/www
 UPDATE_SH_FILE=/home/ubuntu/catkin_ws/src/river/src/update.sh
 
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+reset=$(tput sgr0)
+
 echo "copy files"
 sudo cp "$START_PY_FILE_SRC" "$START_PY_FILE_BIN"
 
@@ -28,7 +32,9 @@ sudo chmod 777 "$DATA_JSON_SRC"
 echo "begin boot"
 if [ "$1" == "boot" ]
 then
-    echo "boot"
+    echo "$green Starting ROS River in 5 seconds...$reset"
+    sleep 5
+    echo "$red booting...$reset"
     sudo python3 "$SHOW_SRC" &
     python3 "$START_PY_FILE_BIN"
 fi
