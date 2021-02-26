@@ -13,42 +13,6 @@
 <body>
   <div class="grid-container">
     <div class="container">
-      <h3>Settings:</h3>
-      <div class="row">
-        <div class="col-50">
-          <label>ROS host</label>
-        </div>
-        <div class="col-50">
-          <input type="text" placeholder="<?php echo $data["settings"]["ros"]["coreIP"].":".$data["settings"]["ros"]["port"]; ?>" disabled>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-50">
-          <label>Display width</label>
-        </div>
-        <div class="col-50">
-          <input type="text" placeholder="<?php echo $data["display"]["width"]; ?>" disabled>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-50">
-          <label>Display height</label>
-        </div>
-        <div class="col-50">
-          <input type="text" placeholder="<?php echo $data["display"]["height"]; ?>" disabled>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-50">
-          <label>Display brightness</label>
-        </div>
-        <div class="col-50">
-          <input type=text placeholder="<?php echo $data["display"]["brightness"]; ?>" disabled>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
       <h3>Show:</h3>
       <form name="show_form" action="show_form.php" onsubmit="return validateShowForm()">
         <div class="row">
@@ -194,7 +158,7 @@
           <label>Raspberry PI IP</label>
         </div>
         <div class="col-75">
-          <input type=text name="show-host-IP" value="<?php echo $data['settings']['ros']['coreIP']; ?>">
+          <input type=text name="show-host-IP" value="<?php echo $data['settings']['ros']['riverIP']; ?>">
         </div>
       </div>
       <div class="row">
