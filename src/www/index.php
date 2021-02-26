@@ -133,7 +133,6 @@
           <label>Brightness Percent:</label>
         </div>
         <div class="col-75">
-          %
           <input type=number name="show-brightness" value="<?php echo $data['display']['brightness']; ?>" min="1" max="50">
         </div>
       </div>
