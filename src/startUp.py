@@ -71,7 +71,8 @@ while True:
                 show("Waiting for ROS core", "4")
                 logging.info("Waiting for ROS core.")
                 try:
-                    mainProcess.kill()
+                    if mainProcess is not None:
+                        mainProcess.kill()
                 except Exception as e:
                     logging.error("failed to kill mainProcess: \n\tError: " + str(e))
                 mainProcess = None

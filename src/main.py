@@ -154,7 +154,7 @@ if __name__ == '__main__':
 	print("display_node started!")
 
 	while update() is None:
-		logging.error("function call update() returned None state, looping: \n\tError: " + str(e))
+		logging.error("function call update() returned None state, looping...")
 		time.sleep(.1)
 	data["auto"]["data"]["msgs"] = []
 
@@ -180,7 +180,7 @@ if __name__ == '__main__':
 		try:
 			if (lastUpdate != pathlib.Path(dataFile).stat().st_mtime):
 				if update() is None:
-					logging.error("function call update() returned None state: \n\tError: " + str(e))
+					logging.error("function call update() returned None state")
 			rate.sleep()
 		except KeyboardInterrupt:
 			exit(0)
