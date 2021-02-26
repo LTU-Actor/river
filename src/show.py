@@ -31,7 +31,7 @@ statusColors = {
 
 root_logger= logging.getLogger()
 root_logger.setLevel(logging.DEBUG)
-handler = logging.FileHandler('show.log', 'w', 'utf-8')
+handler = logging.FileHandler('/home/ubuntu/catkin_ws/src/river/src/show.log', 'w', 'utf-8')
 handler.setFormatter(logging.Formatter("%(levelname)s %(asctime)s: %(name)s - %(message)s", "%H:%M:%S"))
 root_logger.addHandler(handler)
 

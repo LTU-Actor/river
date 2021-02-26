@@ -11,7 +11,7 @@ dataFile = "/home/ubuntu/catkin_ws/src/river/src/dataTemp.json"
 
 root_logger= logging.getLogger()
 root_logger.setLevel(logging.DEBUG)
-handler = logging.FileHandler('main.log', 'w', 'utf-8')
+handler = logging.FileHandler('/home/ubuntu/catkin_ws/src/river/src/startUp.log', 'w', 'utf-8')
 handler.setFormatter(logging.Formatter("%(levelname)s %(asctime)s: %(name)s - %(message)s", "%H:%M:%S"))
 root_logger.addHandler(handler)
 
@@ -72,12 +72,12 @@ while True:
                 logging.info("Waiting for ROS core.")
                 try:
                     mainProcess.kill()
-                except:
+                except Exception as e:
                     logging.error("failed to kill mainProcess: \n\tError: " + str(e))
                 mainProcess = None
         time.sleep(.1)
     except KeyboardInterrupt:
-        logging.info("KeyboardInterrupt: \n\tError: " + str(e))
+        logging.info("KeyboardInterrupt")
         if not mainProcess is None:
             mainProcess.kill()
         sys.exit(0)

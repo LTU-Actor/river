@@ -19,7 +19,7 @@ data = None
 
 root_logger= logging.getLogger()
 root_logger.setLevel(logging.DEBUG)
-handler = logging.FileHandler('main.log', 'w', 'utf-8')
+handler = logging.FileHandler(logFile, 'w', 'utf-8')
 handler.setFormatter(logging.Formatter("%(levelname)s %(asctime)s: %(name)s - %(message)s", "%H:%M:%S"))
 root_logger.addHandler(handler)
 
