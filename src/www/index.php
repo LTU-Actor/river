@@ -134,7 +134,7 @@
         </div>
         <div class="col-75">
           
-          <input type=range name="show-brightness" value="<?php echo $data['display']['brightness']; ?>" min="1" max="100">
+          <input type=number name="show-brightness" value="<?php echo $data['display']['brightness']; ?>" min="1" max="50">
         </div>
       </div>
       <br>
