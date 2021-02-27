@@ -207,7 +207,7 @@
         <div class="col-25">
           <label>Errors: <?php
               $linecount = 0;
-              $myfile = fopen("/home/ubuntu/catkin_ws/src/river/src/show.log", "r") or die("No file.");
+              $myfile = fopen("/home/ubuntu/catkin_ws/src/river/src/show.log", "r") or echo "No file.";
               while(!feof($myfile)) {
                   $line = fgets($myfile);
                   $linecount++;
@@ -229,7 +229,7 @@
         <div class="col-25">
           <label>Errors: <?php
               $linecount = 0;
-              $myfile = fopen("/home/ubuntu/catkin_ws/src/river/src/startUp.log", "r") or die("No file.");
+              $myfile = fopen("/home/ubuntu/catkin_ws/src/river/src/startUp.log", "r") or echo "No file.";
               while(!feof($myfile)) {
                   $line = fgets($myfile);
                   $linecount++;
@@ -251,7 +251,7 @@
         <div class="col-25">
           <label>Errors: <?php
               $linecount = 0;
-              $myfile = fopen("/home/ubuntu/catkin_ws/src/river/src/main.log", "r") or die("No file.");
+              $myfile = fopen("/home/ubuntu/catkin_ws/src/river/src/main.log", "r") or echo "No file.";
               while(!feof($myfile)) {
                   $line = fgets($myfile);
                   $linecount++;
