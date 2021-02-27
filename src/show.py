@@ -207,17 +207,17 @@ def show():
 	try:
 		if data["show"]["status"]["colorGrade"]:
 			if (level < 2):
-				statusColor = statusColors["success"]
+				statusColor = setColor(statusColors["success"])
 			elif (level < 4):
-				statusColor = statusColors["info"]
+				statusColor = setColor(statusColors["info"])
 			elif (level < 8):
-				statusColor = statusColors["warning"]
+				statusColor = setColor(statusColors["warning"])
 			else:
-				statusColor = statusColors["error"]
+				statusColor = setColor(statusColors["error"])
 		else:
 			statusColor = setColor(data["show"]["status"]["color"])
-			if statusColor is None:
-				return None
+		if statusColor is None:
+			return None
 	except Exception as e:
 		logging.error("In show(): status color set failed. \n\tError: " + str(e))
 		return None
