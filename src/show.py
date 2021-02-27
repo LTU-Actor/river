@@ -86,7 +86,7 @@ def update():
 		data["auto"]["data"]["dbw_enabled"] = verify(data["auto"]["data"]["dbw_enabled"], bool)
 
 		#Verify Show atributes
-		data["show"]["status"]["msg"] = verify(data["show"]["status"]["msg"], int)
+		data["show"]["status"]["msg"] = verify(data["show"]["status"]["msg"], str)
 		data["show"]["status"]["enabled"] = verify(data["show"]["status"]["enabled"], bool)
 		data["show"]["status"]["colorGrade"] = verify(data["show"]["status"]["colorGrade"], bool)
 		data["show"]["status"]["clear0"] = verify(data["show"]["status"]["clear0"], bool)
