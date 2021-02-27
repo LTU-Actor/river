@@ -7,6 +7,10 @@
     $data["settings"]["ros"]["riverIP"] = $_GET['show-ros-IP'];
     $data["settings"]["ros"]["port"] = $_GET['show-port'];
 
+    $data['display']['width'] = $_GET['show-width'];
+    $data['display']['height'] = $_GET['show-height'];
+    $data['display']['brightness'] = $_GET['show-brightness'];
+
     $data["show"]["text"]["msg"] = "Reset";
     $data["show"]["text"]["color"] = "#FFFFFF";
     $data["show"]["status"]["msg"] = "";
@@ -16,7 +20,7 @@
     if (!fwrite($handle, $jsonData)){
         echo "Failed";
     }
-    fclose();
+    fclose($handle);
 
     shell_exec('cd /home/ubuntu/catkin_ws/src/river/src/ && sudo bash ./start.sh 2>&1');
 

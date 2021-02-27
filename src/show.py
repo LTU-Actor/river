@@ -51,7 +51,6 @@ def update():
 	global font
 	global data
 	global tick
-	global pixels
 	global lastUpdate
 	global offset
 
@@ -109,19 +108,6 @@ def update():
 		font = ImageFont.truetype(data["font"]["path"], data["font"]["size"])
 	except Exception as e:
 		logging.error("In update(): font file open failed. \n\tError: " + str(e))
-		return None
-
-	#Setup pixels for display
-	try:
-		if pixels is not None:
-			del pixels
-		pixels = neopixel.NeoPixel(
-			board.D18,
-			data["display"]["width"] * data["display"]["height"],
-			brightness = data["display"]["brightness"],
-			auto_write = False)
-	except Exception as e:
-		logging.error("In update(): Pixel initalization failed. \n\tError: " + str(e))
 		return None
 	
 	return True
@@ -346,13 +332,25 @@ def show():
 	
 	return True
 
+update()
+#Setup pixels for display
+try:
+	pixels = neopixel.NeoPixel(
+		board.D18,
+		data["display"]["width"] * data["display"]["height"],
+		brightness = data["display"]["brightness"],
+		auto_write = False)
+except Exception as e:
+	logging.error("In update(): Pixel initalization failed. \n\tError: " + str(e))
+	exit(0)
+
 if __name__ == "__main__":
 	while True:
 		try:
 			if data is not None:
 				time.sleep(data["settings"]["rate"])
 			
-			if (lastUpdate != pathlib.Path(dataFile).stat().st_mtime or pixels is None):
+			if (lastUpdate != pathlib.Path(dataFile).stat().st_mtime):
 				print("update")
 				if not update():
 					continue
@@ -367,6 +365,10 @@ if __name__ == "__main__":
 			if (tick > 1000000):
 				tick = 0
 		except KeyboardInterrupt:
+			logging.info("KeyboardInterrupt")
+			if pixels is not None:
+				pixels.fill(0)
+				pixels.show()
 			exit(0)
 		except Exception as e:
 			logging.error("try&except Exit: \n\tError: " + str(e))
