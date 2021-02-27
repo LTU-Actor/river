@@ -16,7 +16,7 @@ input[type=text], select, textarea, input[type=number]{
 }
   
 label {
-    font-size: 16px;
+    font-size: 15px;
     padding: 12px 12px 12px 0;
     display: inline-block;
     color: #424242;
