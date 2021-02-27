@@ -44,8 +44,8 @@
           </div>
           <div class="col-25">
             <label class="switch">
-              <input type=checkbox name="toggle-heartbeat" value="true" <?php if ($data['settings']['hartbeat']['enabled']){echo checked;} ?>>
-              <span class="slider round" <?php if ($data['settings']['hartbeat']['enabled']){echo checked;} ?>></span>
+              <input type=checkbox name="toggle-heartbeat" value="true" <?php if ($data['settings']['heartbeat']['enabled']){echo checked;} ?>>
+              <span class="slider round"></span>
             </label>
           </div>
         </div>
