@@ -205,7 +205,7 @@
           <label>Open show Log</label>
         </div>
         <div class="col-25">
-          <label>Erros: <?php
+          <label>Errors: <?php
               $linecount = 0;
               $myfile = fopen("/home/ubuntu/catkin_ws/src/river/src/show.log", "r") or die("No file.");
               while(!feof($myfile)) {
@@ -223,8 +223,20 @@
       </form>
       <form name="startUpLog" action="startUpLog.php">
       <div class="row">
-        <div class="col-75">
+        <div class="col-50">
           <label>Open start up Log</label>
+        </div>
+        <div class="col-25">
+          <label>Errors: <?php
+              $linecount = 0;
+              $myfile = fopen("/home/ubuntu/catkin_ws/src/river/src/startUp.log", "r") or die("No file.");
+              while(!feof($myfile)) {
+                  $line = fgets($myfile);
+                  $linecount++;
+              }
+              fclose($myfile);
+              echo $linecount - 1;
+          ?></lable>
         </div>
         <div class="col-25">
           <input type="submit" value="Open">
@@ -233,8 +245,20 @@
       </form>
       <form name="mainLog" action="mainLog.php">
       <div class="row">
-        <div class="col-75">
+        <div class="col-50">
           <label>Open main Log</label>
+        </div>
+        <div class="col-25">
+          <label>Errors: <?php
+              $linecount = 0;
+              $myfile = fopen("/home/ubuntu/catkin_ws/src/river/src/main.log", "r") or die("No file.");
+              while(!feof($myfile)) {
+                  $line = fgets($myfile);
+                  $linecount++;
+              }
+              fclose($myfile);
+              echo $linecount - 1;
+          ?></lable>
         </div>
         <div class="col-25">
           <input type="submit" value="Open">
