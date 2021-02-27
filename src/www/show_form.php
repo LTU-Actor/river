@@ -23,11 +23,9 @@
 
     if (!empty($_GET['toggle-clear-zero'])){
         $data["show"]["status"]["clear0"] = true;
-        echo "toggle-heartbeat true<br>";
     }
     else{
         $data["show"]["status"]["clear0"] = false;
-        echo "toggle-heartbeat false<br>";
     }
 
     $jsonData = json_encode($data,JSON_PRETTY_PRINT);
