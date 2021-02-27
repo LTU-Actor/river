@@ -7,7 +7,7 @@ Number of Errors:
         $linecount++;
     }
     fclose($myfile);
-    echo $linecount;
+    echo $linecount - 1;
 ?>
 
 <br><br>
