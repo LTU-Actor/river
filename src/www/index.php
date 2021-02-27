@@ -115,20 +115,6 @@
     </div>
 
     <div class="container">
-      <h3>Network and Updates:</h3>
-      <form name="update" action="update.php">
-      <div class="row">
-        <div class="col-75">
-          <label>Force Github update</label>
-        </div>
-        <div class="col-25">
-          <input type="submit" value="Update ROS River">
-        </div>
-      </div>
-      </form>
-    </div>
-
-    <div class="container">
       <h3>Display Settings</h3>
       <form name="display_form" action="display_form.php">
         <div class="row">
@@ -193,6 +179,54 @@
       <br>
       <div class="row">
         <input type="submit" value="Submit and Reboot">
+      </div>
+      </form>
+    </div>
+
+    <div class="container">
+      <h3>Updates:</h3>
+      <form name="update" action="update.php">
+      <div class="row">
+        <div class="col-75">
+          <label>Force Github update</label>
+        </div>
+        <div class="col-25">
+          <input type="submit" value="Update ROS River">
+        </div>
+      </div>
+      </form>
+    </div>
+
+    <div class="container">
+      <h3>Logs:</h3>
+      <form name="showLog" action="showLog.php">
+      <div class="row">
+        <div class="col-75">
+          <label>Open show Log</label>
+        </div>
+        <div class="col-25">
+          <input type="submit" value="Open">
+        </div>
+      </div>
+      </form>
+      <form name="startUpLog" action="startUpLog.php">
+      <div class="row">
+        <div class="col-75">
+          <label>Open start up Log</label>
+        </div>
+        <div class="col-25">
+          <input type="submit" value="Open">
+        </div>
+      </div>
+      </form>
+      <form name="mainLog" action="mainLog.php">
+      <div class="row">
+        <div class="col-75">
+          <label>Open main Log</label>
+        </div>
+        <div class="col-25">
+          <input type="submit" value="Open">
+        </div>
       </div>
       </form>
     </div>
