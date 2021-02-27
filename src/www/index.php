@@ -205,7 +205,7 @@
           <label>Open show Log</label>
         </div>
         <div class="col-25">
-        <label>Errors: <?php
+        <label>Logs: <?php
               $linecount = 0;
               $file = "/home/ubuntu/catkin_ws/src/river/src/show.log";
               if (file_exists($file)){
@@ -233,7 +233,7 @@
           <label>Open start up Log</label>
         </div>
         <div class="col-25">
-          <label>Errors: <?php
+          <label>Logs: <?php
               $linecount = 0;
               $file = "/home/ubuntu/catkin_ws/src/river/src/startUp.log";
               if (file_exists($file)){
@@ -261,7 +261,7 @@
           <label>Open main Log</label>
         </div>
         <div class="col-25">
-        <label>Errors: <?php
+        <label>Logs: <?php
               $linecount = 0;
               $file = "/home/ubuntu/catkin_ws/src/river/src/main.log";
               if (file_exists($file)){

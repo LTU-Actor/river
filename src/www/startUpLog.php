@@ -1,4 +1,4 @@
-Number of Errors:
+Number of logs:
 <?php
     $linecount = 0;
     $myfile = fopen("/home/ubuntu/catkin_ws/src/river/src/startUp.log", "r") or die("Unable to open file!");
@@ -11,7 +11,7 @@ Number of Errors:
 ?>
 
 <br><br>
-Errors:
+Log:
 <br>
 
 <?php
