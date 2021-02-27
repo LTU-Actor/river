@@ -8,6 +8,9 @@ DATA_JSON_SRC=/home/ubuntu/catkin_ws/src/river/src/data.json
 DATA_JSON_TEMP=/home/ubuntu/catkin_ws/src/river/src/dataTemp.json
 WEBSITE_SRC=/home/ubuntu/catkin_ws/src/river/src/www
 UPDATE_SH_FILE=/home/ubuntu/catkin_ws/src/river/src/update.sh
+SHOW_LOG=/home/ubuntu/catkin_ws/src/river/src/show.log
+MAIN_LOG=/home/ubuntu/catkin_ws/src/river/src/main.log
+STARTUP_LOG=/home/ubuntu/catkin_ws/src/river/src/startUp.log
 
 red=$(tput setaf 1)
 green=$(tput setaf 2)
@@ -33,6 +36,12 @@ echo "Permissions changed: DATA_JSON_TEMP"
 sudo chmod 777 "$DATA_JSON_TEMP"
 echo "Permissions changed: DATA_JSON_SRC"
 sudo chmod 777 "$DATA_JSON_SRC"
+echo "Permissions changed: SHOW_LOG"
+sudo chmod 777 "$SHOW_LOG"
+echo "Permissions changed: MAIN_LOG"
+sudo chmod 777 "$MAIN_LOG"
+echo "Permissions changed: STARTUP_LOG"
+sudo chmod 777 "$STARTUP_LOG"
 
 echo "REMOTE_MASTER"
 . "$REMOTE_MASTER"
