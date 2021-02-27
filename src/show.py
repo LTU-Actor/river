@@ -86,7 +86,7 @@ def update():
 		data["auto"]["data"]["dbw_enabled"] = verify(data["auto"]["data"]["dbw_enabled"], bool)
 
 		#Verify Show atributes
-		data["show"]["status"]["msg"] = verify(data["show"]["status"]["msg"], str)
+		data["show"]["status"]["msg"] = verify(data["show"]["status"]["msg"], int)
 		data["show"]["status"]["enabled"] = verify(data["show"]["status"]["enabled"], bool)
 		data["show"]["status"]["colorGrade"] = verify(data["show"]["status"]["colorGrade"], bool)
 		data["show"]["status"]["clear0"] = verify(data["show"]["status"]["clear0"], bool)
@@ -228,7 +228,6 @@ def show():
 		return None
 
 	#set status to empty if 0
-	print(statusmsg)
 	try:
 		if data["show"]["status"]["clear0"]:
 			if level == 0:
@@ -237,7 +236,6 @@ def show():
 		logging.error("In show(): clear status failed. \n\tError: " + str(e))
 		return None
 
-	print(statusmsg)
 	#enable status
 	try:
 		if not data["show"]["status"]["enabled"]:
@@ -246,7 +244,7 @@ def show():
 		logging.error("In show(): enable status failed. \n\tError: " + str(e))
 		return None
 	
-	print(statusmsg)
+	statusmsg = str(statusmsg)
 	#get status and text pixel width
 	try:
 		textWidth, _ = font.getsize(data["show"]["text"]["msg"])
