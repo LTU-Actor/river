@@ -35,7 +35,7 @@
             <input type=number name="show-status" value="<?php echo $data['show']['status']['msg']; ?>" min=0 max=992>
           </div>
           <div class="col-25">
-            <input type="color" name="show-status-color" value="<?php echo $data['show']['status']['color']; ?>" <?php if ($data['show']['status']['colorGrade']){echo disabled;} ?>>
+            <input type="color" name="show-status-color" value="<?php echo $data['show']['status']['color']; ?>">
           </div>
         </div>
         <div class="row">
@@ -45,7 +45,7 @@
           <div class="col-25">
             <label class="switch">
               <input type=checkbox name="toggle-heartbeat" value="true" <?php if ($data['settings']['hartbeat']['enabled']){echo checked;} ?>>
-              <span class="slider round"></span>
+              <span class="slider round" <?php if ($data['settings']['hartbeat']['enabled']){echo checked;} ?>></span>
             </label>
           </div>
         </div>
