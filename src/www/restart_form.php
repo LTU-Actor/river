@@ -18,7 +18,7 @@
     }
     fclose();
 
-    #shell_exec('cd /home/ubuntu/catkin_ws/src/river/src/ && sudo ./start.sh 2>&1');
+    shell_exec('cd /home/ubuntu/catkin_ws/src/river/src/ && sudo ./start.sh 2>&1');
 
     #sleep .5;
 
