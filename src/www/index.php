@@ -4,6 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <script src="formValidate.js"></script>
+  <script src="ping.js"></script>
   <?php
     $file = "/home/ubuntu/catkin_ws/src/river/src/dataTemp.json";
     $strData = file_get_contents($file);
@@ -175,7 +176,7 @@
           <label>Raspberry PI IP</label>
         </div>
         <div class="col-75">
-          <input type=text name="show-host-IP" value="<?php echo $data['settings']['ros']['riverIP']; ?>">
+          <input type=text name="show-ros-IP" value="<?php echo $data['settings']['ros']['riverIP']; ?>">
         </div>
       </div>
       <div class="row">
