@@ -7,7 +7,7 @@ Number of Logs:
         $linecount++;
     }
     fclose($myfile);
-    echo $linecount - 1;
+    echo ($linecount - 1) / 2;
 ?>
 
 <br><br>

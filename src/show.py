@@ -44,7 +44,7 @@ def update():
 			if type(data) is not excpectedType:
 				data = excpectedType(data)
 		except Exception as e:
-			logging.error("In update() verify(): " + str(data) + " could not be converted to . \n\tError: " + str(e))
+			logging.error("In update() verify(): " + str(data) + " could not be converted. \n\tError: " + str(e))
 			raise TypeError
 		return data
 			

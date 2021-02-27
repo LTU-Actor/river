@@ -4,7 +4,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <script src="formValidate.js"></script>
-  <script src="refresh.js"></script>
   <?php
     $file = "/home/ubuntu/catkin_ws/src/river/src/dataTemp.json";
     $strData = file_get_contents($file);
@@ -215,7 +214,7 @@
                     $linecount++;
                 }
                 fclose($myfile);
-                echo $linecount - 1;
+                echo ($linecount - 1) / 2;
               }
               else{
                 echo "No File.";
