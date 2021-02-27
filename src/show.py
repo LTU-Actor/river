@@ -240,7 +240,7 @@ def show():
 	print(statusmsg)
 	#enable status
 	try:
-		if data["show"]["status"]["enabled"]:
+		if not data["show"]["status"]["enabled"]:
 			statusmsg = ""
 	except Exception as e:
 		logging.error("In show(): enable status failed. \n\tError: " + str(e))
