@@ -11,7 +11,7 @@ Number of logs:
 ?>
 
 <br><br>
-Log:
+Logs:
 <br>
 
 <?php
