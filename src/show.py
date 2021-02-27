@@ -332,7 +332,6 @@ def show():
 		logging.error("In show(): display pixels.show() failed. \n\tError: " + str(e))
 		return None
 	
-	print("end of show")
 	return True
 
 update()
