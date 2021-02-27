@@ -223,7 +223,7 @@
           ?></label>
         </div>
         <div class="col-25">
-          <input type="submit" value="Open">
+          <input type="submit" value="Open" <?php if (!file_exists("/home/ubuntu/catkin_ws/src/river/src/show.log")){ echo "disabled";} ?>>
         </div>
       </div>
       </form>
@@ -251,7 +251,7 @@
           ?></label>
         </div>
         <div class="col-25">
-          <input type="submit" value="Open">
+          <input type="submit" value="Open" <?php if (!file_exists("/home/ubuntu/catkin_ws/src/river/src/startUp.log")){ echo "disabled";} ?>>
         </div>
       </div>
       </form>
