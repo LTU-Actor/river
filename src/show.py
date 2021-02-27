@@ -228,7 +228,6 @@ def show():
 		return None
 
 	#set status to empty if 0
-	print(1)
 	try:
 		if data["show"]["status"]["clear0"]:
 			if level == 0:
@@ -237,7 +236,6 @@ def show():
 		logging.error("In show(): clear status failed. \n\tError: " + str(e))
 		return None
 
-	print(2)
 	#enable status
 	try:
 		if not (data["show"]["status"]["enabled"]):
@@ -246,7 +244,6 @@ def show():
 		logging.error("In show(): enable status failed. \n\tError: " + str(e))
 		return None
 	
-	print(3)
 	statusmsg = str(statusmsg)
 	#get status and text pixel width
 	try:
@@ -298,25 +295,23 @@ def show():
 
 	#display status
 	try:
-		print(4)
+
 		statusImage = Image.new('P', (statusWidth, data["display"]["height"]), 0)
 		statusDraw = ImageDraw.Draw(statusImage)
-		print(5)
+
 		statusDraw.text((0, -1), statusmsg, font=font, fill=255)
 		statusImage = ImageOps.flip(statusImage)
-		print(6)
+
 		loc = data["display"]["width"] - statusWidth
 
 		for x in range (statusWidth):
-			print(7)
 			for y in range (data["display"]["height"]):
-				print(8)
+				print(statusWidth, x, data["display"]["height"], y, statusImage.getpixel((x,y)))
 				if (statusImage.getpixel((x,y)) == 255):
-					print(9)
 					pixels[getIndex(x + loc, y)] = statusColor
 				else:
-					print(0)
 					pixels[getIndex(x + loc, y)] = [0, 0, 0]
+				time.sleep(.5)
 	except Exception as e:
 		logging.error("In show(): display status failed. \n\tError: " + str(e))
 		return None
