@@ -201,8 +201,20 @@
       <h3>Logs:</h3>
       <form name="showLog" action="showLog.php">
       <div class="row">
-        <div class="col-75">
+        <div class="col-50">
           <label>Open show Log</label>
+        </div>
+        <div class="col-25">
+          <label>Erros: <?php
+              $linecount = 0;
+              $myfile = fopen("/home/ubuntu/catkin_ws/src/river/src/show.log", "r") or die("No file.");
+              while(!feof($myfile)) {
+                  $line = fgets($myfile);
+                  $linecount++;
+              }
+              fclose($myfile);
+              echo $linecount - 1;
+          ?></lable>
         </div>
         <div class="col-25">
           <input type="submit" value="Open">
