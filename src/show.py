@@ -320,7 +320,7 @@ def show():
 	except Exception as e:
 		logging.error("In show(): display status failed. \n\tError: " + str(e))
 		return None
-
+	print(100)
 	#display Hearbeat
 	try:
 		if (data["settings"]["heartbeat"]["enabled"]):
@@ -331,7 +331,7 @@ def show():
 	except Exception as e:
 		logging.error("In show(): display Heartbeat failed. \n\tError: " + str(e))
 		return None
-	
+	print(200)
 	#push all updates to display
 	try:
 		pixels.show()
