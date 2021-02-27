@@ -279,7 +279,7 @@
           ?></label>
         </div>
         <div class="col-25">
-          <input type="submit" value="Open">
+          <input type="submit" value="Open" <?php if (!file_exists("/home/ubuntu/catkin_ws/src/river/src/main.log")){ echo "disabled";} ?>>
         </div>
       </div>
       </form>
