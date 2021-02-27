@@ -145,3 +145,51 @@ input[type=submit]:hover {
     background-color: #3b5366;
     padding: 10px;
 }
+
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, .col-50, input[type="color"], input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+  .grid-container {
+      grid-template-columns: auto;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 800px){
+  .grid-container {
+    grid-template-columns: auto;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1000px){
+  .col-25, .col-75, .col-50, input[type="color"], input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+  .grid-container {
+      grid-template-columns: auto auto;
+  }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1200px){
+  .grid-container {
+      grid-template-columns: auto auto;
+  }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1400px){
+  .col-25, .col-75, .col-50, input[type="color"], input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+  .grid-container {
+      grid-template-columns: auto auto auto;
+  }
+}
+
+@media screen and (min-width: 1400px){
+  .grid-container {
+      grid-template-columns: auto auto auto;
+  }
+}
