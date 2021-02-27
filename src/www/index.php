@@ -131,34 +131,34 @@
     <div class="container">
       <h3>Display Settings</h3>
       <form name="display_form" action="display_form.php">
-      <div class="row">
-        <div class="col-25">
-          <label>Width</label>
+        <div class="row">
+          <div class="col-25">
+            <label>Width</label>
+          </div>
+          <div class="col-75">
+            <input type=number name="show-width" value="<?php echo $data['display']['width']; ?>" min=1 max=255>
+          </div>
         </div>
-        <div class="col-75">
-          <input type=number name="show-width" value="<?php echo $data['display']['width']; ?>" min=1 max=255>
+        <div class="row">
+          <div class="col-25">
+            <label>Height</label>
+          </div>
+          <div class="col-75">
+            <input type=number name="show-height" value="<?php echo $data['display']['height']; ?>" min=1 max=255>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-25">
-          <label>Height</label>
+        <div class="row">
+          <div class="col-25">
+            <label>Brightness Percent:</label>
+          </div>
+          <div class="col-75">
+            <input type=number name="show-brightness" value="<?php echo $data['display']['brightness']; ?>" min="1" max="50">
+          </div>
         </div>
-        <div class="col-75">
-          <input type=number name="show-height" value="<?php echo $data['display']['height']; ?>" min=1 max=255>
+        <br>
+        <div class="row">
+          <input type="submit" value="Submit">
         </div>
-      </div>
-      <div class="row">
-        <div class="col-25">
-          <label>Brightness Percent:</label>
-        </div>
-        <div class="col-75">
-          <input type=number name="show-brightness" value="<?php echo $data['display']['brightness']; ?>" min="1" max="50">
-        </div>
-      </div>
-      <br>
-      <div class="row">
-        <input type="submit" value="Submit">
-      </div>
       </form>
     </div>
 

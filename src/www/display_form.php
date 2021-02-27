@@ -17,7 +17,7 @@
     }
     fclose($file);
 
-    if (isset($_SERVER["HTTP_REFERER"])) {
-        header("Location: " . $_SERVER["HTTP_REFERER"]);
-    }
+    #if (isset($_SERVER["HTTP_REFERER"])) {
+    #    header("Location: " . $_SERVER["HTTP_REFERER"]);
+    #}
 ?>
