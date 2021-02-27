@@ -52,5 +52,5 @@ then
     sleep 5
     echo "$red booting...$reset"
     sudo python3 "$SHOW_SRC" &
-    python3 "$START_PY_FILE_BIN"
+    python "$START_PY_FILE_BIN"
 fi
