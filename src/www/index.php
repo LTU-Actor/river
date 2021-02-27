@@ -205,16 +205,22 @@
           <label>Open show Log</label>
         </div>
         <div class="col-25">
-          <label>Errors: <?php
+        <label>Errors: <?php
               $linecount = 0;
-              $myfile = fopen("/home/ubuntu/catkin_ws/src/river/src/show.log", "r") or echo "No file.";
-              while(!feof($myfile)) {
-                  $line = fgets($myfile);
-                  $linecount++;
+              $file = "/home/ubuntu/catkin_ws/src/river/src/show.log";
+              if (file_exists($file)){
+                $myfile = fopen($file, "r");
+                while(!feof($myfile)) {
+                    $line = fgets($myfile);
+                    $linecount++;
+                }
+                fclose($myfile);
+                echo $linecount - 1;
               }
-              fclose($myfile);
-              echo $linecount - 1;
-          ?></lable>
+              else{
+                echo "No File.";
+              }
+          ?></label>
         </div>
         <div class="col-25">
           <input type="submit" value="Open">
@@ -229,14 +235,20 @@
         <div class="col-25">
           <label>Errors: <?php
               $linecount = 0;
-              $myfile = fopen("/home/ubuntu/catkin_ws/src/river/src/startUp.log", "r") or echo "No file.";
-              while(!feof($myfile)) {
-                  $line = fgets($myfile);
-                  $linecount++;
+              $file = "/home/ubuntu/catkin_ws/src/river/src/startUp.log";
+              if (file_exists($file)){
+                $myfile = fopen($file, "r");
+                while(!feof($myfile)) {
+                    $line = fgets($myfile);
+                    $linecount++;
+                }
+                fclose($myfile);
+                echo $linecount - 1;
               }
-              fclose($myfile);
-              echo $linecount - 1;
-          ?></lable>
+              else{
+                echo "No File.";
+              }
+          ?></label>
         </div>
         <div class="col-25">
           <input type="submit" value="Open">
@@ -249,16 +261,22 @@
           <label>Open main Log</label>
         </div>
         <div class="col-25">
-          <label>Errors: <?php
+        <label>Errors: <?php
               $linecount = 0;
-              $myfile = fopen("/home/ubuntu/catkin_ws/src/river/src/main.log", "r") or echo "No file.";
-              while(!feof($myfile)) {
-                  $line = fgets($myfile);
-                  $linecount++;
+              $file = "/home/ubuntu/catkin_ws/src/river/src/main.log";
+              if (file_exists($file)){
+                $myfile = fopen($file, "r");
+                while(!feof($myfile)) {
+                    $line = fgets($myfile);
+                    $linecount++;
+                }
+                fclose($myfile);
+                echo $linecount - 1;
               }
-              fclose($myfile);
-              echo $linecount - 1;
-          ?></lable>
+              else{
+                echo "No File.";
+              }
+          ?></label>
         </div>
         <div class="col-25">
           <input type="submit" value="Open">
