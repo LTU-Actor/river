@@ -20,7 +20,7 @@
 
     shell_exec('cd /home/ubuntu/catkin_ws/src/river/src/ && sudo ./start.sh 2>&1');
 
-    #sleep .5;
+    sleep(.5);
 
-    #shell_exec('sudo /sbin/reboot');
+    shell_exec('sudo /sbin/reboot');
 ?>
