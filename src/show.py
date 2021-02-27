@@ -306,16 +306,14 @@ def show():
 
 		for x in range (statusWidth):
 			for y in range (data["display"]["height"]):
-				print(statusWidth, x, data["display"]["height"], y, statusImage.getpixel((x,y)))
 				if (statusImage.getpixel((x,y)) == 255):
 					pixels[getIndex(x + loc, y)] = statusColor
 				else:
 					pixels[getIndex(x + loc, y)] = [0, 0, 0]
-				time.sleep(.5)
 	except Exception as e:
 		logging.error("In show(): display status failed. \n\tError: " + str(e))
 		return None
-	print(100)
+
 	#display Hearbeat
 	try:
 		if (data["settings"]["heartbeat"]["enabled"]):
@@ -326,7 +324,7 @@ def show():
 	except Exception as e:
 		logging.error("In show(): display Heartbeat failed. \n\tError: " + str(e))
 		return None
-	print(200)
+
 	#push all updates to display
 	try:
 		pixels.show()
