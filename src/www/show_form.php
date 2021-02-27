@@ -32,6 +32,9 @@
 
     $jsonData = json_encode($data,JSON_PRETTY_PRINT);
     $handle = fopen($file, "w");
+    if (!fwrite($handle, $jsonData)){
+        echo "Failed";
+    }
     fclose($file);
 
     shell_exec('cd /home/ubuntu/catkin_ws/src/river/src/ && sudo ./start.sh 2>&1');
