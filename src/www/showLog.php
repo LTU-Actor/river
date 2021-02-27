@@ -12,6 +12,6 @@
     while(!feof($myfile)) {
         $linecount++;
     }
-    fclose($handle);
+    fclose($myfile);
     echo $linecount;
 ?>
