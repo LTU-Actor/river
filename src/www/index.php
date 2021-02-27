@@ -130,6 +130,7 @@
 
     <div class="container">
       <h3>Display Settings</h3>
+      <form name="display_form" action="display_form.php">
       <div class="row">
         <div class="col-25">
           <label>Width</label>
@@ -158,6 +159,7 @@
       <div class="row">
         <input type="submit" value="Submit">
       </div>
+      </form>
     </div>
 
     <div class="container">
