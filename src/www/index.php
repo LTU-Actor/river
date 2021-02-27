@@ -50,10 +50,10 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-75">
+          <div class="col-75-one-Line">
             <label>Toggle Clear Zero</label>
           </div>
-          <div class="col-25">
+          <div class="col-25-one-Line">
             <label class="switch">
               <input type=checkbox name="toggle-clear-zero" value="true" <?php if ($data['show']['status']['clear0']){echo checked;} ?>>
               <span class="slider round"></span>

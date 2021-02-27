@@ -131,6 +131,18 @@ input[type=submit]:hover {
     margin-top: 6px;
 }
 
+.col-25-one-Line {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75-one-Line {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
 .row:after {
     content: "";
     display: table;
