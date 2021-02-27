@@ -228,6 +228,7 @@ def show():
 		return None
 
 	#set status to empty if 0
+	print(statusmsg)
 	try:
 		if data["show"]["status"]["clear0"]:
 			if level == 0:
@@ -236,6 +237,7 @@ def show():
 		logging.error("In show(): clear status failed. \n\tError: " + str(e))
 		return None
 
+	print(statusmsg)
 	#enable status
 	try:
 		if data["show"]["status"]["enabled"]:
@@ -244,6 +246,7 @@ def show():
 		logging.error("In show(): enable status failed. \n\tError: " + str(e))
 		return None
 	
+	print(statusmsg)
 	#get status and text pixel width
 	try:
 		textWidth, _ = font.getsize(data["show"]["text"]["msg"])
@@ -330,6 +333,7 @@ def show():
 		logging.error("In show(): display pixels.show() failed. \n\tError: " + str(e))
 		return None
 	
+	print("end of show")
 	return True
 
 update()
