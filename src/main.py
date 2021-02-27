@@ -53,7 +53,6 @@ def textMsgCB(msg):
 
 def textColorCB(msg):
 	try:
-		if (msg.data)
 		data["show"]["text"]["color"] = str(msg.data)
 
 		jsonObj = json.dumps(data, indent = 4)
