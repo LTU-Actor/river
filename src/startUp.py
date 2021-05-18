@@ -30,6 +30,17 @@ class timeout:
     def __exit__(self, type, value, traceback):
         signal.alarm(0)
 
+def get_ip():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        s.connect(('10.255.255.255', 1))
+        IP = s.getsockname()[0]
+    except Exception:
+        IP = '127.0.0.1'
+    finally:
+        s.close()
+    return IP
+
 def isROS():
         with timeout(1):
             return rosgraph.is_master_online()
@@ -69,7 +80,7 @@ while True:
         else:
             if not mainProcess is None or firstrun:
                 firstrun = False
-                show("Waiting for ROS core! Website: " + str(socket.gethostbyname(socket.getfqdn())), "4")
+                show("Waiting for ROS core! Website: " + str(get_ip()), "4")
                 logging.info("Waiting for ROS core.")
                 try:
                     if mainProcess is not None:
