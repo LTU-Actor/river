@@ -69,7 +69,7 @@ while True:
         else:
             if not mainProcess is None or firstrun:
                 firstrun = False
-                show("Waiting for ROS core! Website: " + str(socket.gethostbyname(socket.gethostname())), "4")
+                show("Waiting for ROS core! Website: " + str(socket.gethostbyname(socket.getfqdn())), "4")
                 logging.info("Waiting for ROS core.")
                 try:
                     if mainProcess is not None:
