@@ -3,6 +3,7 @@ import sys
 import time
 import json
 import signal
+import socket
 import logging
 import rosgraph
 import subprocess
@@ -68,7 +69,7 @@ while True:
         else:
             if not mainProcess is None or firstrun:
                 firstrun = False
-                show("Waiting for ROS core", "4")
+                show("Waiting for ROS core! Website: " + str(socket.gethostbyname(socket.gethostname())), "4")
                 logging.info("Waiting for ROS core.")
                 try:
                     if mainProcess is not None:
