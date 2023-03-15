@@ -70,6 +70,7 @@ mainProcess = None
 while True:
     try:
         if isROS():
+           # print("Ros Running")
             if mainProcess is None:
                 try:
                     show("Ready: ROS River Running", "0")
@@ -79,8 +80,10 @@ while True:
                     logging.error("Main Process failed to initalize: \n\tError: " + str(e))
         else:
             if not mainProcess is None or firstrun:
+                print("Running FirstRun")
                 firstrun = False
-                show("Waiting for ROS core! Website: " + str(get_ip()), "4")
+                # show("Waiting for ROS core! Website: " + str(get_ip()), "4")
+                print(str(get_ip()))
                 logging.info("Waiting for ROS core.")
                 try:
                     if mainProcess is not None:

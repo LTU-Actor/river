@@ -19,17 +19,17 @@ reset=$(tput sgr0)
 echo "copy files"
 sudo cp "$START_PY_FILE_SRC" "$START_PY_FILE_BIN"
 
-if [ -d "/var/www" ];
+if [ -d "/var/www/html" ];
 then
-  sudo rm -rf "/var/www"
+  sudo rm -rf "/var/www/html"
 fi
 
-sudo cp -R "$WEBSITE_SRC" "/var/www"
+sudo cp -R "$WEBSITE_SRC" "/var/www/html"
 
 sudo cp "$DATA_JSON_SRC" "$DATA_JSON_TEMP"
 
-echo "Permissions changed: /var/www"
-sudo chmod -R 775 "/var/www"
+echo "Permissions changed: /var/www/html"
+sudo chmod -R 775 "/var/www/html"
 echo "Permissions changed: UPDATE_SH_FILE"
 sudo chmod 777 "$UPDATE_SH_FILE"
 echo "Permissions changed: DATA_JSON_TEMP"
@@ -46,11 +46,11 @@ sudo chmod 777 "$STARTUP_LOG"
 echo "REMOTE_MASTER"
 . "$REMOTE_MASTER"
 
-if [ "$1" == "boot" ];
-then
+#if [ "$1" == "boot" ];
+#then
     echo "$green Starting ROS River in 5 seconds...$reset"
     sleep 5
     echo "$red booting...$reset"
     sudo python3 "$SHOW_SRC" &
     python "$START_PY_FILE_BIN"
-fi
+#fi
