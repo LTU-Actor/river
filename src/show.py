@@ -13,6 +13,7 @@ font = None
 data = None
 pixels = None
 lastUpdate = None
+pixelDisplay = ""
 
 displayQueue = []
 currentMsg = None
@@ -332,7 +333,8 @@ def show():
 		logging.error("In show(): display pixels.show() failed. \n\tError: " + str(e))
 		return None
 	
-	return True
+	return True	
+	
 
 update()
 #Setup pixels for display
@@ -377,5 +379,6 @@ if __name__ == "__main__":
 			if pixels is not None:
 				pixels.fill(0)
 				pixels.show()
+				print(pixels)
 		
 

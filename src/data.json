@@ -1,47 +1,47 @@
 {
     "auto": {
-        "enabled" : false,
-        "level": 4,
-        "duration": 6,
-        "timeout" : 30,
+        "duration": 6, 
         "data": {
-            "dbw_enabled": false,
+            "dbw_enabled": false, 
             "msgs": []
+        }, 
+        "enabled": false, 
+        "timeout": 30, 
+        "level": 4
+    }, 
+    "font": {
+        "path": "/home/ubuntu/catkin_ws/src/river/src/5x7.ttf", 
+        "offset": 3, 
+        "size": 16
+    }, 
+    "display": {
+        "width": "32", 
+        "brightness": "2", 
+        "height": "8"
+    }, 
+    "settings": {
+        "heartbeat": {
+            "color": "#0000ff", 
+            "enabled": true
+        }, 
+        "rate": ".1", 
+        "ros": {
+            "coreIP": "127.0.0.1", 
+            "port": "11311", 
+            "riverIP": "127.0.0.1"
         }
-    },
+    }, 
     "show": {
         "status": {
-            "msg": "0",
-            "enabled": true,
-            "clear0" : false,
-            "colorGrade" : true,
+            "msg": "0", 
+            "colorGrade": true, 
+            "clear0": false, 
+            "enabled": true, 
             "color": "#ff0000"
-        },
+        }, 
         "text": {
-            "msg": "GitHub Update Successful!",
+            "msg": "GitHub Update Successful!", 
             "color": "#ffffff"
-        }
-    },
-    "font": {
-        "path": "\/home\/ubuntu\/catkin_ws\/src\/ROS_River\/src\/5x7.ttf",
-        "size": 16,
-        "offset": 3
-    },
-    "display": {
-        "width": "32",
-        "height": "8",
-        "brightness": "2"
-    },
-    "settings": {
-        "rate": ".1",
-        "heartbeat": {
-            "color": "#0000ff",
-            "enabled": true
-        },
-        "ros": {
-            "coreIP": "192.168.1.32",
-            "riverIP": "192.168.1.38",
-            "port": "11311"
         }
     }
 }
